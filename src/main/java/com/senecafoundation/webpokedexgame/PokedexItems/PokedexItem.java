@@ -28,6 +28,9 @@ public abstract class PokedexItem {
         this.setID(UUID.randomUUID());
     }
 
+    public PokedexItem() {
+    }
+
     public UUID getID() {
 		return ID;
 	}

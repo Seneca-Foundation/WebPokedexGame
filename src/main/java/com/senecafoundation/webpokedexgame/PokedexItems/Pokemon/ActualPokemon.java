@@ -15,6 +15,10 @@ public class ActualPokemon extends PokedexItem {
         this.ability1 = ability1;
     }
     
+    public ActualPokemon() {
+        super();
+    }
+
     public String getAbility1()
     {
         return ability1; 

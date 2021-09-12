@@ -51,6 +51,10 @@ public class Pokemon extends ActualPokemon{
         this.setTypeWeakness(typeWeakness);
     }
 
+    public Pokemon() {
+        super();
+    }
+
     public String getName()
     {
         return name;

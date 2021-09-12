@@ -49,6 +49,11 @@ public class PokemonWithSecondAbility extends Pokemon {
             dataHolder
         );
     } 
+
+    public PokemonWithSecondAbility() {
+        super();
+    }
+
     public String getAbility2() {
         return ability2;
     }
