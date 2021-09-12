@@ -22,18 +22,18 @@ public class PokemonController {
     
     @GetMapping("/createform")
     public String showForm(Model model) {
-        PokemonWithSecondAbility pokemondSecond = new PokemonWithSecondAbility();
-        model.addAttribute("pokemondsecond", pokemondSecond);
-        return "create_pokemondsecond";
+        PokemonWithSecondAbility pokemonsecond = new PokemonWithSecondAbility();
+        model.addAttribute("pokemonsecond", pokemonsecond);
+        return "create_pokemonsecond";
     }
 
     @RequestMapping(value = "/createform", method = RequestMethod.POST)
-    public String submit(@ModelAttribute("pokemondsecond") PokemonWithSecondAbility pokemondSecond, BindingResult result, ModelMap model) {
+    public String submit(@ModelAttribute("pokemonsecond") PokemonWithSecondAbility pokemonsecond, BindingResult result, ModelMap model) {
         if (result.hasErrors()) {
             return "error";
         }
-        dataHandler.Create(pokemondSecond);
-        model.addAttribute("pokemondsecond", pokemondSecond);
-        return "pokemondsecond";
+        dataHandler.Create(pokemonsecond);
+        model.addAttribute("pokemondsecond", pokemonsecond);
+        return "pokemonsecond";
     }
 }
