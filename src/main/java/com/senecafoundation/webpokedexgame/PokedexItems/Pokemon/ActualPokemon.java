@@ -1,8 +1,11 @@
 package com.senecafoundation.webpokedexgame.PokedexItems.Pokemon;
 
+import javax.persistence.MappedSuperclass;
+
 import com.senecafoundation.webpokedexgame.DataHandler.IDataWriter;
 import com.senecafoundation.webpokedexgame.PokedexItems.PokedexItem;
 
+@MappedSuperclass
 public class ActualPokemon extends PokedexItem {
    
     private String ability1; 
