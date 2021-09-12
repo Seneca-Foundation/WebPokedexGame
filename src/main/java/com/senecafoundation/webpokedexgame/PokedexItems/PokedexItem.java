@@ -6,7 +6,7 @@ import com.senecafoundation.webpokedexgame.DataHandler.IDataWriter;
 public abstract class PokedexItem {
     //states
     protected String color;
-    private String ID; 
+    private UUID ID; 
     private IDataWriter dataWriter; 
     //  public String Color { get => color; set => color = value; }
     
@@ -14,14 +14,14 @@ public abstract class PokedexItem {
     {
         this.dataWriter = dataHolder;
         this.setColor(color);
-        this.setID(UUID.randomUUID().toString());
+        this.setID(UUID.randomUUID());
     }
 
-    public String getID() {
+    public UUID getID() {
 		return ID;
 	}
 
-	public void setID(String iD) {
+	public void setID(UUID iD) {
 		this.ID = iD;
 	}
 
@@ -39,6 +39,6 @@ public abstract class PokedexItem {
 
     @Override
     public String toString() {
-        return this.getClass().getSimpleName() + "," + this.getID() + "," + this.getColor();
+        return this.getClass().getSimpleName() + "," + this.getID().toString()+ "," + this.getColor();
     }
 }

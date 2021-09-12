@@ -3,6 +3,8 @@ package com.senecafoundation.webpokedexgame.DataHandler;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.UUID;
+
 import com.senecafoundation.webpokedexgame.PokedexItems.Bear;
 import com.senecafoundation.webpokedexgame.PokedexItems.Homework;
 import com.senecafoundation.webpokedexgame.PokedexItems.Plant;
@@ -65,17 +67,17 @@ public class FileDataWriter extends DataWriter {
 
 
 	@Override
-    public PokedexItem Read(String ID) throws Exception {
+    public PokedexItem Read(UUID ID) throws Exception {
         //now read the file line by line...
         if (this.file != null) {
             this.scanner = new Scanner(this.file);
             while (this.scanner != null && this.scanner.hasNextLine()) {
                 String line = this.scanner.nextLine();
-                if(line.contains(ID)) { 
+                if(line.contains(ID.toString())) { 
                     String[] props = line.split(",");
                     if (props[0].equals("Bear")) {
                         Bear bearToReturn = new Bear(props[2], props[3], Boolean.parseBoolean(props[4]), Integer.parseInt(props[5]), this);
-                        bearToReturn.setID(props[1]);
+                        bearToReturn.setID(UUID.fromString(props[1]));
                         return bearToReturn;
                     }
                 }
@@ -99,14 +101,14 @@ public class FileDataWriter extends DataWriter {
     }
 
     @Override
-    public Boolean Delete(String ID) throws Exception {
+    public Boolean Delete(UUID ID) throws Exception {
         //now read the file line by line...
         ArrayList<String> lines = new ArrayList<String>();
         if (this.file != null) {
             this.scanner = new Scanner(this.file);
             while (this.scanner != null && this.scanner.hasNextLine()) {
                 String line = this.scanner.nextLine();
-                if(!line.contains(ID)) { 
+                if(!line.contains(ID.toString())) { 
                     lines.add(line);
                 }
             }
@@ -171,7 +173,7 @@ public class FileDataWriter extends DataWriter {
                     props[16], 
                     this
                 );
-                pokemonToAdd.setID(props[1]);       
+                pokemonToAdd.setID(UUID.fromString(props[1]));       
                 pokedexItemstoReturn.add(pokemonToAdd);
             }
             else if (props[0].equals("Bear")) {
@@ -182,7 +184,7 @@ public class FileDataWriter extends DataWriter {
                     Integer.parseInt(props[5]),
                     this
                 );
-                bearToAdd.setID(props[1]);
+                bearToAdd.setID(UUID.fromString(props[1]));
                 pokedexItemstoReturn.add(bearToAdd);
             }
             else if (props[0].equals("Plant")) {
@@ -195,7 +197,7 @@ public class FileDataWriter extends DataWriter {
                     Boolean.parseBoolean(props[7]),
                     this
                 );
-                plantToAdd.setID(props[1]);
+                plantToAdd.setID(UUID.fromString(props[1]));
                 pokedexItemstoReturn.add(plantToAdd);
             }
             else if (props[0].equals("Homework")) {
@@ -224,7 +226,7 @@ public class FileDataWriter extends DataWriter {
                     ),
                     this
                 );
-                homeworkToAdd.setID(props[1]);
+                homeworkToAdd.setID(UUID.fromString(props[1]));
                 pokedexItemstoReturn.add(homeworkToAdd);
                 
             }
