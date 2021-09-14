@@ -25,7 +25,7 @@ public class PlantController {
 
     @GetMapping("/createplant")
     public String showForm(Model model){
-        Plant plantsecond = new Plant(); 
+        Plant plantsecond = new Plant(null, null, null, null, null, null, dataHandler); 
         model.addAttribute("plantsecond", plantsecond);
         return "create_plantsecond";
     }
@@ -35,10 +35,10 @@ public class PlantController {
         if (result.hasErrors()) {
             return "error";
         }
-    }
     dataHandler.Create(plantsecond);
     model.addAttribute("plantsecond", plantsecond);
     return "plantsecond";
+    }
 
 
 }
