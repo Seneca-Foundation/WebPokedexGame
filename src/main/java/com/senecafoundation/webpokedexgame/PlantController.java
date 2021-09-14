@@ -1,6 +1,9 @@
 package com.senecafoundation.webpokedexgame;
 
+import javax.activation.DataHandler;
+
 import com.senecafoundation.webpokedexgame.DataHandler.RepoDataWriter;
+import com.senecafoundation.webpokedexgame.PokedexItems.Plant;
 import com.senecafoundation.webpokedexgame.PokedexItems.Pokemon.PokemonWithSecondAbility;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,4 +22,23 @@ public class PlantController {
 
     @Autowired 
     RepoDataWriter dataHandler;
+
+    @GetMapping("/createplant")
+    public String showForm(Model model){
+        Plant plantsecond = new Plant(); 
+        model.addAttribute("plantsecond", plantsecond);
+        return "create_plantsecond";
+    }
+
+    @RequestMapping(value = "/createplant", method = RequestMethod.POST)
+    public String submit(@ModelAttribute("plantsecond") Plant plantsecond, BindingResult result, ModelMap model) {
+        if (result.hasErrors()) {
+            return "error";
+        }
+    }
+    dataHandler.Create(plantsecond);
+    model.addAttribute("plantsecond", plantsecond);
+    return "plantsecond";
+
+
 }
