@@ -1,8 +1,16 @@
 package com.senecafoundation.webpokedexgame.PokedexItems;
 
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Table;
+
 import com.senecafoundation.webpokedexgame.DataHandler.IDataWriter;
 
-public class Plant extends PokedexItem {  //add in PokedexItem as a parent to this. Plant is the child 
+@Entity
+@Table(name = "plant")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+public class Plant extends PokedexItem { 
 
     private String smell;
 
