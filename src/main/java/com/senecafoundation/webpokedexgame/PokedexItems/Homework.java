@@ -1,8 +1,10 @@
 package com.senecafoundation.webpokedexgame.PokedexItems;
 
+import javax.persistence.Entity;
+
 import com.senecafoundation.webpokedexgame.DataHandler.IDataWriter;
 import com.senecafoundation.webpokedexgame.PokedexItems.Pokemon.PokemonWithSecondAbility;
-
+@Entity
 public class Homework extends PokedexItem {
 
     private String shape;
