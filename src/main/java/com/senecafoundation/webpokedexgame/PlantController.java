@@ -1,10 +1,8 @@
 package com.senecafoundation.webpokedexgame;
 
-import javax.activation.DataHandler;
 
 import com.senecafoundation.webpokedexgame.DataHandler.RepoDataWriter;
 import com.senecafoundation.webpokedexgame.PokedexItems.Plant;
-import com.senecafoundation.webpokedexgame.PokedexItems.Pokemon.PokemonWithSecondAbility;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,8 +23,7 @@ public class PlantController {
 
     @GetMapping("/createplant")
     public String showForm(Model model){
-        Plant plantsecond = new Plant(null, null, null, null, null, null, dataHandler); 
-        model.addAttribute("plantsecond", plantsecond);
+        Plant plantsecond = new Plant();
         return "create_plantsecond";
     }
 
