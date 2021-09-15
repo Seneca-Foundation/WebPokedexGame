@@ -31,6 +31,9 @@ public class Plant extends PokedexItem {
         this.collectsSunLight = collectsSunLight;
         this.makesGlucose = makesGlucose;
     }
+    public Plant() {
+        super();
+    }
     public String getSmell(){
         return smell; 
     }
