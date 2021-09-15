@@ -24,6 +24,7 @@ public class PlantController {
     @GetMapping("/createplant")
     public String showForm(Model model){
         Plant plantsecond = new Plant();
+        model.addAttribute("plantsecond", plantsecond);
         return "create_plantsecond";
     }
 
