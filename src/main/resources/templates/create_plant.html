@@ -5,7 +5,33 @@
 </head>
     <body>
         <h3>Hello Sire, I have awaited thy return for thou Plant</h3>
-        <form action="#" th:action="@{/plantsecond/createform" method="post" th:object="${plantsecond}"></form>
+        <form action="#" th:action="@{/plantsecond/createform" method="post" th:object="${plantsecond}">
+            <table>
+                <tr>
+                    <td><label>Smell</label></td>
+                    <td><input type="text" th:field="*{smell}" /></td>
+                </tr>
+                <tr>
+                    <td><label>HasLeaves</label></td>
+                    <td><input type="text" th:field="*{hasLeaves}" /></td>
+                </tr>
+                <tr>
+                    <td><label>HasRoots</label></td>
+                    <td><input type="text" th:field="*{hasRoots}" /></td>
+                </tr>
+                <tr>
+                    <td><label>CollectsSunLight</label></td>
+                    <td><input type="text" th:field="*{collectsSunLight}" /></td>
+                </tr>
+                <tr>
+                    <td><label>MakesGlucose</label></td>
+                    <td><input type="text" th:field="*{makesGlucose}" /></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Submit" /></td>
+                </tr>
+            </table>
+        </form:form>
     </body>
 
 </html>
