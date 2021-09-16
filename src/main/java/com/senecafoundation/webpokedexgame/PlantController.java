@@ -14,28 +14,29 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+
 @Controller 
-@RequestMapping ("plantsecond")
+@RequestMapping ("plant")
 public class PlantController {
 
     @Autowired 
     RepoDataWriter dataHandler;
 
-    @GetMapping("/createplant")
+    @GetMapping("/createform")
     public String showForm(Model model){
-        Plant plantsecond = new Plant();
-        model.addAttribute("plantsecond", plantsecond);
-        return "create_plantsecond";
+        Plant plant = new Plant();
+        model.addAttribute("plant", plant);
+        return "create_plant";
     }
 
     @RequestMapping(value = "/createplant", method = RequestMethod.POST)
-    public String submit(@ModelAttribute("plantsecond") Plant plantsecond, BindingResult result, ModelMap model) {
+    public String submit(@ModelAttribute("plant") Plant plant, BindingResult result, ModelMap model) {
         if (result.hasErrors()) {
             return "error";
         }
-    dataHandler.Create(plantsecond);
-    model.addAttribute("plantsecond", plantsecond);
-    return "plantsecond";
+    dataHandler.Create(plant);
+    model.addAttribute("plant", plant);
+    return "plant";
     }
 
 
