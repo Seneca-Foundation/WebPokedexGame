@@ -9,6 +9,7 @@ import com.senecafoundation.webpokedexgame.PokedexItems.Pokemon.PokemonWithSecon
 
 @Entity
 @Table(name = "Homework")
+
 public class Homework extends PokedexItem {
 
     private String shape;
@@ -20,12 +21,18 @@ public class Homework extends PokedexItem {
     @OneToOne
     private PokemonWithSecondAbility myCharmander;
 
-    public Homework(String color, String shape, Integer words, Boolean foldAction, PokemonWithSecondAbility charmanderFromUser, IDataWriter dataHolder) {
+    public Homework() {
         super (color, dataHolder);
         this.shape = shape; 
         this.words = words; 
         this.foldAction = foldAction; 
         this.myCharmander = charmanderFromUser;
+    }
+
+    public Homework() {
+    }
+
+    public Homework() {
     }
 
     public String getShape(){
