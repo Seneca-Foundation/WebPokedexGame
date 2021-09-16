@@ -29,14 +29,14 @@ public class PlantController {
         return "create_plant";
     }
 
-    @RequestMapping(value = "/createplant", method = RequestMethod.POST)
+    @RequestMapping(value = "/createform", method = RequestMethod.POST)
     public String submit(@ModelAttribute("plant") Plant plant, BindingResult result, ModelMap model) {
         if (result.hasErrors()) {
             return "error";
         }
-    dataHandler.Create(plant);
-    model.addAttribute("plant", plant);
-    return "plant";
+        dataHandler.Create(plant);
+        model.addAttribute("plant", plant);
+        return "plant";
     }
 
 
