@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping ("homework")
 public class HomeworkController {
 
-    private static final Object Homework = null;
+
     @Autowired 
     RepoDataWriter dataHandler;
 

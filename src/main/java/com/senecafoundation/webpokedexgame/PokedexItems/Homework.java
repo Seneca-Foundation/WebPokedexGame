@@ -29,6 +29,10 @@ public class Homework extends PokedexItem {
         this.myCharmander = charmanderFromUser;
     }
 
+    public Homework() {
+        super();
+    }
+
     public String getShape(){
         return this.shape;
     }
