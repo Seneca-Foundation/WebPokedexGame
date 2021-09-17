@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Create a Pokemon with 2 Abilities</title>
+    <link rel="stylesheet" th:href="@{/css/home.css}">
+    <link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+</head>
+    <body>
+        <main class="nes-container is-rounded">
+            <h3>Welcome, Enter a Pokemon with 2 Abilities</h3>
+            <form action="#" th:action="@{/pokemonsecond/createform}" method="post" th:object="${pokemonsecond}">
+                <table> 
+                    <tr>
+                        <td><label>Name</label></td>
+                        <td><input class="nes-input" type="text" th:field="*{name}" /></td>
+                    </tr>
+                    <tr>
+                        <td><label>Color</label></td>
+                        <td><input class="nes-input" type="text" th:field="*{color}" /></td>
+                    </tr>
+                    <tr>
+                        <td><label>Attack</label></td>
+                        <td><input class="nes-input" type="text" th:field="*{attack}" /></td>
+                    </tr>
+                    <tr>
+                        <td><label>Avg_size</label></td>
+                        <td><input class="nes-input" type="text" th:field="*{avgSize}" /></td>
+                    </tr>
+                    <tr>
+                        <td><label>Defense</label></td>
+                        <td><input class="nes-input" type="text" th:field="*{defense}" /></td>
+                    </tr>
+                    <tr>
+                        <td><label>HP</label></td>
+                        <td><input class="nes-input" type="text" th:field="*{hp}" /></td>
+                    </tr>
+                    <tr>
+                        <td><label>Type</label></td>
+                        <td><input class="nes-input" type="text" th:field="*{pokemonType}" /></td>
+                    </tr>
+                    <tr>
+                        <td><label>Region</label></td>
+                        <td><input class="nes-input" type="text" th:field="*{region}" /></td>
+                    </tr>
+                    <tr>
+                        <td><label>SP Attack</label></td>
+                        <td><input class="nes-input" type="text" th:field="*{spAttack}" /></td>
+                    </tr>
+                    <tr>
+                        <td><label>SP Defense</label></td>
+                        <td><input class="nes-input" type="text" th:field="*{spDefense}" /></td>
+                    </tr> 
+                    <tr>
+                        <td><label>Speed</label></td>
+                        <td><input class="nes-input" type="text" th:field="*{speed}" /></td>
+                    </tr>
+                    <tr>
+                        <td><label>Type Effectiveness</label></td>
+                        <td><input class="nes-input" type="text" th:field="*{typeEffectiveness}" /></td>
+                    </tr>
+                    <tr>
+                        <td><label>Type Weakeness</label></td>
+                        <td><input class="nes-input" type="text" th:field="*{typeWeakness}" /></td>
+                    </tr>                
+                    <tr>
+                        <td><label>Ability 1</label></td>
+                        <td><input class="nes-input" type="text" th:field="*{ability1}" /></td>
+                    </tr>
+                    <tr>
+                        <td><label>Ability 2</label></td>
+                        <td><input class="nes-input" type="text" th:field="*{ability2}" /></td>
+                    </tr>
+                    <tr>
+                        <td><input class="nes-input" type="submit" value="Submit"/></td>
+                    </tr>
+                </table>
+            </form:form>
+        </main>
+    </body>
+</html>

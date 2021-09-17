@@ -1,8 +1,16 @@
 package com.senecafoundation.webpokedexgame.PokedexItems;
 
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Table;
+
 import com.senecafoundation.webpokedexgame.DataHandler.IDataWriter;
 
-public class Plant extends PokedexItem {  //add in PokedexItem as a parent to this. Plant is the child 
+@Entity
+@Table(name = "plant")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+public class Plant extends PokedexItem { 
 
     private String smell;
 
@@ -23,13 +31,16 @@ public class Plant extends PokedexItem {  //add in PokedexItem as a parent to th
         this.collectsSunLight = collectsSunLight;
         this.makesGlucose = makesGlucose;
     }
+    public Plant() {
+        super();
+    }
     public String getSmell(){
         return smell; 
     }
     public Boolean getHasLeaves(){
         return hasLeaves;
     }
-    public Boolean getHasRoots(){ //do all the yellows from 22-50 have to be uppercased? Ask Warren. 
+    public Boolean getHasRoots(){ 
         return hasRoots; 
     }
     public Boolean getCollectsSunLight(){

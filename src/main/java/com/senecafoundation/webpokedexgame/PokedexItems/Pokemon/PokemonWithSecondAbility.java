@@ -1,7 +1,15 @@
 package com.senecafoundation.webpokedexgame.PokedexItems.Pokemon;
 
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Table;
+
 import com.senecafoundation.webpokedexgame.DataHandler.IDataWriter;
 
+@Entity
+@Table(name = "pokemonwithsecondability")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class PokemonWithSecondAbility extends Pokemon {
     protected String ability2;
 
@@ -41,6 +49,11 @@ public class PokemonWithSecondAbility extends Pokemon {
             dataHolder
         );
     } 
+
+    public PokemonWithSecondAbility() {
+        super();
+    }
+
     public String getAbility2() {
         return ability2;
     }

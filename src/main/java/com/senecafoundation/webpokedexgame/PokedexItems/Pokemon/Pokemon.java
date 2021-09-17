@@ -1,7 +1,10 @@
 package com.senecafoundation.webpokedexgame.PokedexItems.Pokemon;
 
+import javax.persistence.MappedSuperclass;
+
 import com.senecafoundation.webpokedexgame.DataHandler.IDataWriter;
 
+@MappedSuperclass
 public class Pokemon extends ActualPokemon{
     private String name;
     private String avgSize; 
@@ -46,6 +49,10 @@ public class Pokemon extends ActualPokemon{
         this.setSpeed(speed);
         this.setTypeEffectiveness(typeEffectiveness);
         this.setTypeWeakness(typeWeakness);
+    }
+
+    public Pokemon() {
+        super();
     }
 
     public String getName()

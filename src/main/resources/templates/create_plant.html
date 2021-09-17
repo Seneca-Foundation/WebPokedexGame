@@ -1,0 +1,41 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <title>Create a Plant</title>
+    <link rel="stylesheet" th:href="@{/css/home.css}" />
+    <link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+</head>
+    <body>
+        <main class="nes-container is-rounded">
+            <h3>Hello Sire, I have awaited thy return for thou Plant</h3>
+            <form action="#" th:action="@{/plant/createform}" method="post" th:object="${plant}">
+                <table> 
+                    <tr>
+                        <td><label>Smell</label></td>
+                        <td><input class="nes-input" type="text" th:field="*{smell}" /></td>
+                    </tr>
+                    <tr>
+                        <td><label>HasLeaves</label></td>
+                        <td><input class="nes-input" type="text" th:field="*{hasLeaves}" /></td>
+                    </tr>
+                    <tr>
+                        <td><label>HasRoots</label></td>
+                        <td><input class="nes-input" type="text" th:field="*{hasRoots}" /></td>
+                    </tr>
+                    <tr>
+                        <td><label>CollectsSunLight</label></td>
+                        <td><input class="nes-input" type="text" th:field="*{collectsSunLight}" /></td>
+                    </tr>
+                    <tr>
+                        <td><label>MakesGlucose</label></td>
+                        <td><input class="nes-input" type="text" th:field="*{makesGlucose}" /></td>
+                    </tr>
+                    <tr>
+                        <td><input class="nes-input" type="submit" value="Submit" /></td>
+                    </tr>
+                </table>
+            </form:form>
+        </main>
+    </body>
+</html>
