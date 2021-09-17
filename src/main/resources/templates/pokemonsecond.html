@@ -3,24 +3,28 @@
 <head>
 <title th:text="'This is a ' + ${pokemondsecond.name} + ' pokemon!'"></title>
 <link th:href="@{/css/main.css}" rel="stylesheet" />
+<link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
 </head>
 <body>
-    <div class="pokemondsecond">
-        <h1 th:text="'A ' + ${pokemondsecond.name} + ' appears!'"></h1>
-        <p th:text="'It\'s color is ' + ${pokemondsecond.color} + '.'"></p>
-        <p th:text="'It\'s attack is ' + ${pokemondsecond.attack} + '.'"></p>
-        <p th:text="'It\'s average size is ' + ${pokemondsecond.avgSize} + '.'"></p>
-        <p th:text="'It\'s defense is ' + ${pokemondsecond.defense} + '.'"></p>
-        <p th:text="'It\'s HP is ' + ${pokemondsecond.hp} + '.'"></p>
-        <p th:text="'It\'s type is ' + ${pokemondsecond.pokemonType} + '.'"></p>
-        <p th:text="'It\'s region is ' + ${pokemondsecond.region} + '.'"></p>
-        <p th:text="'It\'s SP Attack is ' + ${pokemondsecond.spAttack} + '.'"></p>
-        <p th:text="'It\'s SP Defense is ' + ${pokemondsecond.spDefense} + '.'"></p>
-        <p th:text="'It\'s Speed is ' + ${pokemondsecond.speed} + '.'"></p>
-        <p th:text="'It\'s type effectiveness is ' + ${pokemondsecond.typeEffectiveness} + '.'"></p>
-        <p th:text="'It\'s type weakness is ' + ${pokemondsecond.typeWeakness} + '.'"></p>
-        <p th:text="'It\'s first ability is ' + ${pokemondsecond.ability1} + '.'"></p>
-        <p th:text="'It\'s second ability is ' + ${pokemondsecond.ability2} + '.'"></p>
-    </div>
+    <main class="nes-container is-rounded">
+        <div class="pokemondsecond">
+            <h1 th:text="'A ' + ${pokemondsecond.name} + ' appears!'"></h1>
+            <p th:text="'It\'s color is ' + ${pokemondsecond.color} + '.'"></p>
+            <p th:text="'It\'s attack is ' + ${pokemondsecond.attack} + '.'"></p>
+            <p th:text="'It\'s average size is ' + ${pokemondsecond.avgSize} + '.'"></p>
+            <p th:text="'It\'s defense is ' + ${pokemondsecond.defense} + '.'"></p>
+            <p th:text="'It\'s HP is ' + ${pokemondsecond.hp} + '.'"></p>
+            <p th:text="'It\'s type is ' + ${pokemondsecond.pokemonType} + '.'"></p>
+            <p th:text="'It\'s region is ' + ${pokemondsecond.region} + '.'"></p>
+            <p th:text="'It\'s SP Attack is ' + ${pokemondsecond.spAttack} + '.'"></p>
+            <p th:text="'It\'s SP Defense is ' + ${pokemondsecond.spDefense} + '.'"></p>
+            <p th:text="'It\'s Speed is ' + ${pokemondsecond.speed} + '.'"></p>
+            <p th:text="'It\'s type effectiveness is ' + ${pokemondsecond.typeEffectiveness} + '.'"></p>
+            <p th:text="'It\'s type weakness is ' + ${pokemondsecond.typeWeakness} + '.'"></p>
+            <p th:text="'It\'s first ability is ' + ${pokemondsecond.ability1} + '.'"></p>
+            <p th:text="'It\'s second ability is ' + ${pokemondsecond.ability2} + '.'"></p>
+        </div>
+    </main>
 </body>
 </html>
