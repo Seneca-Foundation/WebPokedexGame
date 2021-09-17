@@ -29,12 +29,6 @@ public class Homework extends PokedexItem {
         this.myCharmander = charmanderFromUser;
     }
 
-    public Homework() {
-    }
-
-    public Homework() {
-    }
-
     public String getShape(){
         return this.shape;
     }
