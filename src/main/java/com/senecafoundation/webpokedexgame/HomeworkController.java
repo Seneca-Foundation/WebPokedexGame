@@ -24,7 +24,7 @@ public class HomeworkController {
 
     @GetMapping("/createform")
     public String showForm(Model model){
-        new Homework();
+        Homework Homework = new Homework();
         model.addAttribute("homework", Homework);
         return "create_homework";
     }
