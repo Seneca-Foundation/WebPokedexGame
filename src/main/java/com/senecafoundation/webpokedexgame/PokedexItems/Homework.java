@@ -1,7 +1,14 @@
 package com.senecafoundation.webpokedexgame.PokedexItems;
 
+import javax.persistence.Entity;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
 import com.senecafoundation.webpokedexgame.DataHandler.IDataWriter;
 import com.senecafoundation.webpokedexgame.PokedexItems.Pokemon.PokemonWithSecondAbility;
+
+@Entity
+@Table(name = "Homework")
 
 public class Homework extends PokedexItem {
 
@@ -11,6 +18,7 @@ public class Homework extends PokedexItem {
 
     private Boolean foldAction;
 
+    @OneToOne
     private PokemonWithSecondAbility myCharmander;
 
     public Homework(String color, String shape, Integer words, Boolean foldAction, PokemonWithSecondAbility charmanderFromUser, IDataWriter dataHolder) {
@@ -19,6 +27,10 @@ public class Homework extends PokedexItem {
         this.words = words; 
         this.foldAction = foldAction; 
         this.myCharmander = charmanderFromUser;
+    }
+
+    public Homework() {
+        super();
     }
 
     public String getShape(){

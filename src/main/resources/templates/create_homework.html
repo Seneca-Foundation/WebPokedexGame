@@ -1,0 +1,29 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <title>Create a Homework</title>
+</head>
+    <body>
+        <h3>Yep your a teacher now, create the pain.</h3>
+        <form action="#" th:action="@{/homework/createform}" method="post" th:object="${homework}">
+            <table> 
+                <tr>
+                    <td><label>Shape</label></td>
+                    <td><input type="text" th:field="*{shape}" /></td>
+                </tr>
+                <tr>
+                    <td><label>Words</label></td>
+                    <td><input type="text" th:field="*{words}" /></td>
+                </tr>
+                <tr>
+                    <td><label>Fold?</label></td>
+                    <td><input type="text" th:field="*{foldAction}" /></td>
+                </tr>
+                
+                    <td><input type="submit" value="Submit" /></td>
+                </tr>
+            </table>
+        </form:form>
+    </body>
+
+</html>

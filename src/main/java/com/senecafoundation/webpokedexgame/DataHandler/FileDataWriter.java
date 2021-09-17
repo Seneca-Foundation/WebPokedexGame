@@ -202,29 +202,6 @@ public class FileDataWriter extends DataWriter {
             }
             else if (props[0].equals("Homework")) {
                 Homework homeworkToAdd = new Homework (
-                    props [2],
-                    props [3], 
-                    Integer.parseInt(props[4]),
-                    Boolean.parseBoolean(props[5]),
-                    new PokemonWithSecondAbility(
-                        props[8], 
-                        props[9], 
-                        props[10], 
-                        props[11], 
-                        props[12], 
-                        Integer.parseInt(props[13]), 
-                        Integer.parseInt(props[14]), 
-                        Integer.parseInt(props[15]), 
-                        Integer.parseInt(props[16]), 
-                        Integer.parseInt(props[17]), 
-                        Integer.parseInt(props[18]), 
-                        props[19], 
-                        props[20], 
-                        props[21], 
-                        props[22], 
-                        this
-                    ),
-                    this
                 );
                 homeworkToAdd.setID(UUID.fromString(props[1]));
                 pokedexItemstoReturn.add(homeworkToAdd);
