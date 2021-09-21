@@ -39,5 +39,12 @@ public class PlantController {
         return "plant";
     }
 
+    @GetMapping("/deleteform")
+    public String showFormDelete(Model model){
+        
+        return "delete_plant";
+
+    }
+
 
 }
