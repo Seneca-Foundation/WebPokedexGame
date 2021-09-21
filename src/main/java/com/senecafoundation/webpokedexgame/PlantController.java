@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 
+
+
 @Controller 
 @RequestMapping ("plant")
 public class PlantController {
@@ -41,10 +43,12 @@ public class PlantController {
 
     @GetMapping("/deleteform")
     public String showFormDelete(Model model){
-        
-        return "delete_plant";
 
+        return "delete_plant";
     }
+
+    @RequestMapping(value = "/deleteform", method = RequestMethod.POST)
+    public String delete(@ModelAttribute("/deleteform"))
 
 
 }

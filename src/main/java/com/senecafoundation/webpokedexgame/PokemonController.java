@@ -36,4 +36,12 @@ public class PokemonController {
         model.addAttribute("pokemondsecond", pokemonsecond);
         return "pokemonsecond";
     }
+    @GetMapping("/deleteform")
+    public String showFormDelete(Model model){
+
+        return "delete_pokemonsecond";
+
+    }
+
+    
 }
