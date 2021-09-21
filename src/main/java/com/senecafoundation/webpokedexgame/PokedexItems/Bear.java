@@ -15,13 +15,15 @@ public class Bear extends PokedexItem {
     private String shape;
     private Integer weight; 
     private Boolean scary;
+    private String name; 
 
 
-    public Bear(String color, String shape, Boolean scary, Integer weight, IDataWriter dataHolder) {
+    public Bear(String color, String shape, Boolean scary, Integer weight, String name, IDataWriter dataHolder) {
         super(color, dataHolder);
         this.shape = shape;
         this.weight = weight;
         this.scary = scary;
+        this.name = name;
     } 
 
     public Bear() {
@@ -38,6 +40,12 @@ public class Bear extends PokedexItem {
     }
     public Boolean getScary(){
         return scary;
+    }
+    public String getName(){
+        return name;
+    }
+    public void setName(String name){
+        this.name = name; 
     }
     public void setShape(String shape){
         this.shape = shape;
