@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 public class RepoDataWriter extends DataWriter {
 
     @Autowired
-    private PokedexItemRepository pokedexItemRepository;
+    public PokedexItemRepository pokedexItemRepository;
 
     @Override
     public void Create(PokedexItem item) {
@@ -39,8 +39,7 @@ public class RepoDataWriter extends DataWriter {
 
     @Override
     public List<PokedexItem> ReadAll() {
-        // TODO Auto-generated method stub
-        return null;
+        return pokedexItemRepository.findAll();
     }
     
 }
