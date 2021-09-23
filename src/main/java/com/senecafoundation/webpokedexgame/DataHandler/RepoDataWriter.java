@@ -6,6 +6,7 @@ import java.util.UUID;
 import com.senecafoundation.webpokedexgame.PokedexItems.PokedexItem;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.annotation.Id;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -21,19 +22,17 @@ public class RepoDataWriter extends DataWriter {
 
     @Override
     public PokedexItem Read(UUID ID) throws Exception {
-        // TODO Auto-generated method stub
-        return null;
+        return (PokedexItem) pokedexItemRepository.findAll();
     }
 
     @Override
     public PokedexItem Update(PokedexItem itemToUpdate) {
-        // TODO Auto-generated method stub
-        return null;
+        return pokedexItemRepository.save(itemToUpdate);
     }
 
     @Override
     public Boolean Delete(UUID ID) throws Exception {
-        // TODO Auto-generated method stub
+        pokedexItemRepository.deleteById(ID);
         return null;
     }
 
