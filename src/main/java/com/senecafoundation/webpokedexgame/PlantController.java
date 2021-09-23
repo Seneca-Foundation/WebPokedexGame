@@ -12,14 +12,17 @@ import com.senecafoundation.webpokedexgame.PokedexItems.Plant;
 import com.senecafoundation.webpokedexgame.PokedexItems.PokedexItem;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 
@@ -29,6 +32,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class PlantController {
 
     @Autowired 
+    @Qualifier("plantDataWriter")
     PlantDataWriter dataHandler;
 
     @GetMapping("/createform")
@@ -56,17 +60,14 @@ public class PlantController {
         return "delete_plant";
     }
 
-    @RequestMapping(value = "/deleteform", method = RequestMethod.DELETE)
-    public String delete(@ModelAttribute("plant") UUID plant, BindingResult result, ModelMap model) {
-        if (result.hasErrors()) {
-            return "error";
-        }
+    @RequestMapping(value = "/deleteform/{id}", method = RequestMethod.DELETE)
+    public String delete(@PathVariable("id") String Id, ModelMap model) {
         try {
-            dataHandler.Delete(plant);
+            dataHandler.Delete(UUID.fromString(Id));
         } catch (Exception e) {
             e.printStackTrace();
         }
-        model.addAttribute("plant",plant);
-        return "plant";
+        model.addAttribute("Id", Id);
+        return "itemdelete";
     }
 }

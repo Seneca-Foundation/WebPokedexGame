@@ -5,6 +5,7 @@ import com.senecafoundation.webpokedexgame.DataHandler.RepoDataWriter;
 import com.senecafoundation.webpokedexgame.PokedexItems.Bear;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -18,8 +19,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller 
 @RequestMapping ("bear")
 public class BearController {
+    
 
-    @Autowired 
+    @Autowired  
+    @Qualifier("repoDataWriter")
     RepoDataWriter dataHandler;
 
     @GetMapping("/createform")

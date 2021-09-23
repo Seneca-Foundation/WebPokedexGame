@@ -1,8 +1,43 @@
- <html>!DOCTYPE</html>
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <table>
+            <tr th:each="plant : ${plantList}">
+                <td th:text="${plant.name}"></td>
+                <td th:text="${plant.smell}"></td>
+                <td th:text="${plant.hasLeaves}"></td> 
+                <td th:text="${plant.hasRoots}"></td>
+                <td th:text="${plant.collectsSunLight}"></td>
+                <td th:text="${plant.makesGlucose}"></td>
+            </tr>
+            <div id="loadstuffhere"></div>
+        </table>
+        <script type="text/javascript">
+            // Creates an object to send request to web server
+            var xhr = new XMLHttpRequest();
 
- <tr th:each="plant : ${plantList}">
-    <td th:text="${plant.id}"></td>
-    <td th:text="${plant.collectssunlight}"></td> 
-    <td th:text="${plant.name}"></td>
-    
-</tr>
+            // Define the request method and url
+            xhr.open("DELETE", "http://localhost/plant/deleteform/39eb272e-3dcd-4756-a047-082c5195fd49");
+
+            // Set header
+            xhr.setRequestHeader("Accept", "application/json");
+
+            // Set a function to run on state state change
+            xhr.onreadystatechange = function () {
+                // state == 4
+                if (xhr.readyState === 4) {
+                    // Log out the status and response to the console
+                    console.log(xhr.status);
+                    console.log(xhr.responseText);
+                    // inject the resposne text into the html tag with id "loadstuffhere"
+                    document.getElementById("loadstuffhere").innerText = xhr.responseText;
+                }
+            };
+
+            // Send the request
+            //xhr.send();
+        </script>
+    </body> 
+
+</html>

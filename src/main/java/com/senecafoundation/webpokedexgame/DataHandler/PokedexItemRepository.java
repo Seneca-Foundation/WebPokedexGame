@@ -10,7 +10,10 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PokedexItemRepository extends JpaRepository<PokedexItem, UUID> {
-    @Query("SELECT p FROM Plant")
+    @Query("SELECT p FROM Plant p")
     List<PokedexItem> findAllPlant();
+
+    @Query("SELECT p FROM PokemonWithSecondAbility p")
+    List<PokedexItem> findAllPokemonWithSecondAbility();
 }
 
