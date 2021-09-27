@@ -20,7 +20,8 @@
                 listOfDeleteButtons[buttonIndex].onclick = function() {
                     // Creates an object to send request to web server
                     var xhr = new XMLHttpRequest();
-
+                    xhr.buttonClick = this;
+                    //Right now this is abutton
                     // Define the request method and url
                     xhr.open("DELETE", "http://localhost/plant/deleteform/" + this.dataset.id);
 
@@ -28,14 +29,15 @@
                     xhr.setRequestHeader("Accept", "application/json");
 
                     // Set a function to run on state state change
-                    xhr.onreadystatechange = function () {
+                    xhr.onreadystatechange = function() {
                         // state == 4
-                        if (xhr.readyState === 4) {
+                        if (xhr.readyState === 4 && xhr.status === 200) {
+                            xhr.buttonClick.parentElement.parentElement.remove();
                             // Log out the status and response to the console
                             console.log(xhr.status);
                             console.log(xhr.responseText);
                             // inject the resposne text into the html tag with id "loadstuffhere"
-                            document.getElementById("loadstuffhere").innerText = xhr.responseText;
+                            document.getElementById("loadstuffhere").innerHTML = xhr.responseText;
                         }
                     };
 
