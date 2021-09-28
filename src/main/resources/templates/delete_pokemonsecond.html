@@ -25,6 +25,25 @@
                         xhr.buttonClick = this;
                         // Right now this is a button
                         // Define the request method and url
+                        xhr.open("DELETE", "http://localhost/pokemonsecond/deleteform/" + this.dataset.id);
+
+                        //Set Header
+                        xhr.setRequestHeader("Accept", "application/json");
+
+                        // Set a function to run on state change
+                        xhr.onreadystatechange = function() {
+                            //state == 4
+                            if (xhr.readyState === 4 && xhr.status === 200) {
+                                xhr.buttonClick.parentElement.parentElement.remove();
+                                // Log out the status and response to the console
+                                console.log(xhr.status);
+                                console.log(xhr.responseText);
+                                // Inject the response text into the html tag with id "loadstuffhere"
+                                document.getElementById("loadstuffhere").innerHTML = xhr.responseText;
+                            }
+                        };
+                        // Send the request
+                        xhr.send();
                     }
                 }
             </script>
