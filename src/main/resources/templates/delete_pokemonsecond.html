@@ -10,10 +10,24 @@
         <main>
             <h3 class="mainTitle">Click on the Pokemon You Wish to Delete</h3>
             <table>
-                <tr>
-                    <td></td>
+                <tr th:each="pokemon : ${pokemonList}">
+                    
+                    <td><button class="delete-button" th:data-id="${PokemonWithSecondAbility.ID}">"${PokemonWithSecondAbility.name}"</button></td>
                 </tr>
+                <div id="loadstuffhere"></div>
             </table>
+            <script type="text/javascript">
+                var listOfDeleteButtons = document.getElementsByClassName("delete-button");
+                for(let buttonIndex = 0; buttonIndex < listOfDeleteButtons.length; buttonIndex++) {
+                    listOfDeleteButtons[buttonIndex].onclick = function() {
+                        // Creates an object to send request to web server
+                        var xhr = new XMLHttpRequest();
+                        xhr.buttonClick = this;
+                        // Right now this is a button
+                        // Define the request method and url
+                    }
+                }
+            </script>
         </main>
     </body>
 </html>
