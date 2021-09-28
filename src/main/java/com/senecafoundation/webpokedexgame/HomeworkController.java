@@ -1,8 +1,12 @@
 package com.senecafoundation.webpokedexgame;
 
 
+import java.util.List;
+import java.util.UUID;
+
 import com.senecafoundation.webpokedexgame.DataHandler.RepoDataWriter;
 import com.senecafoundation.webpokedexgame.PokedexItems.Homework;
+import com.senecafoundation.webpokedexgame.PokedexItems.PokedexItem;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -12,6 +16,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -40,6 +45,21 @@ public class HomeworkController {
         model.addAttribute("homework", homework);
         return "homework";
     }
+    @GetMapping("/deleteform")
+    public String showFormDelete(Model model){
+        List<PokedexItem> homeworkList = dataHandler.ReadAll(); 
+        model.addAttribute("homeworkList", homeworkList);
+        return "delete_homework";
+    }
 
-
-}
+    @RequestMapping(value = "/deleteform/{id}", method = RequestMethod.DELETE)
+    public String delete(@PathVariable("id") String Id, ModelMap model) {
+        try {
+            dataHandler.Delete(UUID.fromString(Id));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        model.addAttribute("Id", Id);
+        return "itemdelete";
+    
+    }
