@@ -28,7 +28,7 @@ public class BearController {
     
 
     @Autowired  
-    @Qualifier("repoDataWriter")
+    @Qualifier("bearDataWriter")
     BearDataWriter dataHandler;
 
     @GetMapping("/createform")
