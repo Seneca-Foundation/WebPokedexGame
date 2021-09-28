@@ -9,10 +9,10 @@
     <body>
         <main>
             <h3 class="mainTitle">Click on the Pokemon You Wish to Delete</h3>
-            <table>
+            <br>
+            <table id="buttonTable">
                 <tr th:each="pokemon : ${pokemonList}">
-                    
-                    <td><button class="delete-button" th:data-id="${PokemonWithSecondAbility.ID}">"${PokemonWithSecondAbility.name}"</button></td>
+                    <td><button class="delete-button" th:data-id="${PokemonWithSecondAbility.ID}" th:text="${PokemonWithSecondAbility.name}"></button></td>
                 </tr>
                 <div id="loadstuffhere"></div>
             </table>

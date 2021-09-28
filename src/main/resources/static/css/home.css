@@ -5,3 +5,7 @@ html, body, pre, code, kbd, samp {
 .mainTitle {
     text-align: center;
 }
+
+#buttonTable {
+    margin-left: 100px;
+}
