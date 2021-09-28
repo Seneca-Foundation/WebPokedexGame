@@ -3,7 +3,7 @@ package com.senecafoundation.webpokedexgame;
 import java.util.List;
 import java.util.UUID;
 
-
+import com.senecafoundation.webpokedexgame.DataHandler.BearDataWriter;
 import com.senecafoundation.webpokedexgame.DataHandler.RepoDataWriter;
 import com.senecafoundation.webpokedexgame.PokedexItems.Bear;
 import com.senecafoundation.webpokedexgame.PokedexItems.PokedexItem;
@@ -29,7 +29,7 @@ public class BearController {
 
     @Autowired  
     @Qualifier("repoDataWriter")
-    RepoDataWriter dataHandler;
+    BearDataWriter dataHandler;
 
     @GetMapping("/createform")
     public String showForm(Model model){
