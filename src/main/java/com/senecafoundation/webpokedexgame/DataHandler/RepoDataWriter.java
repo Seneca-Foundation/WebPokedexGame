@@ -20,7 +20,7 @@ public class RepoDataWriter<T extends PokedexItem> extends DataWriter {
 
     @Override
     public PokedexItem Read(UUID ID) throws Exception {
-        return (PokedexItem) pokedexItemRepository.findAll();
+        return (PokedexItem) pokedexItemRepository.findById(ID).orElseThrow();
     }
 
     @Override

@@ -11,8 +11,8 @@
             <h3 class="mainTitle">Click on the Pokemon You Wish to Delete</h3>
             <br>
             <table id="buttonTable">
-                <tr th:each="pokemon : ${pokemonList}">
-                    <td><button class="delete-button" th:data-id="${PokemonWithSecondAbility.ID}" th:text="${PokemonWithSecondAbility.name}"></button></td>
+                <tr th:each="pokemonSecond : ${pokemonSecondList}">
+                    <td><button class="delete-button nes-input" th:data-id="${pokemonSecond.ID}" th:text="${pokemonSecond.name}"></button></td>
                 </tr>
                 <div id="loadstuffhere"></div>
             </table>
