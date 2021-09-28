@@ -1,4 +1,3 @@
-package com.senecafoundation.webpokedexgame.DataHandler;
 
 import java.util.List;
 import java.util.UUID;
