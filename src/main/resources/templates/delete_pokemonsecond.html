@@ -10,9 +10,9 @@
         <main>
             <h3 class="mainTitle">Click on the Pokemon You Wish to Delete</h3>
             <br>
-            <table id="buttonTable">
+            <table id="buttonTable" class="nes-container is-rounded">
                 <tr th:each="pokemonSecond : ${pokemonSecondList}">
-                    <td><button class="delete-button nes-input" th:data-id="${pokemonSecond.ID}" th:text="${pokemonSecond.name}"></button></td>
+                    <td><button class="delete-button nes-btn is-primary" th:data-id="${pokemonSecond.ID}" th:text="${pokemonSecond.name}"></button></td>
                 </tr>
                 <div id="loadstuffhere"></div>
             </table>
