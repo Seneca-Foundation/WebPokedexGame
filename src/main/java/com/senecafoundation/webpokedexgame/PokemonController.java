@@ -62,3 +62,10 @@ public class PokemonController {
         return "pokemonSecondDelete";
     } 
 }
+
+// user can view list of spe. pokemon's traits
+// user can select spe. trait to be changed
+// user inputs desired change
+// computer makes copy of origional pokemon with the new trait 
+// computer deletes og pokemon
+// computer prints and saves copy of og pokemon w/ change
