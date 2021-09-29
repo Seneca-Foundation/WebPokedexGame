@@ -67,5 +67,14 @@ public class BearController {
 
     }
 
+    @GetMapping("/updateform")
+    public String showFormUpdate(Model model) {
+        Bear bear = new Bear();
+        dataHandler.Create(bear);
+        model.addAttribute("bear", bear);
+        return "update_bear";
+        
+    }
+
 
 }
