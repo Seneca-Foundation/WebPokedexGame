@@ -69,24 +69,34 @@ public class BearController {
 
     }
 
-    @GetMapping("/updateform")
-    public String showFormUpdate(Model model) {
-        Bear bear = dataHandler.Create(bear);
-        dataHandler.Create(bear);
-        model.addAttribute("bear", bear);
-        return "update_bear";
-        //ReadAll 
-        //Create all instances in the databases
-        //When all data for bear is printed out 
-        //Pick ID and delete all other instances that had 
-        
+    @RequestMapping(value = "/updateform/{id}", method = RequestMethod.GET)
+    public String showFormUpdate(@PathVariable("id") String Id, Model model) {
+
+        Bear readBear;
+        try {
+            readBear = (Bear) dataHandler.Read(UUID.fromString(Id));
+            model.addAttribute("bear", readBear);
+        } catch (Exception e) 
+        {
+            e.printStackTrace();
+        }
+        return "create_bear";
     }
 
-    @GetMapping("/readform")
-    public String showFormRead(Model model) {
-        List<PokedexItem> readBear = dataHandler.Read(UUID ID)
 
 
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public String showFormRead(@PathVariable("id") String Id, Model model) {
+
+        Bear readBear;
+        try {
+            readBear = (Bear) dataHandler.Read(UUID.fromString(Id));
+            model.addAttribute("bear", readBear);
+        } catch (Exception e) 
+        {
+            e.printStackTrace();
+        }
+        return "bear";
     }
 
 }
