@@ -9,7 +9,8 @@
     <body>
         <main class="nes-container is-rounded">
             <h3>BIG BLACK SCARY BEAR RAWRRRR</h3>
-            <form action="#" th:action="@{/bear/createform}" method="post" th:object="${bear}">
+            <form action="#" th:action="@{/bear/createform}"  method="post" th:object="${bear}">
+                <input type="hidden" th:value= "*{ID}">
                 <table> 
                     <tr>
                         <td><label>shape</label></td>
