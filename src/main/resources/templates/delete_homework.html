@@ -5,9 +5,9 @@
         <table>
             <tr th:each="homework : ${homeworkList}">
                 <td th:text="${homework.name}"></td>
-                <td th:text="${homework.smell}"></td>
-                <td th:text="${homework.FoldAction}"></td> 
-                <td th:text="${homework.words}"></td>
+                <td th:text="${homework.shape}"></td>
+                <td th:text="${homework.words}"></td> 
+                <td th:text="${homework.foldAction}"></td>
                 <td><button class="delete-button" th:data-id="${homework.ID}">Delete</button></td>
             </tr>
             <div id="Sacredmaterial"></div>
