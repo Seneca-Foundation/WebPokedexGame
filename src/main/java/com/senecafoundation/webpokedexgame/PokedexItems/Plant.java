@@ -21,15 +21,18 @@ public class Plant extends PokedexItem {
     private Boolean collectsSunLight;
 
     private Boolean makesGlucose;
+
+    private String name;
     
 
-    public Plant(String color, String smell, Boolean hasLeaves, Boolean hasRoots, Boolean collectsSunLight, Boolean makesGlucose, IDataWriter dataHolder) { 
+    public Plant(String color, String smell, Boolean hasLeaves, Boolean hasRoots, Boolean collectsSunLight, Boolean makesGlucose, String name, IDataWriter dataHolder) { 
         super(color, dataHolder);
         this.smell = smell;
         this.hasLeaves = hasLeaves;
         this.hasRoots = hasRoots;
         this.collectsSunLight = collectsSunLight;
         this.makesGlucose = makesGlucose;
+        this.name = name; 
     }
     public Plant() {
         super();
@@ -49,6 +52,9 @@ public class Plant extends PokedexItem {
     public Boolean getMakesGlucose(){
         return makesGlucose;
     }
+    public String getName(){
+        return name; 
+    }
     public void setSmell(String smell){
         this.smell = smell;
     }
@@ -63,6 +69,9 @@ public class Plant extends PokedexItem {
     }
     public void setMakesGlucose(Boolean makesGluecose){
         this.makesGlucose = makesGluecose;
+    }
+    public void setName(String name){
+        this.name = name;
     }
 
     //methods 

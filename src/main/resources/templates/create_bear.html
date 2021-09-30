@@ -1,0 +1,33 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <title>Create a Bear</title>
+    <link rel="stylesheet" th:href="@{/css/home.css}" />
+    <link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+</head>
+    <body>
+        <main class="nes-container is-rounded">
+            <h3>BIG BLACK SCARY BEAR RAWRRRR</h3>
+            <form action="#" th:action="@{/bear/createform}" method="post" th:object="${bear}">
+                <table> 
+                    <tr>
+                        <td><label>shape</label></td>
+                        <td><input class="nes-input" type="text" th:field="*{shape}" /></td>
+                    </tr>
+                    <tr>
+                        <td><label>weight</label></td>
+                        <td><input class="nes-input" type="text" th:field="*{weight}" /></td>
+                    </tr>
+                    <tr>
+                        <td><label>scary</label></td>
+                        <td><input class="nes-input" type="text" th:field="*{scary}" /></td>
+                    </tr>
+                    <tr>
+                        <td><input class="nes-input" type="submit" value="Submit" /></td>
+                    </tr>
+                </table>
+            </form:form>
+        </main>
+    </body>
+</html>

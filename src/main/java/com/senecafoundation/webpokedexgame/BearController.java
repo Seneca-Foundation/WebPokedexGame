@@ -1,15 +1,13 @@
 package com.senecafoundation.webpokedexgame;
 
-
 import java.util.List;
 import java.util.UUID;
 
-import javax.activation.DataHandler;
-
-import com.senecafoundation.webpokedexgame.DataHandler.PlantDataWriter;
+import com.senecafoundation.webpokedexgame.DataHandler.BearDataWriter;
 import com.senecafoundation.webpokedexgame.DataHandler.RepoDataWriter;
-import com.senecafoundation.webpokedexgame.PokedexItems.Plant;
+import com.senecafoundation.webpokedexgame.PokedexItems.Bear;
 import com.senecafoundation.webpokedexgame.PokedexItems.PokedexItem;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -22,44 +20,42 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-
-
 
 
 @Controller 
-@RequestMapping ("plant")
-public class PlantController {
+@RequestMapping ("bear")
+public class BearController {
+    
 
-    @Autowired 
-    @Qualifier("plantDataWriter")
-    PlantDataWriter dataHandler;
+    @Autowired  
+    @Qualifier("bearDataWriter")
+    BearDataWriter dataHandler;
 
     @GetMapping("/createform")
     public String showForm(Model model){
-        Plant plant = new Plant();
-        model.addAttribute("plant", plant);
-        return "create_plant";
+        Bear bear = new Bear();
+        model.addAttribute("bear", bear);
+        return "create_bear";
     }
 
     @RequestMapping(value = "/createform", method = RequestMethod.POST)
-    public String submit(@ModelAttribute("plant") Plant plant, BindingResult result, ModelMap model) {
+    public String submit(@ModelAttribute("bear") Bear bear, BindingResult result, ModelMap model) {
         if (result.hasErrors()) {
             return "error";
         }
-        dataHandler.Create(plant);
-        model.addAttribute("plant", plant);
-        return "plant";
+        dataHandler.Create(bear);
+        model.addAttribute("bear", bear);
+        return "bear";
     }
 
     @GetMapping("/deleteform")
-    public String showFormDelete(Model model){
-        List<PokedexItem> plantList = dataHandler.ReadAll(); 
-        model.addAttribute("plantList", plantList);
-        return "delete_plant";
+    public String showFormDelete(Model model) {
+        List<PokedexItem> bearList = dataHandler.ReadAll();
+        model.addAttribute("bearList", bearList);
+        return "delete_bear";
     }
 
-    @RequestMapping(value = "/deleteform/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/deleteform/{id}", method = RequestMethod.DELETE )
     public String delete(@PathVariable("id") String Id, ModelMap model) {
         try {
             dataHandler.Delete(UUID.fromString(Id));
@@ -68,5 +64,8 @@ public class PlantController {
         }
         model.addAttribute("Id", Id);
         return "itemdelete";
+
     }
+
+
 }

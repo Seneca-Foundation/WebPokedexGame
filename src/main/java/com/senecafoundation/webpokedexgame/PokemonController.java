@@ -4,6 +4,7 @@ import com.senecafoundation.webpokedexgame.DataHandler.RepoDataWriter;
 import com.senecafoundation.webpokedexgame.PokedexItems.Pokemon.PokemonWithSecondAbility;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class PokemonController {
 
     @Autowired
+    @Qualifier("repoDataWriter")
     RepoDataWriter dataHandler;
     
     @GetMapping("/createform")
@@ -36,4 +38,12 @@ public class PokemonController {
         model.addAttribute("pokemondsecond", pokemonsecond);
         return "pokemonsecond";
     }
+    @GetMapping("/deleteform")
+    public String showFormDelete(Model model){
+
+        return "delete_pokemonsecond";
+
+    }
+
+    
 }

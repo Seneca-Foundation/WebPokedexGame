@@ -18,19 +18,27 @@ public class Homework extends PokedexItem {
 
     private Boolean foldAction;
 
+    private String name; 
+
     @OneToOne
     private PokemonWithSecondAbility myCharmander;
 
-    public Homework(String color, String shape, Integer words, Boolean foldAction, PokemonWithSecondAbility charmanderFromUser, IDataWriter dataHolder) {
+    public Homework(String color, String shape, Integer words, Boolean foldAction, PokemonWithSecondAbility charmanderFromUser, String name, IDataWriter dataHolder) {
         super (color, dataHolder);
         this.shape = shape; 
         this.words = words; 
         this.foldAction = foldAction; 
         this.myCharmander = charmanderFromUser;
+        this.name = name; 
+
     }
 
     public Homework() {
         super();
+    }
+
+    public String getName(){
+        return this.name;
     }
 
     public String getShape(){
@@ -41,6 +49,9 @@ public class Homework extends PokedexItem {
     }
     public Boolean getFoldAction(){
         return this.foldAction;
+    }
+    public void setName(String name){
+        this.name = name;
     }
     public void setShape(String shape){
         this.shape = shape;

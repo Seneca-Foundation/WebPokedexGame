@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title th:text=" 'what\'s the bear doing? let\'s learn about him!' "></title>
+        <link th:href="@{/css/main.css}" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="bearsecond">
+            <h1 th:text= " 'This bear Shape will be ' + ${bear.shape} + 'I don\'t know how to feel about it' "></h1>
+            <h1 th:text= " 'This bears weight will be ' + ${bear.weight} + '!' "></h1>
+            <h1 th:text= " 'This bear is Scary. This is ' + ${bear.scary} + '!' " ></h1>
+        </div>
+    </body>
+
+</html>

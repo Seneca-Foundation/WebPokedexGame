@@ -76,7 +76,7 @@ public class FileDataWriter extends DataWriter {
                 if(line.contains(ID.toString())) { 
                     String[] props = line.split(",");
                     if (props[0].equals("Bear")) {
-                        Bear bearToReturn = new Bear(props[2], props[3], Boolean.parseBoolean(props[4]), Integer.parseInt(props[5]), this);
+                        Bear bearToReturn = new Bear(props[2], props[3], Boolean.parseBoolean(props[4]), Integer.parseInt(props[5]), props [6], this);
                         bearToReturn.setID(UUID.fromString(props[1]));
                         return bearToReturn;
                     }
@@ -182,6 +182,7 @@ public class FileDataWriter extends DataWriter {
                     props[3],
                     Boolean.parseBoolean(props[4]),
                     Integer.parseInt(props[5]),
+                    props[6],
                     this
                 );
                 bearToAdd.setID(UUID.fromString(props[1]));
@@ -195,6 +196,7 @@ public class FileDataWriter extends DataWriter {
                     Boolean.parseBoolean(props[5]),
                     Boolean.parseBoolean(props[6]),
                     Boolean.parseBoolean(props[7]),
+                    props [8],
                     this
                 );
                 plantToAdd.setID(UUID.fromString(props[1]));
