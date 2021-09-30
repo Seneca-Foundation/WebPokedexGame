@@ -4,6 +4,7 @@ package com.senecafoundation.webpokedexgame;
 import java.util.List;
 import java.util.UUID;
 
+import com.senecafoundation.webpokedexgame.DataHandler.HomeworkDataWriter;
 import com.senecafoundation.webpokedexgame.DataHandler.RepoDataWriter;
 import com.senecafoundation.webpokedexgame.PokedexItems.Homework;
 import com.senecafoundation.webpokedexgame.PokedexItems.PokedexItem;
@@ -26,8 +27,8 @@ public class HomeworkController {
 
 
     @Autowired 
-    @Qualifier("repoDataWriter")
-    RepoDataWriter dataHandler;
+    @Qualifier("homeworkDataWriter")
+    HomeworkDataWriter dataHandler;
 
     @GetMapping("/createform")
     public String showForm(Model model){
