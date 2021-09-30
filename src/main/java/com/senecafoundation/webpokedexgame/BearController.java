@@ -69,12 +69,15 @@ public class BearController {
 
     @GetMapping("/updateform")
     public String showFormUpdate(Model model) {
-        Bear bear = new Bear();
+        Bear bear = dataHandler.Create(bear);
         dataHandler.Create(bear);
         model.addAttribute("bear", bear);
         return "update_bear";
+        //ReadAll 
+        //Create all instances in the databases
+        //When all data for bear is printed out 
+        //Pick ID and delete all other instances that had 
         
     }
-
 
 }
