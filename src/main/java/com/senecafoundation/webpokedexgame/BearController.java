@@ -83,27 +83,6 @@ public class BearController {
         return "create_bear";
     }
 
-    // @RequestMapping(value = "/updateform/{id}", method = RequestMethod.GET)
-    // public String showUpdateForm(@PathVariable("id") String Id, Model model) {
-    //     Bear bear;
-    //     try {
-    //         bear = (Bear) dataHandler.Read(UUID.fromString(Id));
-    //         model.addAttribute("bear", bear);
-    //     } catch (Exception e) {
-    //         e.printStackTrace();
-    //     }
-    //     return "create_bear";
-    // }
-
-    // @RequestMapping(value="/updateform", method = RequestMethod.PUT)
-    // public String changeForm(@ModelAttribute("bear") Bear bear, BindingResult result, ModelMap model) {
-    //     if (result.hasErrors()) {
-    //         return "error";
-    //     }
-    //     dataHandler.Update(bear);
-    //     return "bear";   
-    // }
-
 
     @RequestMapping(value="/updateForm", method = RequestMethod.POST)
     public String change(Bear bear, BindingResult result, ModelMap model) {
@@ -113,9 +92,6 @@ public class BearController {
         dataHandler.Update(bear);
         return "bear";   
     }
-
-
-
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String showFormRead(@PathVariable("id") String Id, Model model) {
