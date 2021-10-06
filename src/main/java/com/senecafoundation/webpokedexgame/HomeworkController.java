@@ -79,6 +79,17 @@ public class HomeworkController {
     }
 
 
+    @RequestMapping(value="/updateForm", method = RequestMethod.POST)
+    public String change(Homework homework, BindingResult result, ModelMap model) {
+        if (result.hasErrors()) {
+            return "error";
+        }
+        dataHandler.Update(homework);
+        return "homework";   
+    }
+
+
+
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String showFormRead(@PathVariable("id") String Id, Model model) {

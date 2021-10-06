@@ -84,6 +84,17 @@ public class BearController {
     }
 
 
+    @RequestMapping(value="/updateForm", method = RequestMethod.POST)
+    public String change(Bear bear, BindingResult result, ModelMap model) {
+        if (result.hasErrors()) {
+            return "error";
+        }
+        dataHandler.Update(bear);
+        return "bear";   
+    }
+
+
+
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String showFormRead(@PathVariable("id") String Id, Model model) {
