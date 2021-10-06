@@ -3,6 +3,7 @@ package com.senecafoundation.webpokedexgame;
 import java.util.List;
 import java.util.UUID;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
 import com.senecafoundation.webpokedexgame.DataHandler.BearDataWriter;
 import com.senecafoundation.webpokedexgame.DataHandler.RepoDataWriter;
 import com.senecafoundation.webpokedexgame.PokedexItems.Bear;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.yaml.snakeyaml.events.Event.ID;
 
 
 @Controller 
@@ -67,5 +69,42 @@ public class BearController {
 
     }
 
+    @RequestMapping(value = "/updateform/{id}", method = RequestMethod.GET)
+    public String showFormUpdate(@PathVariable("id") String Id, Model model) {
+
+        Bear readBear;
+        try {
+            readBear = (Bear) dataHandler.Read(UUID.fromString(Id));
+            model.addAttribute("bear", readBear);
+        } catch (Exception e) 
+        {
+            e.printStackTrace();
+        }
+        return "create_bear";
+    }
+
+
+    @RequestMapping(value="/updateForm", method = RequestMethod.POST)
+    public String change(Bear bear, BindingResult result, ModelMap model) {
+        if (result.hasErrors()) {
+            return "error";
+        }
+        dataHandler.Update(bear);
+        return "bear";   
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public String showFormRead(@PathVariable("id") String Id, Model model) {
+
+        Bear readBear;
+        try {
+            readBear = (Bear) dataHandler.Read(UUID.fromString(Id));
+            model.addAttribute("bear", readBear);
+        } catch (Exception e) 
+        {
+            e.printStackTrace();
+        }
+        return "bear";
+    }
 
 }
