@@ -96,6 +96,6 @@ public class PokemonController {
         {
             e.printStackTrace();
         }
+        return "pokemonsecond";
     }
-    return "pokemonsecond";
 }
