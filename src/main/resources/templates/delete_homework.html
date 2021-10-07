@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <table>
+            <tr th:each="homework : ${homeworkList}">
+                <td th:text="${homework.name}"></td>
+                <td th:text="${homework.shape}"></td>
+                <td th:text="${homework.words}"></td> 
+                <td th:text="${homework.foldAction}"></td>
+                <td><button class="delete-button" th:data-id="${homework.ID}">Delete</button></td>
+            </tr>
+            <div id="Sacredmaterial"></div>
+        </table>
+        <script type="text/javascript">
+            var listOfDeleteButtons = document.getElementsByClassName("delete-button");
+            for(let buttonIndex = 0; buttonIndex < listOfDeleteButtons.length; buttonIndex++) {
+                listOfDeleteButtons[buttonIndex].onclick = function() {
+                    // Creates an object to send request to web server
+                    var xhr = new XMLHttpRequest();
+                    xhr.buttonClick = this;
+                    //Right now this is abutton
+                    // Define the request method and url
+                    xhr.open("DELETE", "http://localhost/homework/deleteform/" + this.dataset.id);
+
+                    // Set header
+                    xhr.setRequestHeader("Accept", "application/json");
+
+                    // Set a function to run on state state change
+                    xhr.onreadystatechange = function() {
+                        // state == 4
+                        if (xhr.readyState === 4 && xhr.status === 200) {
+                            xhr.buttonClick.parentElement.parentElement.remove();
+                            // Log out the status and response to the console
+                            console.log(xhr.status);
+                            console.log(xhr.responseText);
+                            // inject the resposne text into the html tag with id "Scaredmaterial"
+                            document.getElementById("Sacredmaterial").innerHTML = xhr.responseText;
+                        }
+                    };
+
+                    // Send the request
+                    xhr.send();
+                }
+            }
+        </script>
+    </body> 
+
+</html>
