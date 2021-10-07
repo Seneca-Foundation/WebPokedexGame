@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import com.senecafoundation.webpokedexgame.DataHandler.PokemonSecondDataWriter;
 import com.senecafoundation.webpokedexgame.PokedexItems.PokedexItem;
+import com.senecafoundation.webpokedexgame.PokedexItems.Pokemon.Pokemon;
 import com.senecafoundation.webpokedexgame.PokedexItems.Pokemon.PokemonWithSecondAbility;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,11 +62,40 @@ public class PokemonController {
         }
         return "pokemonSecondDelete";
     } 
-}
 
-// user can view list of spe. pokemon's traits
-// user can select spe. trait to be changed
-// user inputs desired change
-// computer makes copy of origional pokemon with the new trait 
-// computer deletes og pokemon
-// computer prints and saves copy of og pokemon w/ change
+    @RequestMapping(value = "/updateForm/{id}", method = RequestMethod.GET)
+    public String showFormUpdate(@PathVariable("id") String Id, Model model) {
+
+        PokemonWithSecondAbility readPokemonWithSecondAbility;
+        try {
+            readPokemonWithSecondAbility = (PokemonWithSecondAbility) dataHandler.Read(UUID.fromString(Id));
+            model.addAttribute("pokemonsecond", readPokemonWithSecondAbility);
+        } catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return "update_pokemonSecond";
+    }
+
+    @RequestMapping(value = "/updateForm", method = RequestMethod.POST)
+    public String change(PokemonWithSecondAbility pokemonsecond, BindingResult result, ModelMap model) {
+        if (result.hasErrors()) {
+            return "error";
+        }
+        dataHandler.Update(pokemonsecond);
+        return "pokemonsecond";
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public String showFormRead(@PathVariable("id") String Id, Model model) {
+        PokemonWithSecondAbility readPokemonWithSecondAbility;
+        try {
+            readPokemonWithSecondAbility = (PokemonWithSecondAbility) dataHandler.Read(UUID.fromString(Id));
+            model.addAttribute("pokemonsecond", readPokemonWithSecondAbility);
+        } catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+    return "pokemonsecond";
+}

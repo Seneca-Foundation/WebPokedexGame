@@ -83,7 +83,6 @@ public class BearController {
         return "create_bear";
     }
 
-
     @RequestMapping(value="/updateForm", method = RequestMethod.POST)
     public String change(Bear bear, BindingResult result, ModelMap model) {
         if (result.hasErrors()) {
@@ -106,5 +105,4 @@ public class BearController {
         }
         return "bear";
     }
-
 }
