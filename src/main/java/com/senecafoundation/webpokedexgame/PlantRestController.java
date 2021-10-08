@@ -18,7 +18,7 @@ public class PlantRestController {
     PlantDataWriter dataHandler;
 
     @PostMapping("/plants")
-        Plant newBasketball(@RequestBody Plant newPlant) {
+        Plant newPlant(@RequestBody Plant newPlant) {
         dataHandler.Create(newPlant);
         return newPlant;
     }
