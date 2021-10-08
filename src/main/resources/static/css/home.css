@@ -22,8 +22,8 @@ html, body, pre, code, kbd, samp {
     height: 500px;  
 }
 
-.smallbtn {
-border: none;
-width: 90px;
-height: 90px;
+#trashbtnpic {
+    padding: 2px;
+    width: 30px;
+    height: 30px;
 }
