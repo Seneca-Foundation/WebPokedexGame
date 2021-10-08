@@ -23,7 +23,13 @@ html, body, pre, code, kbd, samp {
 }
 
 #trashbtnpic {
-    padding: 2px;
+    padding: 1px;
+    padding-right: 1px;
     width: 30px;
     height: 30px;
+}
+
+#SubmitBtn {
+    height: 50px;
+    width:200px;
 }
