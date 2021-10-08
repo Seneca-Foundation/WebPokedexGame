@@ -54,9 +54,9 @@ public class PokemonController {
     @RequestMapping(value = "/deleteform/{id}", method = RequestMethod.DELETE)
     public String delete(@PathVariable("id") String Id, ModelMap model) {
         try {
-            // PokemonWithSecondAbility pokemonGettingDeleted = (PokemonWithSecondAbility) dataHandler.Read(UUID.fromString(Id));
+            PokemonWithSecondAbility pokemonGettingDeleted = (PokemonWithSecondAbility) dataHandler.Read(UUID.fromString(Id));
             dataHandler.Delete(UUID.fromString(Id));
-        //     model.addAttribute("pokemonGettingDeleted", pokemonGettingDeleted);
+            model.addAttribute("pokemonGettingDeleted", pokemonGettingDeleted);
         } catch (Exception e) {
             e.printStackTrace();
         }
