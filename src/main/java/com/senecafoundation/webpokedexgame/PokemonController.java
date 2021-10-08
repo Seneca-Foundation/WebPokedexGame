@@ -78,7 +78,7 @@ public class PokemonController {
         return "create_pokemonsecond";
     }
 
-    @RequestMapping(value = "/updateForm", method = RequestMethod.POST)
+    @RequestMapping(value="/updateForm", method = RequestMethod.POST)
     public String change(PokemonWithSecondAbility pokemonsecond, BindingResult result, ModelMap model) {
         if (result.hasErrors()) {
             return "error";
