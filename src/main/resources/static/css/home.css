@@ -21,3 +21,9 @@ html, body, pre, code, kbd, samp {
     width: 600px; 
     height: 500px;  
 }
+
+.smallbtn {
+border: none;
+width: 90px;
+height: 90px;
+}
