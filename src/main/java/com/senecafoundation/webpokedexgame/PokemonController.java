@@ -84,6 +84,7 @@ public class PokemonController {
             return "error";
         }
         dataHandler.Update(pokemonsecond);
+        model.addAttribute("pokemonsecond", pokemonsecond);
         return "pokemonsecond";
     }
 

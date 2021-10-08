@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Create a Pokemon with 2 Abilities</title>
+    <title th:text="(${pokemonsecond.ID == null} ? 'Create' : 'Update') + ' a Pokemon with 2 Abilities'"></title>
     <link rel="stylesheet" th:href="@{/css/home.css}">
     <link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
@@ -9,7 +9,7 @@
     <body>
         <main class="nes-container is-rounded">
             <h3>Welcome, Enter a Pokemon with 2 Abilities</h3>
-            <form action="#" th:action="${pokemondsecond.ID == null} ? @{/pokemondsecond/createform} : @{/pokemondsecond/updateForm}" method="post" th:object="${pokemonsecond}">
+            <form action="#" th:action="${pokemonsecond.ID == null} ? @{/pokemonsecond/createform} : @{/pokemonsecond/updateForm}" method="post" th:object="${pokemonsecond}">
                 <input type="hidden" th:field="*{ID}" th:value= "*{ID}"> 
                 <table> 
                     <tr>
