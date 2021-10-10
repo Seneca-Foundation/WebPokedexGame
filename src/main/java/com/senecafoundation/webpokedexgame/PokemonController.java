@@ -64,7 +64,7 @@ public class PokemonController {
         return "pokemonSecondDelete";
     } 
 
-    @RequestMapping(value = "/updateForm/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/updateform/{id}", method = RequestMethod.GET)
     public String showFormUpdate(@PathVariable("id") String Id, Model model) {
 
         PokemonWithSecondAbility readPokemonWithSecondAbility;
@@ -78,7 +78,7 @@ public class PokemonController {
         return "create_pokemonsecond";
     }
 
-    @RequestMapping(value = "/updateForm", method = RequestMethod.POST)
+    @RequestMapping(value="/updateForm", method = RequestMethod.POST)
     public String change(PokemonWithSecondAbility pokemonsecond, BindingResult result, ModelMap model) {
         if (result.hasErrors()) {
             return "error";
