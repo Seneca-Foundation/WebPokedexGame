@@ -65,4 +65,41 @@ public class HomeworkController {
     
     }
 
+    @RequestMapping(value = "/updateform/{id}", method = RequestMethod.GET)
+    public String showFormUpdate(@PathVariable("id") String Id, Model model) {
+
+        Homework readHomework;
+        try {
+            readHomework = (Homework) dataHandler.Read(UUID.fromString(Id));
+            model.addAttribute("homework", readHomework);
+        } catch (Exception e) 
+        {
+            e.printStackTrace();
+        }
+        return "create_homework";
+    }
+
+    @RequestMapping(value="/updateForm", method = RequestMethod.POST)
+    public String change(Homework homework, BindingResult result, ModelMap model) {
+        if (result.hasErrors()) {
+            return "error";
+        }
+        dataHandler.Update(homework);
+        return "homework";   
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public String showFormRead(@PathVariable("id") String Id, Model model) {
+
+        Homework readHomework;
+        try {
+            readHomework = (Homework) dataHandler.Read(UUID.fromString(Id));
+            model.addAttribute("homework", readHomework);
+        } catch (Exception e) 
+        {
+            e.printStackTrace();
+        }
+        return "homework";
+    }
+
 }
