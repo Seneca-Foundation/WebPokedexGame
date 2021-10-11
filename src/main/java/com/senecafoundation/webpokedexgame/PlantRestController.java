@@ -40,7 +40,14 @@ public class PlantRestController {
     // }
 
     @GetMapping("/plants")
-    List<PokedexItem> plantList = dataHandler.ReadAll()
+    List<PokedexItem> all() {
+        return dataHandler.ReadAll();
+    }
+
+    @PostMapping("/plants")
+    Plant newPlant(@RequestBody Plant newPlant) {
+        return (Plant) dataHandler.Update(newPlant);
+    }
 
 
     @GetMapping("/plants/{id}")
