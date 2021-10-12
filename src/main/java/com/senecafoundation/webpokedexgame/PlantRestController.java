@@ -55,11 +55,18 @@ public class PlantRestController {
         return (Plant) dataHandler.Read(UUID.fromString(id));
     }
 
-    @PutMapping("/plants/{id}")
+    @PutMapping("/plants/{id}") //Idk what this part does 
     Plant replacePlant(@RequestBody Plant newPlant, @PathVariable String id) {
         return dataHandler.Read(UUID.fromString(id))
-        .map(
-        )
+        .map( plant -> {
+            plant.setSmell(newPlant.getName());
+            plant.setHasLeaves(newPlant.getHasLeaves());
+            return dataHandler.Create(plant);
+        })
+        .orElseGet(() -> {
+            newPlant.setId(id);
+            return dataHandler.Create(newPlant);
+        });
     }
 
     @DeleteMapping("/plants/{id}")
