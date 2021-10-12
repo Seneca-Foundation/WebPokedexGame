@@ -39,32 +39,36 @@ public class PlantRestController {
     //     .orElseThrow(() -> newPlantNotFoundException(id));
     // }
 
-    @GetMapping("/plants")
+    @GetMapping("/plants") //ReadAll of the items in Plant 
     List<PokedexItem> all() {
         return dataHandler.ReadAll();
     }
 
-    @PostMapping("/plants")
+    @PostMapping("/plants") //Updating a Plant? I think 
     Plant newPlant(@RequestBody Plant newPlant) {
         return (Plant) dataHandler.Update(newPlant);
     }
 
 
-    @GetMapping("/plants/{id}")
-    Plant plant(@PathVariable Long id) {
-
-        return dataHandler.Read(UUID.fromString(id))
-        .orElseThrow(() -> new Exception(id));
+    @GetMapping("/plants/{id}") //Read a Single Item
+    Plant plant(@PathVariable String id) throws Exception {
+        return (Plant) dataHandler.Read(UUID.fromString(id));
     }
 
     @PutMapping("/plants/{id}")
-    Plant replacePlant(@RequestBody Plant  )
-
-
-    @DeleteMapping("/plants/{id}")
-    void deleteplant(@PathVariable String id) {
-        PlantDataWriter.Delete(UUID.fromString(id));
+    Plant replacePlant(@RequestBody Plant newPlant, @PathVariable String id) {
+        return dataHandler.Read(UUID.fromString(id))
+        .map(
+        )
     }
 
+    @DeleteMapping("/plants/{id}")
+    void deletePlant(@PathVariable String id) {
+        try {
+            dataHandler.Delete(UUID.fromString(id));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     
 }
