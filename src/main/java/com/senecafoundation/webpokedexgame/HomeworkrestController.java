@@ -37,7 +37,7 @@ public class HomeworkRestController {
         Homework homework= (Homework) dataHandler.Read(UUID.fromString(id));
         if (homework != null) {
             newHomework.setID(homework.getID());
-            dataHandler.Update(newHomework(newHomework);
+            dataHandler.Update(newHomework);
             return newHomework;
         }
         else {
