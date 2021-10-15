@@ -69,4 +69,44 @@ public class PlantController {
         model.addAttribute("Id", Id);
         return "itemdelete";
     }
-}
+
+    @RequestMapping(value ="/updateform/{id}", method = RequestMethod.GET)
+    public String showFormUpdate(@PathVariable("id") String Id, Model model) {
+
+        Plant readPlant; 
+        try {
+            readPlant = (Plant) dataHandler.Read(UUID.fromString(Id));
+            model.addAttribute("plant", readPlant);
+        } catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return "create_plant";
+    }
+
+    @RequestMapping(value ="/updateForm", method = RequestMethod.POST)
+    public String change (Plant plant, BindingResult result, ModelMap model) {
+        if (result.hasErrors()) {
+            return "error";
+        }
+        dataHandler.Update(plant);
+        return "plant";
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public String showFormRead(@PathVariable("id") String Id, Model model) {
+
+        Plant readPlant;
+        try {
+            readPlant = (Plant) dataHandler.Read(UUID.fromString(Id));
+            model.addAttribute("plant", readPlant);
+        } catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return "plant"; 
+    }
+
+
+
+} 
