@@ -31,12 +31,12 @@ public class BearRestController {
         return newBears;
     }
 
-    @GetMapping("/plants")
+    @GetMapping("/bears")
     List<PokedexItem> allBears() {
         return dataHandler.ReadAll();
     }
     
-    @PutMapping("/plants/{id}")
+    @PutMapping("/bears/{id}")
     Bear replaceBears(@RequestBody Bear newBears, @PathVariable String id) throws Exception {
         Bear bears = (Bear) dataHandler.Read(UUID.fromString(id));
         if (bears != null) {
@@ -49,7 +49,7 @@ public class BearRestController {
         }
     }
 
-    @DeleteMapping("/plants/{id}")
+    @DeleteMapping("/bears/{id}")
     void deleteBears(@PathVariable String id) throws Exception
     {
         dataHandler.Delete(UUID.fromString(id));
