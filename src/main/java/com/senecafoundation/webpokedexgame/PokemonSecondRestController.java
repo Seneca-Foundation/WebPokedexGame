@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class PokemonSecondRestController {
     
     @Autowired
-    @Qualifier("PokeomonSecondDataWriter")
+    @Qualifier("pokemonSecondDataWriter")
     PokemonSecondDataWriter dataHandler;
 
     @PostMapping("/pokemonSeconds")
