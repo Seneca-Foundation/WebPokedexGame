@@ -1,9 +1,11 @@
 package com.senecafoundation.webpokedexgame;
 
+import java.util.List;
 import java.util.UUID;
 
 import com.senecafoundation.webpokedexgame.DataHandler.HomeworkDataWriter;
 import com.senecafoundation.webpokedexgame.PokedexItems.Homework;
+import com.senecafoundation.webpokedexgame.PokedexItems.PokedexItem;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
