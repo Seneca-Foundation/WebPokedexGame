@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.UUID;
 
 import com.senecafoundation.webpokedexgame.DataHandler.HomeworkDataWriter;
-import com.senecafoundation.webpokedexgame.DataHandler.RepoDataWriter;
 import com.senecafoundation.webpokedexgame.PokedexItems.Homework;
 import com.senecafoundation.webpokedexgame.PokedexItems.PokedexItem;
 
@@ -32,8 +31,8 @@ public class HomeworkController {
 
     @GetMapping("/createform")
     public String showForm(Model model){
-        Homework Homework = new Homework();
-        model.addAttribute("homework", Homework);
+        Homework homework = new Homework();
+        model.addAttribute("homework", homework);
         return "create_homework";
     }
 
@@ -46,6 +45,7 @@ public class HomeworkController {
         model.addAttribute("homework", homework);
         return "homework";
     }
+    
     @GetMapping("/deleteform")
     public String showFormDelete(Model model){
         List<PokedexItem> homeworkList = dataHandler.ReadAll(); 
@@ -63,6 +63,43 @@ public class HomeworkController {
         model.addAttribute("Id", Id);
         return "itemdelete";
     
+    }
+
+    @RequestMapping(value = "/updateform/{id}", method = RequestMethod.GET)
+    public String showFormUpdate(@PathVariable("id") String Id, Model model) {
+
+        Homework readHomework;
+        try {
+            readHomework = (Homework) dataHandler.Read(UUID.fromString(Id));
+            model.addAttribute("homework", readHomework);
+        } catch (Exception e) 
+        {
+            e.printStackTrace();
+        }
+        return "create_homework";
+    }
+
+    @RequestMapping(value="/updateForm", method = RequestMethod.POST)
+    public String change(Homework homework, BindingResult result, ModelMap model) {
+        if (result.hasErrors()) {
+            return "error";
+        }
+        dataHandler.Update(homework);
+        return "homework";   
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public String showFormRead(@PathVariable("id") String Id, Model model) {
+
+        Homework readHomework;
+        try {
+            readHomework = (Homework) dataHandler.Read(UUID.fromString(Id));
+            model.addAttribute("homework", readHomework);
+        } catch (Exception e) 
+        {
+            e.printStackTrace();
+        }
+        return "homework";
     }
 
 }

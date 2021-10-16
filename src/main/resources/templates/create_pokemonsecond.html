@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Create a Pokemon with 2 Abilities</title>
+    <title th:text="(${pokemonsecond.ID == null} ? 'Create' : 'Update') + ' a Pokemon with 2 Abilities'"></title>
     <link rel="stylesheet" th:href="@{/css/home.css}">
     <link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
 </head>
     <body>
         <main class="nes-container is-rounded">
-            <h3>Welcome, Enter a Pokemon with 2 Abilities</h3>
-            <form action="#" th:action="@{/pokemonsecond/createform}" method="post" th:object="${pokemonsecond}">
+            <h3 id="pctitle">Let's Make a Pokemon!</h3>
+            <form action="#" th:action="${pokemonsecond.ID == null} ? @{/pokemonsecond/createform} : @{/pokemonsecond/updateForm}" method="post" th:object="${pokemonsecond}">
+                <input type="hidden" th:field="*{ID}" th:value= "*{ID}"> 
                 <table> 
                     <tr>
                         <td><label>Name</label></td>
@@ -72,10 +73,15 @@
                         <td><input class="nes-input" type="text" th:field="*{ability2}" /></td>
                     </tr>
                     <tr>
-                        <td><input class="nes-input" type="submit" value="Submit"/></td>
+                        <td>
+                            <a href="/pokemonsecond/deleteform/" id="trashbtn" class="nes-btn is-error">
+                                <img id="trashbtnpic" src="/images/trash btn.jpg" />
+                            </a>
+                        </td>
+                        <td><button id="SubmitBtn" class="nes-btn is-primary" type="submit" value="Submit">Submit</button></td>
                     </tr>
                 </table>
-            </form:form>
+            </form>
         </main>
     </body>
 </html>

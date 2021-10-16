@@ -60,12 +60,12 @@ public class PokemonController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        model.addAttribute("Id", Id);
         return "pokemonSecondDelete";
     } 
 
-    @RequestMapping(value = "/updateForm/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/updateform/{id}", method = RequestMethod.GET)
     public String showFormUpdate(@PathVariable("id") String Id, Model model) {
-
         PokemonWithSecondAbility readPokemonWithSecondAbility;
         try {
             readPokemonWithSecondAbility = (PokemonWithSecondAbility) dataHandler.Read(UUID.fromString(Id));
@@ -74,15 +74,16 @@ public class PokemonController {
         {
             e.printStackTrace();
         }
-        return "update_pokemonSecond";
+        return "create_pokemonsecond"; 
     }
 
-    @RequestMapping(value = "/updateForm", method = RequestMethod.POST)
+    @RequestMapping(value="/updateForm", method = RequestMethod.POST)
     public String change(PokemonWithSecondAbility pokemonsecond, BindingResult result, ModelMap model) {
         if (result.hasErrors()) {
             return "error";
         }
         dataHandler.Update(pokemonsecond);
+        model.addAttribute("pokemonsecond", pokemonsecond);
         return "pokemonsecond";
     }
 

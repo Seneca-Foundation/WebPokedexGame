@@ -1,4 +1,4 @@
-package com.senecafoundation.webpokedexgame;
+// package com.senecafoundation.webpokedexgame;
 
 import java.util.UUID;
 
@@ -18,9 +18,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HomeworkRestController {
     
-    @Autowired 
-    @Qualifier("HomeworkDataWriter")
-    HomeworkDataWriter dataHandler;
+@Autowired 
+@Qualifier("HomeworkDataWriter")
+HomeworkDataWriter dataHandler;
 
     @PostMapping("/Homeworks")
         Homework newHomework(@RequestBody Homework newHomework) {
