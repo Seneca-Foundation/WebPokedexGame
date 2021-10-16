@@ -1,4 +1,4 @@
-// package com.senecafoundation.webpokedexgame;
+package com.senecafoundation.webpokedexgame;
 
 import java.util.UUID;
 
@@ -22,21 +22,22 @@ public class HomeworkRestController {
 @Qualifier("HomeworkDataWriter")
 HomeworkDataWriter dataHandler;
 
-    @PostMapping("/Homeworks")
+    @PostMapping("/homeworks")
         Homework newHomework(@RequestBody Homework newHomework) {
         dataHandler.Create(newHomework);
         return newHomework;
     }
-    @GetMapping("/Homeworks")
-    Homework allHomeworks() {
-        return (Homework) dataHandler.ReadAll();
+
+    @GetMapping("/homeworks")
+    List<PokedexItem> allHomeworks() {
+        return dataHandler.ReadAll();
     }
     
-    @PutMapping("/Homework{id}")
+    @PutMapping("/homeworks/{id}")
     Homework replaceHomework(@RequestBody Homework newHomework, @PathVariable String id) throws Exception {
-        Homework homework= (Homework) dataHandler.Read(UUID.fromString(id));
-        if (homework != null) {
-            newHomework.setID(homework.getID());
+        Homework homeworks = (Homework) dataHandler.Read(UUID.fromString(id));
+        if (homeworks != null) {
+            newHomework.setID(homeworks.getID());
             dataHandler.Update(newHomework);
             return newHomework;
         }
@@ -45,7 +46,7 @@ HomeworkDataWriter dataHandler;
         }
     }
 
-    @DeleteMapping("/Homeworks/{id}")
+    @DeleteMapping("/homeworks/{id}")
     void deleteHomeworks(@PathVariable String id) throws Exception
     {
         dataHandler.Delete(UUID.fromString(id));
