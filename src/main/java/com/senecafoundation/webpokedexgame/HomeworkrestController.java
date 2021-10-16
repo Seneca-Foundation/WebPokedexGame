@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class HomeworkRestController {
     
 @Autowired 
-@Qualifier("HomeworkDataWriter")
+@Qualifier("homeworkDataWriter")
 HomeworkDataWriter dataHandler;
 
     @PostMapping("/homeworks")
