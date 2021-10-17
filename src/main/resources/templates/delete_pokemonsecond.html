@@ -7,12 +7,17 @@
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
 </head>
     <body>
-        <main>
+        <main class="nes-container">
             <h3 class="mainTitle">Click on the Pokemon You Wish to Delete</h3>
             <br>
-            <table id="buttonTable" class="nes-container is-rounded">
+            <table id="buttonTable" >
                 <tr th:each="pokemonSecond : ${pokemonSecondList}">
-                    <td><button class="delete-button nes-btn is-primary" th:data-id="${pokemonSecond.ID}" th:text="${pokemonSecond.name}"></button></td>
+                    <td><button  class="delete-button nes-btn is-warning" th:data-id="${pokemonSecond.ID}" th:text="${pokemonSecond.name}"></button></td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="/pokemonsecond/createform/" id="backbtn" class="nes-btn is-primary">Back</a>
+                    </td>
                 </tr>
                 <div id="loadstuffhere"></div>
             </table>
