@@ -116,12 +116,4 @@
 			</snapshots>
 		</pluginRepository>
 	</pluginRepositories>
-	<profiles>
-        <profile>
-            <id>warren</id>
-            <properties>
-                <active.profile>warren</active.profile>
-            </properties>
-        </profile>
-	</profiles>
 </project>

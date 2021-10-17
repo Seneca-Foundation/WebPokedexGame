@@ -38,16 +38,6 @@ Make sure you have the following in your application-yourname.properties, matchi
     spring.thymeleaf.cache=false
     spring.cache.type=NONE
 
-Your pom.xml should include your name at the bottom like this:
-	<profiles>
-        <profile>
-            <id>warren</id>
-            <properties>
-                <active.profile>yourname</active.profile>
-            </properties>
-        </profile>
-	</profiles>
-
 in the .vscode directory - there is a folder called .vscode/launch.json.  It's contents should be this:
 
     {
