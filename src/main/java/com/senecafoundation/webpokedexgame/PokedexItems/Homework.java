@@ -1,14 +1,10 @@
 package com.senecafoundation.webpokedexgame.PokedexItems;
 
-import javax.persistence.Entity;
 import javax.persistence.OneToOne;
-import javax.persistence.Table;
 
 import com.senecafoundation.webpokedexgame.DataHandler.IDataWriter;
 import com.senecafoundation.webpokedexgame.PokedexItems.Pokemon.PokemonWithSecondAbility;
 
-@Entity
-@Table(name = "Homework")
 
 public class Homework extends PokedexItem {
 
