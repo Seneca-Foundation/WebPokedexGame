@@ -1,11 +1,17 @@
 package com.senecafoundation.webpokedexgame.PokedexItems;
 
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 import com.senecafoundation.webpokedexgame.DataHandler.IDataWriter;
 import com.senecafoundation.webpokedexgame.PokedexItems.Pokemon.PokemonWithSecondAbility;
 
-
+@Entity
+@Table(name = "pokemonwithsecondability")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Homework extends PokedexItem {
 
     private String shape;
