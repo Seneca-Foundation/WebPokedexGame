@@ -66,7 +66,6 @@ public class PokemonController {
 
     @RequestMapping(value = "/updateform/{id}", method = RequestMethod.GET)
     public String showFormUpdate(@PathVariable("id") String Id, Model model) {
-
         PokemonWithSecondAbility readPokemonWithSecondAbility;
         try {
             readPokemonWithSecondAbility = (PokemonWithSecondAbility) dataHandler.Read(UUID.fromString(Id));
@@ -75,7 +74,7 @@ public class PokemonController {
         {
             e.printStackTrace();
         }
-        return "create_pokemonsecond";
+        return "create_pokemonsecond"; 
     }
 
     @RequestMapping(value="/updateForm", method = RequestMethod.POST)

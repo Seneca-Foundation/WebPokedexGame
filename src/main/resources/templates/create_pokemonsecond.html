@@ -8,7 +8,7 @@
 </head>
     <body>
         <main class="nes-container is-rounded">
-            <h3>Welcome, Enter a Pokemon with 2 Abilities</h3>
+            <h3 id="pctitle">Let's Make a Pokemon!</h3>
             <form action="#" th:action="${pokemonsecond.ID == null} ? @{/pokemonsecond/createform} : @{/pokemonsecond/updateForm}" method="post" th:object="${pokemonsecond}">
                 <input type="hidden" th:field="*{ID}" th:value= "*{ID}">
                 <table> 
