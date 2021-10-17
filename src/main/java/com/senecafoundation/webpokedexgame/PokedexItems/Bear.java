@@ -1,21 +1,34 @@
 package com.senecafoundation.webpokedexgame.PokedexItems;
 
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Table;
+
 import com.senecafoundation.webpokedexgame.DataHandler.IDataWriter;
 
-public class Bear extends PokedexItem {
-
+@Entity
+@Table(name = "Bear") 
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+public class Bear extends PokedexItem { 
     //states
     private String shape;
     private Integer weight; 
     private Boolean scary;
+    private String name; 
 
 
-    public Bear(String color, String shape, Boolean scary, Integer weight, IDataWriter dataHolder) {
+    public Bear(String color, String shape, Boolean scary, Integer weight, String name, IDataWriter dataHolder) {
         super(color, dataHolder);
         this.shape = shape;
         this.weight = weight;
         this.scary = scary;
+        this.name = name;
     } 
+
+    public Bear() {
+        super();
+    }
 
 
     public String getShape(){
@@ -27,6 +40,12 @@ public class Bear extends PokedexItem {
     }
     public Boolean getScary(){
         return scary;
+    }
+    public String getName(){
+        return name;
+    }
+    public void setName(String name){
+        this.name = name; 
     }
     public void setShape(String shape){
         this.shape = shape;

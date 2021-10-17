@@ -1,8 +1,16 @@
 package com.senecafoundation.webpokedexgame.PokedexItems;
 
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Table;
+
 import com.senecafoundation.webpokedexgame.DataHandler.IDataWriter;
 
-public class Plant extends PokedexItem {  //add in PokedexItem as a parent to this. Plant is the child 
+@Entity
+@Table(name = "plant")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+public class Plant extends PokedexItem { 
 
     private String smell;
 
@@ -13,15 +21,21 @@ public class Plant extends PokedexItem {  //add in PokedexItem as a parent to th
     private Boolean collectsSunLight;
 
     private Boolean makesGlucose;
+
+    private String name;
     
 
-    public Plant(String color, String smell, Boolean hasLeaves, Boolean hasRoots, Boolean collectsSunLight, Boolean makesGlucose, IDataWriter dataHolder) { 
+    public Plant(String color, String smell, Boolean hasLeaves, Boolean hasRoots, Boolean collectsSunLight, Boolean makesGlucose, String name, IDataWriter dataHolder) { 
         super(color, dataHolder);
         this.smell = smell;
         this.hasLeaves = hasLeaves;
         this.hasRoots = hasRoots;
         this.collectsSunLight = collectsSunLight;
         this.makesGlucose = makesGlucose;
+        this.name = name; 
+    }
+    public Plant() {
+        super();
     }
     public String getSmell(){
         return smell; 
@@ -29,7 +43,7 @@ public class Plant extends PokedexItem {  //add in PokedexItem as a parent to th
     public Boolean getHasLeaves(){
         return hasLeaves;
     }
-    public Boolean getHasRoots(){ //do all the yellows from 22-50 have to be uppercased? Ask Warren. 
+    public Boolean getHasRoots(){ 
         return hasRoots; 
     }
     public Boolean getCollectsSunLight(){
@@ -37,6 +51,9 @@ public class Plant extends PokedexItem {  //add in PokedexItem as a parent to th
     }
     public Boolean getMakesGlucose(){
         return makesGlucose;
+    }
+    public String getName(){
+        return name; 
     }
     public void setSmell(String smell){
         this.smell = smell;
@@ -52,6 +69,9 @@ public class Plant extends PokedexItem {  //add in PokedexItem as a parent to th
     }
     public void setMakesGlucose(Boolean makesGluecose){
         this.makesGlucose = makesGluecose;
+    }
+    public void setName(String name){
+        this.name = name;
     }
 
     //methods 

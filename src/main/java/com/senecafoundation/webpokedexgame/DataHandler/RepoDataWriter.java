@@ -2,45 +2,41 @@ package com.senecafoundation.webpokedexgame.DataHandler;
 
 import java.util.List;
 import java.util.UUID;
-
+import com.senecafoundation.webpokedexgame.DataHandler.Repositories.PokedexItemRepository;
 import com.senecafoundation.webpokedexgame.PokedexItems.PokedexItem;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class RepoDataWriter extends DataWriter {
+public class RepoDataWriter<T extends PokedexItem> extends DataWriter {
 
     @Autowired
-    private PokedexItemRepository pokedexItemRepository;
+    public PokedexItemRepository<T> pokedexItemRepository;
 
     @Override
     public void Create(PokedexItem item) {
-        pokedexItemRepository.save(item);        
+        pokedexItemRepository.save((T) item);        
     }
 
     @Override
     public PokedexItem Read(UUID ID) throws Exception {
-        // TODO Auto-generated method stub
-        return null;
+        return (PokedexItem) pokedexItemRepository.findById(ID).orElseThrow();
     }
 
     @Override
     public PokedexItem Update(PokedexItem itemToUpdate) {
-        // TODO Auto-generated method stub
-        return null;
+        return pokedexItemRepository.save((T) itemToUpdate);
     }
 
     @Override
     public Boolean Delete(UUID ID) throws Exception {
-        // TODO Auto-generated method stub
+        pokedexItemRepository.deleteById(ID);
         return null;
     }
 
     @Override
     public List<PokedexItem> ReadAll() {
-        // TODO Auto-generated method stub
-        return null;
+        return (List<PokedexItem>) this.pokedexItemRepository.findAll();
     }
     
 }
