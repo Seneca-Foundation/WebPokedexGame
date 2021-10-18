@@ -30,7 +30,7 @@ public class HomeworkController {
     HomeworkDataWriter dataHandler;
 
     @GetMapping("/createform")
-    public String showForm(Model model){
+    public String showForm(Model model) {
         Homework homework = new Homework();
         model.addAttribute("homework", homework);
         return "create_homework";
