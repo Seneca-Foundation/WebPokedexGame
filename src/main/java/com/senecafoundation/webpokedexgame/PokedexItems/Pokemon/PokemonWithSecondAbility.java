@@ -6,6 +6,7 @@ import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
 import com.senecafoundation.webpokedexgame.DataHandler.IDataWriter;
+import com.senecafoundation.webpokedexgame.PokedexItems.AnimatedProperties;
 
 @Entity
 @Table(name = "pokemonwithsecondability")
@@ -13,7 +14,7 @@ import com.senecafoundation.webpokedexgame.DataHandler.IDataWriter;
 public class PokemonWithSecondAbility extends Pokemon {
     protected String ability2;
 
-    public PokemonWithSecondAbility(
+    public PokemonWithSecondAbility (
         String name, 
         String avgSize, 
         String color, 
@@ -29,6 +30,7 @@ public class PokemonWithSecondAbility extends Pokemon {
         String ability2, 
         String typeEffectiveness, 
         String typeWeakness, 
+        AnimatedProperties animatedProperties,
         IDataWriter dataHolder
     ) {
         super(
@@ -46,6 +48,7 @@ public class PokemonWithSecondAbility extends Pokemon {
             ability1,
             typeEffectiveness, 
             typeWeakness, 
+            animatedProperties,
             dataHolder
         );
     } 

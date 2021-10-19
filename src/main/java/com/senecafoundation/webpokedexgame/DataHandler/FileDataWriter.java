@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.UUID;
 
+import com.senecafoundation.webpokedexgame.PokedexItems.AnimatedProperties;
 import com.senecafoundation.webpokedexgame.PokedexItems.Bear;
 import com.senecafoundation.webpokedexgame.PokedexItems.Homework;
 import com.senecafoundation.webpokedexgame.PokedexItems.Plant;
@@ -171,6 +172,7 @@ public class FileDataWriter extends DataWriter {
                     props[14], 
                     props[15], 
                     props[16], 
+                    new AnimatedProperties(),
                     this
                 );
                 pokemonToAdd.setID(UUID.fromString(props[1]));       
