@@ -3,11 +3,7 @@ package com.senecafoundation.webpokedexgame;
 
 import java.util.List;
 import java.util.UUID;
-
-import javax.activation.DataHandler;
-
 import com.senecafoundation.webpokedexgame.DataHandler.PlantDataWriter;
-import com.senecafoundation.webpokedexgame.DataHandler.RepoDataWriter;
 import com.senecafoundation.webpokedexgame.PokedexItems.Plant;
 import com.senecafoundation.webpokedexgame.PokedexItems.PokedexItem;
 
@@ -22,7 +18,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 

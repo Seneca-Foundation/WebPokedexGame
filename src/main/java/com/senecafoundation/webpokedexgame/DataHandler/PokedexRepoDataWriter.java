@@ -8,14 +8,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class RepoDataWriter<T extends PokedexItem> extends DataWriter {
+public class PokedexRepoDataWriter extends DataWriter<PokedexItem> {
 
     @Autowired
-    public PokedexItemRepository<T> pokedexItemRepository;
+    public PokedexItemRepository<PokedexItem> pokedexItemRepository;
 
     @Override
     public void Create(PokedexItem item) {
-        pokedexItemRepository.save((T) item);        
+        pokedexItemRepository.save((PokedexItem) item);        
     }
 
     @Override
@@ -25,7 +25,7 @@ public class RepoDataWriter<T extends PokedexItem> extends DataWriter {
 
     @Override
     public PokedexItem Update(PokedexItem itemToUpdate) {
-        return pokedexItemRepository.save((T) itemToUpdate);
+        return (PokedexItem) pokedexItemRepository.save(itemToUpdate);
     }
 
     @Override
@@ -38,5 +38,6 @@ public class RepoDataWriter<T extends PokedexItem> extends DataWriter {
     public List<PokedexItem> ReadAll() {
         return (List<PokedexItem>) this.pokedexItemRepository.findAll();
     }
-    
+
+
 }

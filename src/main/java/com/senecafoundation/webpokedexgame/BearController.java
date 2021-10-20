@@ -3,9 +3,7 @@ package com.senecafoundation.webpokedexgame;
 import java.util.List;
 import java.util.UUID;
 
-import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
 import com.senecafoundation.webpokedexgame.DataHandler.BearDataWriter;
-import com.senecafoundation.webpokedexgame.DataHandler.RepoDataWriter;
 import com.senecafoundation.webpokedexgame.PokedexItems.Bear;
 import com.senecafoundation.webpokedexgame.PokedexItems.PokedexItem;
 
@@ -21,7 +19,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.yaml.snakeyaml.events.Event.ID;
 
 
 @Controller 

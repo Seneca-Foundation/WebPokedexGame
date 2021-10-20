@@ -2,7 +2,7 @@ package com.senecafoundation.webpokedexgame.DataHandler;
 
 import com.senecafoundation.webpokedexgame.PokedexItems.PokedexItem;
 
-public interface IDataWriterUpdate {
+public interface IDataWriterUpdate<T> {
     public PokedexItem Update(PokedexItem itemToUpdate);
 }
 

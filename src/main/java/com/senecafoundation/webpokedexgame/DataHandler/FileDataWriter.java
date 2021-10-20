@@ -17,7 +17,7 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class FileDataWriter extends DataWriter {
+public class FileDataWriter<T> extends DataWriter<T> {
 
     private String fileLocation;
     private File file;
@@ -43,10 +43,10 @@ public class FileDataWriter extends DataWriter {
     }
 
     @Override
-    public void Create(PokedexItem item) {
+    public void Create(T item) {
         try {
             // See if it exists in the file already
-            this.Read(item.getID());
+            this.Read(((PokedexItem) item).getID());
         }
         catch (Exception e) { // We catch the custom error here (from line 60)
             if (e.getMessage() == "Item not found with that ID" || e instanceof FileNotFoundException) {
@@ -62,10 +62,8 @@ public class FileDataWriter extends DataWriter {
                     e1.printStackTrace();
                 }
             }
-        }
+        }        
     }
-
-
 
 	@Override
     public PokedexItem Read(UUID ID) throws Exception {
@@ -97,7 +95,7 @@ public class FileDataWriter extends DataWriter {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        this.Create(itemToUpdate);
+        this.Create((T) itemToUpdate);
         return itemToUpdate;
     }
 
@@ -214,6 +212,8 @@ public class FileDataWriter extends DataWriter {
         }
         return pokedexItemstoReturn;
     }
+
+
 }
 
    

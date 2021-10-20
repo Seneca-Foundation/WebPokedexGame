@@ -5,9 +5,9 @@ import java.util.UUID;
 
 import com.senecafoundation.webpokedexgame.PokedexItems.PokedexItem;
 
-public interface IDataWriterRead {
-    public PokedexItem Read(UUID ID) throws Exception;
-    public List<PokedexItem> ReadAll();
+public interface IDataWriterRead<T> {
+    public T Read(UUID ID) throws Exception;
+    public List<T> ReadAll();
 }
 
 

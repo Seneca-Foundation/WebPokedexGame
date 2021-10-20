@@ -3,7 +3,9 @@ package com.senecafoundation.webpokedexgame;
 import java.util.List;
 import java.util.UUID;
 
+import com.senecafoundation.webpokedexgame.DataHandler.AnimatedPropertiesDataWriter;
 import com.senecafoundation.webpokedexgame.DataHandler.PokemonSecondDataWriter;
+import com.senecafoundation.webpokedexgame.PokedexItems.AnimatedProperties;
 import com.senecafoundation.webpokedexgame.PokedexItems.PokedexItem;
 import com.senecafoundation.webpokedexgame.PokedexItems.Pokemon.PokemonWithSecondAbility;
 
@@ -25,8 +27,15 @@ public class PokemonSecondRestController {
     @Qualifier("pokemonSecondDataWriter")
     PokemonSecondDataWriter dataHandler;
 
+    @Autowired
+    @Qualifier("animatedPropertiesDataWriter")
+    AnimatedPropertiesDataWriter animPropsDataHandler;
+
     @PostMapping("/pokemonSeconds")
     PokemonWithSecondAbility newPokemonWithSecondAbility(@RequestBody PokemonWithSecondAbility newPokemonWithSecondAbility) {
+        AnimatedProperties animatedProperties = newPokemonWithSecondAbility.getAnimatedProperties();
+        animPropsDataHandler.Create(animatedProperties);
+        newPokemonWithSecondAbility.setAnimatedProperties(animatedProperties);
         dataHandler.Create(newPokemonWithSecondAbility);
         return newPokemonWithSecondAbility;
     }

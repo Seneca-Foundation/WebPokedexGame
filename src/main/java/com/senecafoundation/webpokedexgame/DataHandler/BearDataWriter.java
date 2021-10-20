@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service 
-public class BearDataWriter extends RepoDataWriter<Bear> {
+public class BearDataWriter extends PokedexRepoDataWriter {
 
     @Autowired 
     public PokedexItemRepository<Bear> pokedexItemRepository;
