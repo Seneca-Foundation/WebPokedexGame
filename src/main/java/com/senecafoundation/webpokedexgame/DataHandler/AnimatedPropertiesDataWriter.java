@@ -20,5 +20,26 @@ public class AnimatedPropertiesDataWriter extends DataWriter<AnimatedProperties>
     public void Create(AnimatedProperties item) {
         animatedPropertiesRepository.save((AnimatedProperties) item);        
     }
+
+    @Override 
+    public AnimatedProperties Read(UUID ID) throws Exception {
+        return (AnimatedProperties) animatedPropertiesRepository.findById(ID).orElseThrow();
+    }
+
+    @Override
+    public AnimatedProperties Update(AnimatedProperties itemToUpdate) {
+        return (AnimatedProperties) animatedPropertiesRepository.save(itemToUpdate);
+    }
+
+    @Override
+    public Boolean Delete(UUID ID) throws Exception {
+        animatedPropertiesRepository.deleteById(ID);
+        return true;
+    }
+
+    @Override 
+    public List<AnimatedProperties> ReadAll() {
+        return (List<AnimatedProperties>) this.animatedPropertiesRepository.findAll();
+    }
     
 }
