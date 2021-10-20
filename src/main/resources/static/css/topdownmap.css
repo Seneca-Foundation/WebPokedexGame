@@ -61,7 +61,7 @@ body {
 }
 
 .character {
-   width: calc( var(--grid-cell)* 0.91 );
+   width: calc( var(--grid-cell)* 1 );
    height: calc( var(--grid-cell)* 1.2 );
    position: absolute;
    overflow:hidden;
@@ -86,7 +86,7 @@ body {
 }
 
 .character[facing="right"] {
-   width: calc( var(--grid-cell)* 0.91 );
+   width: calc( var(--grid-cell)* 0.67 );
    height: calc( var(--grid-cell)* 1.2 );
 }
 .character[facing="up"] {
@@ -94,24 +94,29 @@ body {
    height: calc( var(--grid-cell)* 1.2 );
 } 
 .character[facing="left"] {
-   width: calc( var(--grid-cell)* 0.91 );
+   width: calc( var(--grid-cell)* 0.67 );
    height: calc( var(--grid-cell)* 1.2 );
 }
+.character[facing="down"] {
+   width: calc( var(--grid-cell)* 0.83 );
+   height: calc( var(--grid-cell)* 1.2 );
+} 
 
 .character[facing="right"] .character_spritesheet {
    background-position-y: calc( var(--pixel-size) * -19 );
+   background-position-x: calc( var(--pixel-size) * -2);
 }
 .character[facing="up"] .character_spritesheet {
    background-position-y: calc( var(--pixel-size) * 0 );
    background-position-x: calc( var(--pixel-size) * -63 );
-   /* width: calc( var(--grid-cell)* 0.91 );
-   height: calc( var(--grid-cell)* 1.2 ); */
 }
 .character[facing="left"] .character_spritesheet {
    background-position-y: calc( var(--pixel-size) * -38 );
-   background-position-x: calc( var(--pixel-size) * 0 );
-   /* width: calc( var(--grid-cell)* 0.87 );
-   height: calc( var(--grid-cell)* 1.2 ); */
+   background-position-x: calc( var(--pixel-size) * -2.7 );
+}
+.character[facing="down"] .character_spritesheet {
+   background-position-y: calc( var(--pixel-size) * 0 );
+   background-position-x: calc( var(--pixel-size) * -2.1 );
 }
 .character[walking-right="true"] .character_spritesheet {
    animation: walkRightAnimation 0.6s steps(4) infinite;
