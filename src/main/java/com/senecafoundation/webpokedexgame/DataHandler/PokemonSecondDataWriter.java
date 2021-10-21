@@ -16,8 +16,8 @@ public class PokemonSecondDataWriter extends RepoDataWriter<PokemonWithSecondAbi
     public PokedexItemRepository<PokemonWithSecondAbility> pokedexItemRepository;
 
     @Override
-    public List<PokedexItem> ReadAll() {
-        ArrayList<PokedexItem> listOfItemsToReturn = new ArrayList<PokedexItem>();
+    public List<PokemonWithSecondAbility> ReadAll() {
+        ArrayList<PokemonWithSecondAbility> listOfItemsToReturn = new ArrayList<PokemonWithSecondAbility>();
         for (PokemonWithSecondAbility pokemonSecond : this.pokedexItemRepository.findAll()) {
             listOfItemsToReturn.add(pokemonSecond);
         }

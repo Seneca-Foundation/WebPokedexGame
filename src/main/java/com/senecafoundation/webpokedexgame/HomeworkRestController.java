@@ -31,7 +31,7 @@ HomeworkDataWriter dataHandler;
     }
 
     @GetMapping("/homeworks")
-    List<PokedexItem> allHomeworks() {
+    List<Homework> allHomeworks() {
         return dataHandler.ReadAll();
     }
     

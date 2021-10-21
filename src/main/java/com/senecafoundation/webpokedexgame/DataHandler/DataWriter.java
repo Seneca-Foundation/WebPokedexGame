@@ -4,23 +4,21 @@ package com.senecafoundation.webpokedexgame.DataHandler;
 import java.util.List;
 import java.util.UUID;
 
-import com.senecafoundation.webpokedexgame.PokedexItems.PokedexItem;
-
-public abstract class DataWriter implements IDataWriter {
+public abstract class DataWriter<T> implements IDataWriter<T> {
 	@Override
-	public abstract void Create(PokedexItem item);
+	public abstract void Create(T item);
 	
 	@Override
-	public abstract PokedexItem Read(UUID ID) throws Exception;
+	public abstract T Read(UUID ID) throws Exception;
 
 	@Override
-	public abstract PokedexItem Update(PokedexItem itemToUpdate);
+	public abstract T Update(T itemToUpdate);
 
 	@Override
 	public abstract Boolean Delete(UUID ID) throws Exception;
 
 	@Override
-	public abstract List<PokedexItem> ReadAll(); 
+	public abstract List<T> ReadAll(); 
 
 	public String GetTypeOfProvider() {
 		return this.toString();

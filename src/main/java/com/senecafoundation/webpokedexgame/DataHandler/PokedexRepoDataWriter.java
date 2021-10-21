@@ -8,24 +8,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class RepoDataWriter<T extends PokedexItem> extends DataWriter<T> {
+public class PokedexRepoDataWriter extends DataWriter<PokedexItem> {
 
     @Autowired
-    public PokedexItemRepository<T> pokedexItemRepository;
+    public PokedexItemRepository<PokedexItem> pokedexItemRepository;
 
     @Override
     public void Create(PokedexItem item) {
-        pokedexItemRepository.save((T) item);        
+        pokedexItemRepository.save((PokedexItem) item);        
     }
 
     @Override
-    public T Read(UUID ID) throws Exception {
-        return (T) pokedexItemRepository.findById(ID).orElseThrow();
+    public PokedexItem Read(UUID ID) throws Exception {
+        return (PokedexItem) pokedexItemRepository.findById(ID).orElseThrow();
     }
 
     @Override
-    public T Update(PokedexItem itemToUpdate) {
-        return pokedexItemRepository.save((T) itemToUpdate);
+    public PokedexItem Update(PokedexItem itemToUpdate) {
+        return (PokedexItem) pokedexItemRepository.save(itemToUpdate);
     }
 
     @Override
@@ -35,8 +35,9 @@ public class RepoDataWriter<T extends PokedexItem> extends DataWriter<T> {
     }
 
     @Override
-    public List<T> ReadAll() {
-        return (List<T>) this.pokedexItemRepository.findAll();
+    public List<PokedexItem> ReadAll() {
+        return (List<PokedexItem>) this.pokedexItemRepository.findAll();
     }
-    
+
+
 }

@@ -46,7 +46,7 @@ public class PokemonController {
     }
     @GetMapping("/deleteform")
     public String showFormDelete(Model model){
-        List<PokedexItem> pokemonSecondList = dataHandler.ReadAll();
+        List<PokemonWithSecondAbility> pokemonSecondList = dataHandler.ReadAll();
         model.addAttribute("pokemonSecondList", pokemonSecondList);
         return "delete_pokemonsecond";
     }

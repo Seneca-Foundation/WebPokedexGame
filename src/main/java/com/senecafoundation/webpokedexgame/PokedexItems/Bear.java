@@ -18,8 +18,8 @@ public class Bear extends PokedexItem {
     private String name; 
 
 
-    public Bear(String color, String shape, Boolean scary, Integer weight, String name, IDataWriter dataHolder) {
-        super(color, dataHolder);
+    public Bear(String color, String shape, Boolean scary, Integer weight, String name) {
+        super(color);
         this.shape = shape;
         this.weight = weight;
         this.scary = scary;

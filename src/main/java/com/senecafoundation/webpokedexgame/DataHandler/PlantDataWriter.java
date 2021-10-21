@@ -16,8 +16,8 @@ public class PlantDataWriter extends RepoDataWriter<Plant> {
     public PokedexItemRepository<Plant> pokedexItemRepository;
 
     @Override
-    public List<PokedexItem> ReadAll() {
-        ArrayList<PokedexItem> listOfItemsToReturn = new ArrayList<PokedexItem>();
+    public List<Plant> ReadAll() {
+        ArrayList<Plant> listOfItemsToReturn = new ArrayList<Plant>();
         for (Plant plant : this.pokedexItemRepository.findAll()) {
             listOfItemsToReturn.add(plant);
         }

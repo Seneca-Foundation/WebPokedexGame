@@ -31,7 +31,7 @@ public class PlantRestController {
     }
 
     @GetMapping("/plants")
-    List<PokedexItem> allPlants() {
+    List<Plant> allPlants() {
         return dataHandler.ReadAll();
     }
     

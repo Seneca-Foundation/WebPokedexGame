@@ -40,10 +40,9 @@ public class Pokemon extends PokedexItem {
         String ability1, 
         String typeEffectiveness, 
         String typeWeakness,
-        AnimatedProperties animatedProperties,
-        IDataWriter dataHolder
+        AnimatedProperties animatedProperties
         ) {
-        super(color, dataHolder);
+        super(color);
         this.setName(name);
         this.setAvgSize(avgSize);
         this.setPokemonType(pokemonType);
