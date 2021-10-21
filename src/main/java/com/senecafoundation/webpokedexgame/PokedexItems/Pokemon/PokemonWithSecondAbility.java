@@ -30,8 +30,7 @@ public class PokemonWithSecondAbility extends Pokemon {
         String ability2, 
         String typeEffectiveness, 
         String typeWeakness, 
-        AnimatedProperties animatedProperties,
-        IDataWriter dataHolder
+        AnimatedProperties animatedProperties
     ) {
         super(
             name, 
@@ -48,8 +47,7 @@ public class PokemonWithSecondAbility extends Pokemon {
             ability1,
             typeEffectiveness, 
             typeWeakness, 
-            animatedProperties,
-            dataHolder
+            animatedProperties
         );
     } 
 

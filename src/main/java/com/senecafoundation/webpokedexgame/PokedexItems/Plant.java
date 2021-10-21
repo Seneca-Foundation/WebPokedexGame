@@ -25,8 +25,8 @@ public class Plant extends PokedexItem {
     private String name;
     
 
-    public Plant(String color, String smell, Boolean hasLeaves, Boolean hasRoots, Boolean collectsSunLight, Boolean makesGlucose, String name, IDataWriter dataHolder) { 
-        super(color, dataHolder);
+    public Plant(String color, String smell, Boolean hasLeaves, Boolean hasRoots, Boolean collectsSunLight, Boolean makesGlucose, String name) { 
+        super(color);
         this.smell = smell;
         this.hasLeaves = hasLeaves;
         this.hasRoots = hasRoots;
