@@ -1,11 +1,14 @@
 package com.senecafoundation.webpokedexgame.PokedexItems.Pokemon;
 
 import javax.persistence.MappedSuperclass;
+import javax.persistence.OneToOne;
 
 import com.senecafoundation.webpokedexgame.DataHandler.IDataWriter;
+import com.senecafoundation.webpokedexgame.PokedexItems.AnimatedProperties;
+import com.senecafoundation.webpokedexgame.PokedexItems.PokedexItem;
 
 @MappedSuperclass
-public class Pokemon extends ActualPokemon{
+public class Pokemon extends PokedexItem {
     private String name;
     private String avgSize; 
     private String pokemonType;
@@ -18,8 +21,11 @@ public class Pokemon extends ActualPokemon{
     private Integer speed; 
     private String typeEffectiveness;
     private String typeWeakeness; 
+    private String ability1; 
+    @OneToOne
+    private AnimatedProperties animatedProperties;
     
-    public Pokemon(
+    public Pokemon (
         String name, 
         String avgSize,
         String color, 
@@ -34,9 +40,9 @@ public class Pokemon extends ActualPokemon{
         String ability1, 
         String typeEffectiveness, 
         String typeWeakness,
-        IDataWriter dataHolder
+        AnimatedProperties animatedProperties
         ) {
-        super(color, ability1, dataHolder);
+        super(color);
         this.setName(name);
         this.setAvgSize(avgSize);
         this.setPokemonType(pokemonType);
@@ -49,12 +55,28 @@ public class Pokemon extends ActualPokemon{
         this.setSpeed(speed);
         this.setTypeEffectiveness(typeEffectiveness);
         this.setTypeWeakness(typeWeakness);
+        this.setAnimatedProperties(animatedProperties);
+    }
+
+    public AnimatedProperties getAnimatedProperties() {
+        return animatedProperties;
+    }
+
+    public void setAnimatedProperties(AnimatedProperties animatedProperties) {
+        this.animatedProperties = animatedProperties;
     }
 
     public Pokemon() {
         super();
     }
-
+    public String getAbility1()
+    {
+        return ability1; 
+    }
+    public void setAbility1(String ability1)
+    {
+        this.ability1 = ability1; 
+    }
     public String getName()
     {
         return name;

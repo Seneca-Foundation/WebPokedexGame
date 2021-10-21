@@ -41,7 +41,7 @@ public class PokemonSecondRestController {
     }
 
     @GetMapping("/pokemonSeconds")
-    List<PokedexItem> allPokemonSeconds() {
+    List<PokemonWithSecondAbility> allPokemonSeconds() {
         return dataHandler.ReadAll();
     }
     
