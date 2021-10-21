@@ -16,8 +16,8 @@ public class BearDataWriter extends RepoDataWriter<Bear> {
     public PokedexItemRepository<Bear> pokedexItemRepository;
 
     @Override
-    public List<PokedexItem> ReadAll() {
-        ArrayList<PokedexItem> listOfBearsToReturn = new ArrayList<PokedexItem>();
+    public List<Bear> ReadAll() {
+        List<Bear> listOfBearsToReturn = new ArrayList<Bear>();
         for (Bear bear : this.pokedexItemRepository.findAll()) {
             listOfBearsToReturn.add(bear);
         }

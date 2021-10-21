@@ -54,7 +54,7 @@ public class PlantController {
 
     @GetMapping("/deleteform")
     public String showFormDelete(Model model){
-        List<PokedexItem> plantList = dataHandler.ReadAll(); 
+        List<Plant> plantList = dataHandler.ReadAll(); 
         model.addAttribute("plantList", plantList);
         return "delete_plant";
     }
