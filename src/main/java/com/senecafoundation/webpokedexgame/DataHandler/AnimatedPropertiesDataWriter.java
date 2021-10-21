@@ -5,8 +5,6 @@ import java.util.UUID;
 
 import com.senecafoundation.webpokedexgame.DataHandler.Repositories.AnimatedPropertiesRepository;
 import com.senecafoundation.webpokedexgame.PokedexItems.AnimatedProperties;
-import com.senecafoundation.webpokedexgame.PokedexItems.PokedexItem;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
