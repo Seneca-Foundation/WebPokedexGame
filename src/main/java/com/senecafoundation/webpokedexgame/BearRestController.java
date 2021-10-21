@@ -32,7 +32,7 @@ public class BearRestController {
     }
 
     @GetMapping("/bears")
-    List<PokedexItem> allBears() {
+    List<Bear> allBears() {
         return dataHandler.ReadAll();
     }
     

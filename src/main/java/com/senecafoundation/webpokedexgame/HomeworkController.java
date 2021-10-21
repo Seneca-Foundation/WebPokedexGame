@@ -48,7 +48,7 @@ public class HomeworkController {
     
     @GetMapping("/deleteform")
     public String showFormDelete(Model model){
-        List<PokedexItem> homeworkList = dataHandler.ReadAll(); 
+        List<Homework> homeworkList = dataHandler.ReadAll(); 
         model.addAttribute("homeworkList", homeworkList);
         return "delete_homework";
     }

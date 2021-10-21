@@ -25,8 +25,8 @@ public class Homework extends PokedexItem {
     @OneToOne
     private PokemonWithSecondAbility myCharmander;
 
-    public Homework(String color, String shape, Integer words, Boolean foldAction, PokemonWithSecondAbility charmanderFromUser, String name, IDataWriter dataHolder) {
-        super (color, dataHolder);
+    public Homework(String color, String shape, Integer words, Boolean foldAction, PokemonWithSecondAbility charmanderFromUser, String name) {
+        super (color);
         this.shape = shape; 
         this.words = words; 
         this.foldAction = foldAction; 

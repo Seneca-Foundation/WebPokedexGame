@@ -3,8 +3,9 @@ package com.senecafoundation.webpokedexgame;
 import java.util.List;
 import java.util.UUID;
 
+import com.senecafoundation.webpokedexgame.DataHandler.AnimatedPropertiesDataWriter;
 import com.senecafoundation.webpokedexgame.DataHandler.PokemonSecondDataWriter;
-import com.senecafoundation.webpokedexgame.PokedexItems.PokedexItem;
+import com.senecafoundation.webpokedexgame.PokedexItems.AnimatedProperties;
 import com.senecafoundation.webpokedexgame.PokedexItems.Pokemon.PokemonWithSecondAbility;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -25,15 +25,29 @@ public class PokemonSecondRestController {
     @Qualifier("pokemonSecondDataWriter")
     PokemonSecondDataWriter dataHandler;
 
+    @Autowired
+    @Qualifier("animatedPropertiesDataWriter")
+    AnimatedPropertiesDataWriter animPropsDataHandler;
+
     @PostMapping("/pokemonSeconds")
     PokemonWithSecondAbility newPokemonWithSecondAbility(@RequestBody PokemonWithSecondAbility newPokemonWithSecondAbility) {
+        AnimatedProperties animatedProperties = newPokemonWithSecondAbility.getAnimatedProperties();
+        animPropsDataHandler.Create(animatedProperties);
+        newPokemonWithSecondAbility.setAnimatedProperties(animatedProperties);
         dataHandler.Create(newPokemonWithSecondAbility);
         return newPokemonWithSecondAbility;
     }
 
     @GetMapping("/pokemonSeconds")
-    List<PokedexItem> allPokemonSeconds() {
+    List<PokemonWithSecondAbility> allPokemonSeconds() {
         return dataHandler.ReadAll();
+    }
+
+
+    @GetMapping("/pokemonSeconds/{id}")
+    PokemonWithSecondAbility getPokemonWithId(@PathVariable String id) throws Exception
+    {
+        return dataHandler.Read(UUID.fromString(id));
     }
     
     @PutMapping("/pokemonSeconds/{id}")

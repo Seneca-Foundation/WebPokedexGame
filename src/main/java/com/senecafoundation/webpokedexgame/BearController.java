@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
 import com.senecafoundation.webpokedexgame.DataHandler.BearDataWriter;
+import com.senecafoundation.webpokedexgame.DataHandler.DataWriter;
 import com.senecafoundation.webpokedexgame.DataHandler.RepoDataWriter;
 import com.senecafoundation.webpokedexgame.PokedexItems.Bear;
 import com.senecafoundation.webpokedexgame.PokedexItems.PokedexItem;
@@ -31,7 +32,7 @@ public class BearController {
 
     @Autowired  
     @Qualifier("bearDataWriter")
-    BearDataWriter dataHandler;
+    DataWriter<Bear> dataHandler;
 
     @GetMapping("/createform")
     public String showForm(Model model){
@@ -52,7 +53,7 @@ public class BearController {
 
     @GetMapping("/deleteform")
     public String showFormDelete(Model model) {
-        List<PokedexItem> bearList = dataHandler.ReadAll();
+        List<Bear> bearList = dataHandler.ReadAll();
         model.addAttribute("bearList", bearList);
         return "delete_bear";
     }

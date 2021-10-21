@@ -10,8 +10,8 @@ public class ActualPokemon extends PokedexItem {
    
     private String ability1; 
      
-    public ActualPokemon(String color,String ability1, IDataWriter dataHolder) {
-        super(color, dataHolder);
+    public ActualPokemon(String color, String ability1) {
+        super(color);
         this.ability1 = ability1;
     }
     

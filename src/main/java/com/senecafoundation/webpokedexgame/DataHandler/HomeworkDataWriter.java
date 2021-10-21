@@ -16,8 +16,8 @@ public class HomeworkDataWriter extends RepoDataWriter<Homework> {
     public PokedexItemRepository<Homework> pokedexItemRepository;
 
     @Override
-    public List<PokedexItem> ReadAll() {
-        ArrayList<PokedexItem> listOfHomeworksToReturn = new ArrayList<PokedexItem>();
+    public List<Homework> ReadAll() {
+        ArrayList<Homework> listOfHomeworksToReturn = new ArrayList<Homework>();
         for (Homework homework : this.pokedexItemRepository.findAll()) {
             listOfHomeworksToReturn.add(homework);
         }
