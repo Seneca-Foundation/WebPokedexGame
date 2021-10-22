@@ -42,6 +42,18 @@ public class AnimatedProperties {
     private Double yOfCharacterPositionUp;
     private Double xOfCharacterPositionDown;
     private Double yOfCharacterPositionDown;
+    private Double stepCountRight;
+    private Double stepCountLeft;
+    private Double stepCountUp;
+    private Double stepCountDown;
+    private Double animationStartPercentageLeft;
+    private Double animationStartPercentageRight;
+    private Double animationStartPercentageUp;
+    private Double animationStartPercentageDown;
+    private Double animationStopPercentageLeft;
+    private Double animationStopPercentageRight;
+    private Double animationStopPercentageUp;
+    private Double animationStopPercentageDown;
     
     public AnimatedProperties(
         String spriteSheetUrl,
@@ -62,7 +74,19 @@ public class AnimatedProperties {
         Double xOfCharacterPositionUp,
         Double yOfCharacterPositionUp,
         Double xOfCharacterPositionDown,
-        Double yOfCharacterPositionDown
+        Double yOfCharacterPositionDown,
+        Double stepCountRight,
+        Double stepCountLeft,
+        Double stepCountUp,
+        Double stepCountDown,
+        Double animationStartPercentageLeft,
+        Double animationStartPercentageRight,
+        Double animationStartPercentageUp,
+        Double animationStartPercentageDown,
+        Double animationStopPercentageLeft,
+        Double animationStopPercentageRight,
+        Double animationStopPercentageUp,
+        Double animationStopPercentageDown
     ) {
         this.setId(UUID.randomUUID());
         this.setSpriteSheetUrl(spriteSheetUrl);
@@ -84,6 +108,114 @@ public class AnimatedProperties {
         this.setyOfCharacterPositionUp(yOfCharacterPositionUp);       
         this.setxOfCharacterPositionDown(xOfCharacterPositionDown); 
         this.setyOfCharacterPositionDown(yOfCharacterPositionDown); 
+        this.setStepCountRight(stepCountRight);
+        this.setStepCountLeft(stepCountLeft);
+        this.setStepCountUp(stepCountUp);
+        this.setStepCountDown(stepCountDown);
+        this.setAnimationStartPercentageLeft(animationStartPercentageLeft);
+        this.setAnimationStartPercentageRight(animationStartPercentageRight);
+        this.setAnimationStartPercentageUp(animationStartPercentageUp);
+        this.setAnimationStartPercentageDown(animationStartPercentageDown);
+        this.setAnimationStopPercentageLeft(animationStopPercentageLeft);
+        this.setAnimationStopPercentageRight(animationStopPercentageRight);
+        this.setAnimationStopPercentageUp(animationStopPercentageUp);
+        this.setAnimationStopPercentageDown(animationStopPercentageDown);
+    }
+
+    public Double getAnimationStopPercentageDown() {
+        return animationStopPercentageDown;
+    }
+
+    public void setAnimationStopPercentageDown(Double animationStopPercentageDown) {
+        this.animationStopPercentageDown = animationStopPercentageDown;
+    }
+
+    public Double getAnimationStopPercentageUp() {
+        return animationStopPercentageUp;
+    }
+
+    public void setAnimationStopPercentageUp(Double animationStopPercentageUp) {
+        this.animationStopPercentageUp = animationStopPercentageUp;
+    }
+
+    public Double getAnimationStopPercentageRight() {
+        return animationStopPercentageRight;
+    }
+
+    public void setAnimationStopPercentageRight(Double animationStopPercentageRight) {
+        this.animationStopPercentageRight = animationStopPercentageRight;
+    }
+
+    public Double getAnimationStopPercentageLeft() {
+        return animationStopPercentageLeft;
+    }
+
+    public void setAnimationStopPercentageLeft(Double animationStopPercentageLeft) {
+        this.animationStopPercentageLeft = animationStopPercentageLeft;
+    }
+
+    public Double getAnimationStartPercentageDown() {
+        return animationStartPercentageDown;
+    }
+
+    public void setAnimationStartPercentageDown(Double animationStartPercentageDown) {
+        this.animationStartPercentageDown = animationStartPercentageDown;
+    }
+
+    public Double getAnimationStartPercentageUp() {
+        return animationStartPercentageUp;
+    }
+
+    public void setAnimationStartPercentageUp(Double animationStartPercentageUp) {
+        this.animationStartPercentageUp = animationStartPercentageUp;
+    }
+
+    public Double getAnimationStartPercentageRight() {
+        return animationStartPercentageRight;
+    }
+
+    public void setAnimationStartPercentageRight(Double animationStartPercentageRight) {
+        this.animationStartPercentageRight = animationStartPercentageRight;
+    }
+
+    public Double getAnimationStartPercentageLeft() {
+        return animationStartPercentageLeft;
+    }
+
+    public void setAnimationStartPercentageLeft(Double animationStartPercentageLeft) {
+        this.animationStartPercentageLeft = animationStartPercentageLeft;
+    }
+
+    public Double getStepCountDown() {
+        return stepCountDown;
+    }
+
+    public void setStepCountDown(Double stepCountDown) {
+        this.stepCountDown = stepCountDown;
+    }
+
+    public Double getStepCountUp() {
+        return stepCountUp;
+    }
+
+    public void setStepCountUp(Double stepCountUp) {
+        this.stepCountUp = stepCountUp;
+    }
+
+    public Double getStepCountLeft() {
+        return stepCountLeft;
+    }
+
+    public void setStepCountLeft(Double stepCountLeft) {
+        this.stepCountLeft = stepCountLeft;
+    }
+
+    public Double getStepCountRight() {
+        return stepCountRight;
+    }
+
+    public void setStepCountRight(Double stepCountRight) {
+        this.stepCountRight = stepCountRight;
     }
 
     public Double getyOfCharacterPositionDown() {

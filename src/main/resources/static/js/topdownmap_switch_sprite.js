@@ -18,16 +18,13 @@ function getNewSpriteFromServer() {
 
             characterFacingSpriteSheetRuleToChange = findCSSRule('.character[facing="down"] .character_spritesheet', sheetWithAnimations);
             sheetWithAnimations.cssRules[characterFacingSpriteSheetRuleToChange].style.backgroundPositionX = "calc( var(--pixel-size) * " + newSprite.animatedProperties.xOfCharacterPositionDown + " )";
-            sheetWithAnimations.cssRules[characterFacingSpriteSheetRuleToChange].style.backgroundPositionY = "calc( var(--pixel-size) * " + newSprite.animatedProperties.yOfCharacterPositionDown + " )";
-            
+            sheetWithAnimations.cssRules[characterFacingSpriteSheetRuleToChange].style.backgroundPositionY = "calc( var(--pixel-size) * " + newSprite.animatedProperties.yOfCharacterPositionDown + " )";            
             characterFacingSpriteSheetRuleToChange = findCSSRule('.character[facing="up"] .character_spritesheet', sheetWithAnimations);
             sheetWithAnimations.cssRules[characterFacingSpriteSheetRuleToChange].style.backgroundPositionX = "calc( var(--pixel-size) * " + newSprite.animatedProperties.xOfCharacterPositionUp + " )";
             sheetWithAnimations.cssRules[characterFacingSpriteSheetRuleToChange].style.backgroundPositionY = "calc( var(--pixel-size) * " + newSprite.animatedProperties.yOfCharacterPositionUp + " )";
-
             characterFacingSpriteSheetRuleToChange = findCSSRule('.character[facing="left"] .character_spritesheet', sheetWithAnimations);
             sheetWithAnimations.cssRules[characterFacingSpriteSheetRuleToChange].style.backgroundPositionX = "calc( var(--pixel-size) * " + newSprite.animatedProperties.xOfCharacterPositionLeft + " )";
             sheetWithAnimations.cssRules[characterFacingSpriteSheetRuleToChange].style.backgroundPositionY = "calc( var(--pixel-size) * " + newSprite.animatedProperties.yOfCharacterPositionLeft + " )";
-
             characterFacingSpriteSheetRuleToChange = findCSSRule('.character[facing="right"] .character_spritesheet', sheetWithAnimations);
             sheetWithAnimations.cssRules[characterFacingSpriteSheetRuleToChange].style.backgroundPositionX = "calc( var(--pixel-size) * " + newSprite.animatedProperties.xOfCharacterPositionRight + " )";
             sheetWithAnimations.cssRules[characterFacingSpriteSheetRuleToChange].style.backgroundPositionY = "calc( var(--pixel-size) * " + newSprite.animatedProperties.yOfCharacterPositionRight + " )";
@@ -35,29 +32,61 @@ function getNewSpriteFromServer() {
             characterWindowRuleToChange = findCSSRule('.character[facing="down"]', sheetWithAnimations);
             sheetWithAnimations.cssRules[characterWindowRuleToChange].style.width = "calc( var(--grid-cell)* " + newSprite.animatedProperties.widthOfCharacterWindowDown + " )";
             sheetWithAnimations.cssRules[characterWindowRuleToChange].style.height = "calc( var(--grid-cell)* " + newSprite.animatedProperties.heightOfCharacterWindowDown + " )";
-
             characterWindowRuleToChange = findCSSRule('.character[facing="up"]', sheetWithAnimations);
             sheetWithAnimations.cssRules[characterWindowRuleToChange].style.width = "calc( var(--grid-cell)* " + newSprite.animatedProperties.widthOfCharacterWindowUp + " )";
             sheetWithAnimations.cssRules[characterWindowRuleToChange].style.height = "calc( var(--grid-cell)* " + newSprite.animatedProperties.heightOfCharacterWindowUp + " )";
-
             characterWindowRuleToChange = findCSSRule('.character[facing="left"]', sheetWithAnimations);
             sheetWithAnimations.cssRules[characterWindowRuleToChange].style.width = "calc( var(--grid-cell)* " + newSprite.animatedProperties.widthOfCharacterWindowLeft + " )";
             sheetWithAnimations.cssRules[characterWindowRuleToChange].style.height = "calc( var(--grid-cell)* " + newSprite.animatedProperties.heightOfCharacterWindowLeft + " )";
-
             characterWindowRuleToChange = findCSSRule('.character[facing="right"]', sheetWithAnimations);
             sheetWithAnimations.cssRules[characterWindowRuleToChange].style.width = "calc( var(--grid-cell)* " + newSprite.animatedProperties.widthOfCharacterWindowRight + " )";
             sheetWithAnimations.cssRules[characterWindowRuleToChange].style.height = "calc( var(--grid-cell)* " + newSprite.animatedProperties.heightOfCharacterWindowRight + " )";
+
+            characterWindowRuleToChange = findCSSRule('.character[facing="down"]', sheetWithAnimations);
+            sheetWithAnimations.cssRules[characterWindowRuleToChange].style.width = "calc( var(--grid-cell)* " + newSprite.animatedProperties.widthOfCharacterWindowDown + " )";
+            sheetWithAnimations.cssRules[characterWindowRuleToChange].style.height = "calc( var(--grid-cell)* " + newSprite.animatedProperties.heightOfCharacterWindowDown + " )";
+            characterWindowRuleToChange = findCSSRule('.character[facing="up"]', sheetWithAnimations);
+            sheetWithAnimations.cssRules[characterWindowRuleToChange].style.width = "calc( var(--grid-cell)* " + newSprite.animatedProperties.widthOfCharacterWindowUp + " )";
+            sheetWithAnimations.cssRules[characterWindowRuleToChange].style.height = "calc( var(--grid-cell)* " + newSprite.animatedProperties.heightOfCharacterWindowUp + " )";
+            characterWindowRuleToChange = findCSSRule('.character[facing="left"]', sheetWithAnimations);
+            sheetWithAnimations.cssRules[characterWindowRuleToChange].style.width = "calc( var(--grid-cell)* " + newSprite.animatedProperties.widthOfCharacterWindowLeft + " )";
+            sheetWithAnimations.cssRules[characterWindowRuleToChange].style.height = "calc( var(--grid-cell)* " + newSprite.animatedProperties.heightOfCharacterWindowLeft + " )";
+            characterWindowRuleToChange = findCSSRule('.character[facing="right"]', sheetWithAnimations);
+            sheetWithAnimations.cssRules[characterWindowRuleToChange].style.width = "calc( var(--grid-cell)* " + newSprite.animatedProperties.widthOfCharacterWindowRight + " )";
+            sheetWithAnimations.cssRules[characterWindowRuleToChange].style.height = "calc( var(--grid-cell)* " + newSprite.animatedProperties.heightOfCharacterWindowRight + " )";
+
+            characterAnimationRuleToChange = findCSSRule('walkRightAnimation', sheetWithAnimations);
+            sheetWithAnimations.cssRules[characterAnimationRuleToChange][0].style.transform = 'translate3d(' + newSprite.animatedProperties.animationStartPercentageRight + '%, 0%, 0px)';
+            sheetWithAnimations.cssRules[characterAnimationRuleToChange][1].style.transform = 'translate3d(' + newSprite.animatedProperties.animationStopPercentageRight + '%, 0%, 0px)';
+            characterStepCountRuleToChange = findCSSRule('.character[walking-right="true"] .character_spritesheet', sheetWithAnimations);
+            sheetWithAnimations.cssRules[characterStepCountRuleToChange].style.animation = 'walkRightAnimation 0.6s steps(' + newSprite.animatedProperties.stepCountRight + ') infinite'
+
+            characterAnimationRuleToChange = findCSSRule('walkLeftAnimation', sheetWithAnimations);
+            sheetWithAnimations.cssRules[characterAnimationRuleToChange][0].style.transform = 'translate3d(' + newSprite.animatedProperties.animationStartPercentageLeft + '%, 0%, 0px)';
+            sheetWithAnimations.cssRules[characterAnimationRuleToChange][1].style.transform = 'translate3d(' + newSprite.animatedProperties.animationStopPercentageLeft + '%, 0%, 0px)';
+            characterStepCountRuleToChange = findCSSRule('.character[walking-left="true"] .character_spritesheet', sheetWithAnimations);
+            sheetWithAnimations.cssRules[characterStepCountRuleToChange].style.animation = 'walkLeftAnimation 0.6s steps(' + newSprite.animatedProperties.stepCountLeft + ') infinite'
+
+            characterAnimationRuleToChange = findCSSRule('walkUpAnimation', sheetWithAnimations);
+            sheetWithAnimations.cssRules[characterAnimationRuleToChange][0].style.transform = 'translate3d(' + newSprite.animatedProperties.animationStartPercentageUp + '%, 0%, 0px)';
+            sheetWithAnimations.cssRules[characterAnimationRuleToChange][1].style.transform = 'translate3d(' + newSprite.animatedProperties.animationStopPercentageUp + '%, 0%, 0px)';
+            characterStepCountRuleToChange = findCSSRule('.character[walking-up="true"] .character_spritesheet', sheetWithAnimations);
+            sheetWithAnimations.cssRules[characterStepCountRuleToChange].style.animation = 'walkUpAnimation 0.6s steps(' + newSprite.animatedProperties.stepCountUp + ') infinite'
+
+            characterAnimationRuleToChange = findCSSRule('walkDownAnimation', sheetWithAnimations);
+            sheetWithAnimations.cssRules[characterAnimationRuleToChange][0].style.transform = 'translate3d(' + newSprite.animatedProperties.animationStartPercentageDown + '%, 0%, 0px)';
+            sheetWithAnimations.cssRules[characterAnimationRuleToChange][1].style.transform = 'translate3d(' + newSprite.animatedProperties.animationStopPercentageDown + '%, 0%, 0px)';
+            characterStepCountRuleToChange = findCSSRule('.character[walking-down="true"] .character_spritesheet', sheetWithAnimations);
+            sheetWithAnimations.cssRules[characterStepCountRuleToChange].style.animation = 'walkDownAnimation 0.6s steps(' + newSprite.animatedProperties.stepCountDown + ') infinite'
+
         }
     });
 
-    xhr.open("GET", "/pokemonSeconds/2c4b5255-48cf-4619-9f84-5728b6b8d231");
+    xhr.open("GET", "/pokemonSeconds/b987ea73-bde7-4138-9932-ae780685edac");
     xhr.setRequestHeader("Content-Type", "application/json");
 
     xhr.send();
 }
-
-
-findCSSRule('.character[facing="down"] .character_spritesheet', mySheet);
 
 function findCSSRule(selector, mySheet) {
     var ruleIndex = -1;				// Default to 'not found'
@@ -66,7 +95,11 @@ function findCSSRule(selector, mySheet) {
         if (theRules[i].selectorText == selector) {
             ruleIndex = i;
             break;
-        } // endif theRules[i]
+        } 
+        else if (theRules[i].name == selector) {
+            ruleIndex = i;
+            break;
+        }// endif theRules[i]
     } // end for i
     return ruleIndex;
 } // end findCSSRule()
