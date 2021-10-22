@@ -261,3 +261,10 @@ body {
    background-color: green;
    border: 2px solid green;
 }
+
+#pokeball {
+   width: calc(1 * var(--grid-cell));
+   position: absolute;
+   top: calc( var(--pixel-size) * 65 );
+   left: calc( var(--pixel-size) * 20 );
+}
