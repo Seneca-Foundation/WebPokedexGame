@@ -1,5 +1,6 @@
 var character = document.querySelector(".character");
 var map = document.querySelector(".map");
+var pokeball = document.querySelector("#pokeball")
 
 //start in the middle of the map
 var x = 90;
@@ -48,7 +49,16 @@ const placeCharacter = () => {
 
 //Set up the game loop
 const step = () => {
+    
+    // Draw the character
     placeCharacter();
+    
+    // A rudimentary example of collision detection
+    if (detectCollision(character, pokeball)) {
+        console.log("You found the pokeball!");
+    };
+
+    // Restart the game loop
     window.requestAnimationFrame(() => {
         step();
     })
