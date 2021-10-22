@@ -14,7 +14,6 @@ import javax.persistence.InheritanceType;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import com.senecafoundation.webpokedexgame.DataHandler.IDataWriter;
 @Entity
 @Table(name = "pokemontrainers")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
@@ -24,16 +23,14 @@ public class PokemonTrainers {
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
 
-    private IDataWriter dataWriter; 
     private String ID; 
     private String name; 
     List<PokedexItem> SixPokemon = new ArrayList<PokedexItem>();
     @OneToOne
     private AnimatedProperties animatedProperties;
 
-    public PokemonTrainers(IDataWriter dataHolder, String name, AnimatedProperties animatedProperties)
+    public PokemonTrainers(String name, AnimatedProperties animatedProperties)
     {
-        this.dataWriter = dataHolder;
         this.setName(name);
         this.setID(UUID.randomUUID().toString());
         this.setAnimatedProperties(animatedProperties);
@@ -45,10 +42,6 @@ public class PokemonTrainers {
 
     public AnimatedProperties getAnimatedProperties() {
         return animatedProperties; 
-    }
-
-    public IDataWriter getIDataWriter() {
-        return dataWriter;
     }
 
     public String getID(){
