@@ -252,3 +252,12 @@ body {
    right:calc(var(--pixel-size) * 2);
    width: calc(var(--pixel-size) * 75)
 }
+
+.switchspritebutton {
+   position: absolute;
+   top: 0;
+   right: 0;
+   padding: 5px 10px;
+   background-color: green;
+   border: 2px solid green;
+}
