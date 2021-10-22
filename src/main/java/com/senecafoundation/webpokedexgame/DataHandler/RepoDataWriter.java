@@ -31,7 +31,7 @@ public class RepoDataWriter<T extends PokedexItem> extends DataWriter<T> {
     @Override
     public Boolean Delete(UUID ID) throws Exception {
         pokedexItemRepository.deleteById(ID);
-        return null;
+        return true;
     }
 
     @Override
