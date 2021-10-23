@@ -2,12 +2,10 @@ package com.senecafoundation.webpokedexgame.RESTControllers;
 
 import java.util.List;
 import java.util.UUID;
-
 import com.senecafoundation.webpokedexgame.DataHandler.AnimatedPropertiesDataWriter;
 import com.senecafoundation.webpokedexgame.DataHandler.BaseCharacterDataWriters.BaseCharacterDataWriter;
 import com.senecafoundation.webpokedexgame.PokedexItems.AnimatedProperties;
 import com.senecafoundation.webpokedexgame.Trainers.BaseCharacter;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -23,7 +21,7 @@ public class BaseCharacterRestController {
 
     @Autowired
     @Qualifier("baseCharacterDataWriter")
-    BaseCharacterDataWriter dataHandler;
+    BaseCharacterDataWriter<BaseCharacter> dataHandler;
 
     @Autowired
     @Qualifier("animatedPropertiesDataWriter")
