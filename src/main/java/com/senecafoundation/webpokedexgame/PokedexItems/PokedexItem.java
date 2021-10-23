@@ -6,14 +6,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
-import javax.persistence.Transient;
-
-import com.senecafoundation.webpokedexgame.DataHandler.Interfaces.IDataWriter;
 
 @MappedSuperclass
 public abstract class PokedexItem {
 
-    //states
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)

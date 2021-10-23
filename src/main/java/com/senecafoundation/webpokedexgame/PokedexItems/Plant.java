@@ -5,23 +5,16 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
-import com.senecafoundation.webpokedexgame.DataHandler.Interfaces.IDataWriter;
-
 @Entity
 @Table(name = "plant")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Plant extends PokedexItem { 
 
     private String smell;
-
     private Boolean hasLeaves;
-
     private Boolean hasRoots;
-
     private Boolean collectsSunLight;
-
     private Boolean makesGlucose;
-
     private String name;
     
 
@@ -34,54 +27,64 @@ public class Plant extends PokedexItem {
         this.makesGlucose = makesGlucose;
         this.name = name; 
     }
+
     public Plant() {
         super();
     }
+    
     public String getSmell(){
         return smell; 
     }
+    
     public Boolean getHasLeaves(){
         return hasLeaves;
     }
+    
     public Boolean getHasRoots(){ 
         return hasRoots; 
     }
+    
     public Boolean getCollectsSunLight(){
         return collectsSunLight;
     }
+    
     public Boolean getMakesGlucose(){
         return makesGlucose;
     }
+    
     public String getName(){
         return name; 
     }
+    
     public void setSmell(String smell){
         this.smell = smell;
     }
+    
     public void setHasLeaves(Boolean hasLeaves){
         this.hasLeaves = hasLeaves; 
     }
+    
     public void setHasRoots(Boolean hasRoots){
         this.hasRoots = hasRoots; 
     }
+    
     public void setCollectsSunLight(Boolean collectsSunLight){
         this.collectsSunLight = collectsSunLight;
     }
+    
     public void setMakesGlucose(Boolean makesGluecose){
         this.makesGlucose = makesGluecose;
     }
+    
     public void setName(String name){
         this.name = name;
     }
-
-    //methods 
 
     public String Photosynthesizes() {
         if (collectsSunLight && makesGlucose) {
             return "This plant can do the photosynthesizing";
         }
         return "This plant is DEAD"; 
-        //Unreachable code?? 
     }
     
     public String Grows(){
@@ -102,5 +105,4 @@ public class Plant extends PokedexItem {
     public String toString() {
         return this.getClass().getSimpleName() + "," + this.getID() + "," + this.getColor() + "," + this.getSmell() + "," + this.getHasLeaves().toString() + "," + this.getHasRoots().toString() + "," + this.getCollectsSunLight().toString() + "," + this.getMakesGlucose().toString();
     }
-
 }

@@ -5,8 +5,6 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
-import com.senecafoundation.webpokedexgame.DataHandler.Interfaces.IDataWriter;
 import com.senecafoundation.webpokedexgame.PokedexItems.Pokemon.PokemonWithSecondAbility;
 
 @Entity
@@ -15,11 +13,8 @@ import com.senecafoundation.webpokedexgame.PokedexItems.Pokemon.PokemonWithSecon
 public class Homework extends PokedexItem {
 
     private String shape;
-
     private Integer words;
-
     private Boolean foldAction;
-
     private String name; 
 
     @OneToOne
@@ -32,7 +27,6 @@ public class Homework extends PokedexItem {
         this.foldAction = foldAction; 
         this.myCharmander = charmanderFromUser;
         this.name = name; 
-
     }
 
     public Homework() {

@@ -12,7 +12,7 @@ import com.senecafoundation.webpokedexgame.PokedexItems.AnimatedProperties;
 
 @Entity
 @Table(name = "npc") 
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Inheritance(strategy = InheritanceType.JOINED)
 public class NPC extends BaseCharacter {
 
     private Hashtable<String, ArrayList<String>> dialogueTree;
