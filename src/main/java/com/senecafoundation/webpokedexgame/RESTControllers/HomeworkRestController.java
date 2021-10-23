@@ -5,8 +5,6 @@ import java.util.UUID;
 
 import com.senecafoundation.webpokedexgame.DataHandler.PokedexItemDataWriters.HomeworkDataWriter;
 import com.senecafoundation.webpokedexgame.PokedexItems.Homework;
-import com.senecafoundation.webpokedexgame.PokedexItems.PokedexItem;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.DeleteMapping;
