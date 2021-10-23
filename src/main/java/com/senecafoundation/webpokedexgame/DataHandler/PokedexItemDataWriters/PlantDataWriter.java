@@ -2,10 +2,8 @@ package com.senecafoundation.webpokedexgame.DataHandler.PokedexItemDataWriters;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import com.senecafoundation.webpokedexgame.PokedexItems.Plant;
 import com.senecafoundation.webpokedexgame.Repositories.PokedexItemRepositories.PokedexItemRepository;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
