@@ -4,14 +4,13 @@ import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
-
-import com.senecafoundation.webpokedexgame.DataHandler.Interfaces.IDataWriter;
 import com.senecafoundation.webpokedexgame.PokedexItems.AnimatedProperties;
 
 @Entity
 @Table(name = "pokemonwithsecondability")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class PokemonWithSecondAbility extends Pokemon {
+    
     protected String ability2;
 
     public PokemonWithSecondAbility (

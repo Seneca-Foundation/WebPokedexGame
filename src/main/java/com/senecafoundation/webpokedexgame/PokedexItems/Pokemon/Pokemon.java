@@ -2,8 +2,6 @@ package com.senecafoundation.webpokedexgame.PokedexItems.Pokemon;
 
 import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToOne;
-
-import com.senecafoundation.webpokedexgame.DataHandler.Interfaces.IDataWriter;
 import com.senecafoundation.webpokedexgame.PokedexItems.AnimatedProperties;
 import com.senecafoundation.webpokedexgame.PokedexItems.PokedexItem;
 
