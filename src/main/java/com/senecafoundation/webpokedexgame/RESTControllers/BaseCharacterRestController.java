@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.UUID;
 
 import com.senecafoundation.webpokedexgame.DataHandler.AnimatedPropertiesDataWriter;
-import com.senecafoundation.webpokedexgame.DataHandler.BaseCharacterDataWriter;
+import com.senecafoundation.webpokedexgame.DataHandler.BaseCharacterDataWriters.BaseCharacterDataWriter;
 import com.senecafoundation.webpokedexgame.PokedexItems.AnimatedProperties;
 import com.senecafoundation.webpokedexgame.Trainers.BaseCharacter;
 

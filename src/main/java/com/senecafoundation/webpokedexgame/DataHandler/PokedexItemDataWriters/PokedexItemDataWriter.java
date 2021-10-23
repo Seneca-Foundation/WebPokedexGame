@@ -2,11 +2,9 @@ package com.senecafoundation.webpokedexgame.DataHandler.PokedexItemDataWriters;
 
 import java.util.List;
 import java.util.UUID;
-
 import com.senecafoundation.webpokedexgame.DataHandler.Interfaces.DataWriter;
 import com.senecafoundation.webpokedexgame.PokedexItems.PokedexItem;
 import com.senecafoundation.webpokedexgame.Repositories.PokedexItemRepositories.PokedexItemRepository;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +15,7 @@ public class PokedexItemDataWriter<T extends PokedexItem> extends DataWriter<T> 
     public PokedexItemRepository<T> pokedexItemRepository;
 
     @Override
-    public void Create(PokedexItem item) {
+    public void Create(T item) {
         pokedexItemRepository.save((T) item);        
     }
 
@@ -27,7 +25,7 @@ public class PokedexItemDataWriter<T extends PokedexItem> extends DataWriter<T> 
     }
 
     @Override
-    public T Update(PokedexItem itemToUpdate) {
+    public T Update(T itemToUpdate) {
         return pokedexItemRepository.save((T) itemToUpdate);
     }
 
