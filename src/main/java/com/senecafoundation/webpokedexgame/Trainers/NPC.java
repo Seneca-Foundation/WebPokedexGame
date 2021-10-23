@@ -1,25 +1,25 @@
 package com.senecafoundation.webpokedexgame.Trainers;
 
+import java.util.Hashtable;
 import java.util.List;
 
 import com.senecafoundation.webpokedexgame.PokedexItems.AnimatedProperties;
 
 public class NPC extends BaseCharacter {
 
-    List<String> dialogue; 
+    private Hashtable<String, List<String>> dialogueTree;
 
-    public NPC(String name, AnimatedProperties animatedProperties, List<String> dialogue) {
+    public NPC(String name, AnimatedProperties animatedProperties, Hashtable<String, List<String>> dialogueTree) {
         super(name, animatedProperties);
-        this.setDialogue(dialogue);
-
+        this.setDialogueTree(dialogueTree);
     }
 
-    public List<String> getDialogue() {
-        return dialogue; 
+    public Hashtable<String, List<String>> getDialogueTree() {
+        return dialogueTree; 
     }
 
-    public void setDialogue(List<String> dialogue) {
-        this.dialogue = dialogue; 
+    public void setDialogueTree(Hashtable<String, List<String>> dialogueTree) {
+        this.dialogueTree = dialogueTree; 
     }
 
     public String getName() {
@@ -36,9 +36,5 @@ public class NPC extends BaseCharacter {
 
     public void setAnimatedProperties(AnimatedProperties animatedProperties) {
         this.animatedProperties = animatedProperties;
-    }
-
-
-
-    
+    }    
 }
