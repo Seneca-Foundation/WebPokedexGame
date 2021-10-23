@@ -52,7 +52,12 @@ public class BaseCharacterRestController {
     @PutMapping("/baseCharacters/{id}")
     BaseCharacter replacePokemonWithSecondAbility(@RequestBody BaseCharacter newBaseCharacter, @PathVariable String id) throws Exception {
         BaseCharacter baseCharacters = (BaseCharacter) dataHandler.Read(UUID.fromString(id));
+        
         if (baseCharacters != null) {
+            AnimatedProperties propsToSave = animPropsDataHandler.Read(baseCharacters.getAnimatedProperties().getId());
+            newBaseCharacter.getAnimatedProperties().setId(propsToSave.getId());
+            animPropsDataHandler.Update(newBaseCharacter.getAnimatedProperties());
+            newBaseCharacter.setAnimatedProperties(propsToSave);
             newBaseCharacter.setID(baseCharacters.getID());
             dataHandler.Update(newBaseCharacter);
             return newBaseCharacter;
