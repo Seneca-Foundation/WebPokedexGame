@@ -268,3 +268,60 @@ body {
    top: calc( var(--pixel-size) * 65 );
    left: calc( var(--pixel-size) * 20 );
 }
+
+
+.dialogueBox {
+   background-color: pink;
+   width: calc( var(--grid-cell) * 7.0);
+   height: calc( var(--grid-cell) * 2.7);
+   top: calc( var(--grid-cell) * -2.9);
+   position: absolute;
+   left: calc( var(--grid-cell) * -0.3);
+   display: inline-block;
+   border: 3px solid #333333;
+   font-size: 0.8rem;
+   padding: 10pt;
+   border-radius: 2% 6% 5% 4%/1% 1% 2% 4%;
+   text-transform: uppercase;
+   letter-spacing: 0.3ch;
+   background: #ffffff;
+ }
+ .dialogueBox::before {
+   content: "";
+   border: 2px solid #353535;
+   display: block;
+   width: 100%;
+   height: 100%;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate3d(-50%, -50%, 0) scale(1.015) rotate(0.5deg);
+   border-radius: 1% 1% 2% 4%/2% 6% 5% 4%;
+ }
+
+.characterDialogueBox {
+   float: left;
+   width: 36%;
+   height: 100%;
+}
+
+.characterDialogueBox div {
+   width: calc( var(--grid-cell) * 3);
+   border: 2px solid #3a69bd;
+   height: 100%;
+   position: relative;
+   overflow: hidden;
+   left: calc( var(--grid-cell) * -.7);
+   background: #c0e2ff;
+}
+
+.characterDialoguePic {
+   width: 200%;
+   left: calc( var(--grid-cell) * -1);
+   position: relative;
+}
+
+.characterDialogue {
+   overflow: hidden;
+   height: 100%;
+}
