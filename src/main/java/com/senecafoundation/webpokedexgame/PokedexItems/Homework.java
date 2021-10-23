@@ -6,7 +6,7 @@ import javax.persistence.InheritanceType;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import com.senecafoundation.webpokedexgame.DataHandler.IDataWriter;
+import com.senecafoundation.webpokedexgame.DataHandler.Interfaces.IDataWriter;
 import com.senecafoundation.webpokedexgame.PokedexItems.Pokemon.PokemonWithSecondAbility;
 
 @Entity

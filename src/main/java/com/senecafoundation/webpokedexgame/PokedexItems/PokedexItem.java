@@ -7,7 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Transient;
-import com.senecafoundation.webpokedexgame.DataHandler.IDataWriter;
+
+import com.senecafoundation.webpokedexgame.DataHandler.Interfaces.IDataWriter;
 
 @MappedSuperclass
 public abstract class PokedexItem {

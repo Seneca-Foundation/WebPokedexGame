@@ -3,7 +3,8 @@ package com.senecafoundation.webpokedexgame.DataHandler;
 import java.util.List;
 import java.util.UUID;
 
-import com.senecafoundation.webpokedexgame.DataHandler.Repositories.BaseCharacterRepository;
+import com.senecafoundation.webpokedexgame.DataHandler.Interfaces.DataWriter;
+import com.senecafoundation.webpokedexgame.Repositories.BaseCharacterRepositories.BaseCharacterRepository;
 import com.senecafoundation.webpokedexgame.Trainers.BaseCharacter;
 
 import org.springframework.beans.factory.annotation.Autowired;

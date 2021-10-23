@@ -5,7 +5,7 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
-import com.senecafoundation.webpokedexgame.DataHandler.IDataWriter;
+import com.senecafoundation.webpokedexgame.DataHandler.Interfaces.IDataWriter;
 import com.senecafoundation.webpokedexgame.PokedexItems.AnimatedProperties;
 
 @Entity
