@@ -3,10 +3,15 @@ var map = document.querySelector(".map");
 var pokeball = document.querySelector("#pokeball")
 
 //start in the middle of the map
-var x = 90;
-var y = 34;
+var x = 21;
+var y = 101;
 var held_directions = []; //State of which arrow keys we are holding down
 var speed = 1; //How fast the character moves in pixels per frame
+
+mapPath = new MapPath(false, 4232);
+mapPath.drawGrid();
+mapPath.switchBlockedRange(1317, 1340);
+
 
 const placeCharacter = () => {
 
