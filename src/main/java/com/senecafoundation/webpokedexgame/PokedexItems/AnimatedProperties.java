@@ -9,10 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
-
-import com.senecafoundation.webpokedexgame.DataHandler.IDataWriter;
 
 @Entity
 @Table(name = "animatedproperties")

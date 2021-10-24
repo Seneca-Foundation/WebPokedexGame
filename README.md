@@ -1,4 +1,7 @@
 # WebPokedexGame
+
+## Swagger is now available for API documentation
+It's located at: http://localhost/swagger-ui/
 ## To build and run your app in docker:
 
 1.  Run the following docker command for postgres:
