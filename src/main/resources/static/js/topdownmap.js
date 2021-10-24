@@ -28,17 +28,6 @@ const placeCharacter = () => {
     character.setAttribute("walking-down", "false");
     character.setAttribute("walking-"+held_direction, held_direction ? "true" : "false");
     
-    //Limits (gives the illusion of walls)
-    var leftLimit = -8;
-    var rightLimit = (16 * 11)+8;
-    var topLimit = -8 + 32;
-    var bottomLimit = (16 * 7);
-    if (x < leftLimit) { x = leftLimit; }
-    if (x > rightLimit) { x = rightLimit; }
-    if (y < topLimit) { y = topLimit; }
-    if (y > bottomLimit) { y = bottomLimit; }
-    
-    
     var camera_left = pixelSize * 66;
     var camera_top = pixelSize * 42;
     

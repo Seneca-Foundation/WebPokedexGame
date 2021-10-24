@@ -53,10 +53,10 @@ body {
 
 .map {
    image-rendering: pixelated;
-   background-image: url("https://assets.codepen.io/21542/CameraDemoMap.png");
+   background-image: url("https://64.media.tumblr.com/087dbf5c8d44a3dba882aa5159f987b1/tumblr_inline_o47751nWfc1tmx71p_1280.png");
    background-size: 100%;
-   width: calc(13 * var(--grid-cell));
-   height: calc(10 * var(--grid-cell));
+   width: calc(25 * var(--grid-cell));
+   height: calc(15.4 * var(--grid-cell));
    position: relative;
 }
 
@@ -324,4 +324,12 @@ body {
 .characterDialogue {
    overflow: hidden;
    height: 100%;
+}
+
+.clip-path {
+   background-color: green;
+   opacity: .5;
+   position: absolute;
+   width: calc(25 * var( --grid-cell));
+   height: calc(15.4 * var( --grid-cell));
 }
