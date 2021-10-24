@@ -51,6 +51,7 @@ public class AnimatedProperties {
     private Double animationStopPercentageRight;
     private Double animationStopPercentageUp;
     private Double animationStopPercentageDown;
+    private Double backgroundSize; 
     
     public AnimatedProperties(
         String spriteSheetUrl,
@@ -83,7 +84,8 @@ public class AnimatedProperties {
         Double animationStopPercentageLeft,
         Double animationStopPercentageRight,
         Double animationStopPercentageUp,
-        Double animationStopPercentageDown
+        Double animationStopPercentageDown,
+        Double backgroundSize
     ) {
         this.setId(UUID.randomUUID());
         this.setSpriteSheetUrl(spriteSheetUrl);
@@ -117,6 +119,15 @@ public class AnimatedProperties {
         this.setAnimationStopPercentageRight(animationStopPercentageRight);
         this.setAnimationStopPercentageUp(animationStopPercentageUp);
         this.setAnimationStopPercentageDown(animationStopPercentageDown);
+        this.setBackgroundSize(backgroundSize);
+    }
+
+    public Double getBackgroundSize() {
+        return backgroundSize;
+    }
+
+    public void setBackgroundSize(Double backgroundSize) {
+        this.backgroundSize = backgroundSize;
     }
 
     public Double getAnimationStopPercentageDown() {
