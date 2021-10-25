@@ -22,7 +22,7 @@ class MapPath {
             mapCell.appendChild(mapCellPos);
             mapCell.dataset.debug = this.isDebug;
             if (this.isBlockedList[i] == true) {
-                mapCell.dataset.blocked = true;
+                mapCell.dataset.blocked = "true";
             }
             document.querySelector(".map").appendChild(mapCell);
         }
@@ -31,32 +31,42 @@ class MapPath {
     switchDebug() {
         if (this.isDebug) {
             this.isDebug = false;
-            document.querySelectorAll('.mapTileSize').forEach(e => e.remove());
+            document.querySelectorAll('.mapTileSize[data-debug="true"]').forEach(e => e.dataset.debug = "false");
+            document.querySelector(".camera").style.overflow = "hidden";
         }
         else {
             this.isDebug = true;
+            document.querySelectorAll('.mapTileSize[data-debug="false"]').forEach(e => e.dataset.debug = "true");
+            document.querySelector(".camera").style.overflow = "inherit";
         }
-        this.drawGrid(this.numSquares);
     }
 
     switchBlocked(pathIndex) {
         this.isBlockedList[pathIndex] = !this.isBlockedList[pathIndex];
-        this.drawGrid(this.numSquares);
+        this.drawGrid();
     }
 
     switchBlockedRange(startIndex, stopIndex) {
-        for (let pathIndex = startIndex; pathIndex < stopIndex; pathIndex++) {
+        for (let pathIndex = startIndex; pathIndex <= stopIndex; pathIndex++) {
             this.isBlockedList[pathIndex] = !this.isBlockedList[pathIndex];
         }
-        this.drawGrid(this.numSquares);
+        this.drawGrid();
     }
 
-    isCharacterBlocked(character) {
+    isCharacterBlocked() {
+        return (document.querySelectorAll('.mapTileSize[data-character-grid="true"][data-blocked="true"]').length > 0);
+    }
+
+    getAllBlocked() {
+        return document.querySelectorAll('.mapTileSize[data-character-grid="true"][data-blocked="true"]');
+    }
+
+    drawCharacterGrid(character) {
+        document.querySelectorAll('.mapTileSize[data-character-grid="true"]').forEach(e => e.dataset.characterGrid = "");
+
         document.querySelectorAll('.mapTileSize').forEach(e => {
             if(detectCollision(e, character)) {
-                if(e.dataset.blocked === "true") {
-                    return true;
-                }
+                e.dataset.characterGrid = "true";
             }
         });
     }

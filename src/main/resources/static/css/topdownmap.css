@@ -343,17 +343,18 @@ body {
 }
 
 .mapTileSize[data-debug="true"] {
-   border: 1px solid white;
+   box-shadow: -1px -1px 0px 0px #fff;
    background-color: green;
    opacity: 40%
  }
 
 .mapTileSize[data-debug="true"][data-blocked="true"] {
-   border: 1px solid white;
    background-color: red;
-   opacity: 40%
 }
 
+.mapTileSize[data-debug="true"][data-character-grid="true"] {
+   background-color: blue;
+}
  
 .mapTileSize[data-debug="true"] .mapTileSizePosition {
    display: block;
