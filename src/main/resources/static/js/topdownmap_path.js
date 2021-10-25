@@ -53,6 +53,14 @@ class MapPath {
         this.drawGrid();
     }
 
+    switchBlockedRangeVert(startIndex, numSquares, columnWidth) {
+        for (let pathIndex = 0; pathIndex <= numSquares; pathIndex++) {
+            this.isBlockedList[startIndex] = !this.isBlockedList[startIndex];
+            startIndex = startIndex += columnWidth;
+        }
+        this.drawGrid();
+    }
+
     isCharacterBlocked() {
         return (document.querySelectorAll('.mapTileSize[data-character-grid="true"][data-blocked="true"]').length > 0);
     }

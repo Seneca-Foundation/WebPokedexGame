@@ -10,7 +10,7 @@ var speed = 1.3; //How fast the character moves in pixels per frame
 
 mapPath = new MapPath(false, 4232);
 mapPath.switchBlockedRange(1414, 1443);
-mapPath.switchBlockedRange(1331, 1369);
+mapPath.switchBlockedRange(1331, 1360);
 mapPath.switchBlockedRange(1494, 1496);
 mapPath.switchBlockedRange(1577, 1579);
 mapPath.switchBlockedRange(1660, 1662);
@@ -38,25 +38,36 @@ mapPath.switchBlockedRange(2278, 2291);
 mapPath.switchBlockedRange(2361, 2374);
 mapPath.switchBlockedRange(2444, 2457);
 mapPath.switchBlockedRange(2527, 2540);
-mapPath.switchBlockedRange(2610, 2623);
-mapPath.switchBlockedRange(2693, 2706);
-mapPath.switchBlockedRange(2776, 2789);
 
 mapPath.switchBlockedRange(2852, 2854);
 mapPath.switchBlockedRange(2935, 2937);
 mapPath.switchBlockedRange(3019, 3020);
 mapPath.switchBlockedRange(3102, 3103);
-
-mapPath.switchBlockedRange(1527, 1535);
-mapPath.switchBlockedRange(1444, 1452);
+mapPath.switchBlockedRange(1278, 1286);
 
 mapPath.switchBlockedRange(3185, 3195);
-mapPath.switchBlockedRange(3268, 3278);
-mapPath.switchBlockedRange(3357, 3361);
-mapPath.switchBlockedRange(3440, 3444);
-
-mapPath.switchBlockedRange(3415, 3444);
+mapPath.switchBlockedRange(3249, 3278);
 mapPath.switchBlockedRange(3913, 3978);
+
+mapPath.switchBlockedRange(3200, 3236);
+mapPath.switchBlockedRange(3283, 3319);
+
+mapPath.switchBlockedRange(627, 636);
+mapPath.switchBlockedRange(1291, 1299);
+
+mapPath.switchBlockedRangeVert(41, 14, 83);
+mapPath.switchBlockedRangeVert(46, 6, 83);
+mapPath.switchBlockedRangeVert(719, 14, 83);
+
+mapPath.switchBlockedRange(2545, 2565);
+mapPath.switchBlockedRange(1882, 1899);
+
+mapPath.switchBlockedRangeVert(1900, 7, 83);
+mapPath.switchBlockedRangeVert(2628, 6, 83);
+mapPath.switchBlockedRangeVert(3248, 8, 83)
+mapPath.switchBlockedRangeVert(3398, 7, 83)
+
+
 
 
 const placeCharacter = () => {
