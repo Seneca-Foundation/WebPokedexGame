@@ -9,7 +9,11 @@ var held_directions = []; //State of which arrow keys we are holding down
 var speed = 1.3; //How fast the character moves in pixels per frame
 
 mapPath = new MapPath(false, 4232);
-mapPath.switchBlockedRange(1663, 1692);
+mapPath.switchBlockedRange(1414, 1443);
+mapPath.switchBlockedRange(1331, 1369);
+mapPath.switchBlockedRange(1494, 1496);
+mapPath.switchBlockedRange(1577, 1579);
+mapPath.switchBlockedRange(1660, 1662);
 mapPath.switchBlockedRange(1743, 1745);
 mapPath.switchBlockedRange(1826, 1828);
 mapPath.switchBlockedRange(1909, 1911);
@@ -26,7 +30,6 @@ mapPath.switchBlockedRange(2520, 2522);
 mapPath.switchBlockedRange(2603, 2605);
 mapPath.switchBlockedRange(2686, 2688);
 mapPath.switchBlockedRange(2769, 2771);
-mapPath.switchBlockedRange(1580, 1609);
 
 mapPath.switchBlockedRange(2029, 2042);
 mapPath.switchBlockedRange(2112, 2125);
@@ -51,6 +54,9 @@ mapPath.switchBlockedRange(3185, 3195);
 mapPath.switchBlockedRange(3268, 3278);
 mapPath.switchBlockedRange(3357, 3361);
 mapPath.switchBlockedRange(3440, 3444);
+
+mapPath.switchBlockedRange(3415, 3444);
+mapPath.switchBlockedRange(3913, 3978);
 
 
 const placeCharacter = () => {
