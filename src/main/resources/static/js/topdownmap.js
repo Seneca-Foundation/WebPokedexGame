@@ -6,9 +6,9 @@ var pokeball = document.querySelector("#pokeball")
 var x = 21;
 var y = 101;
 var held_directions = []; //State of which arrow keys we are holding down
-var speed = 1.3; //How fast the character moves in pixels per frame
+var speed = 2.5; //How fast the character moves in pixels per frame
 
-mapPath = new MapPath(false, 4232);
+mapPath = new MapPath(false, 4233);
 mapPath.switchBlockedRange(1414, 1443);
 mapPath.switchBlockedRange(1331, 1360);
 mapPath.switchBlockedRange(1494, 1496);
@@ -124,7 +124,13 @@ const step = () => {
     // A rudimentary example of collision detection
     if (detectCollision(character, pokeball)) {
         console.log("You found the pokeball!");
+        document.getElementById("pokeball").style.display = "none";
     };
+
+    var door = document.querySelectorAll('.mapTileSize')[1502];
+    if (detectCollision(character, door)) {
+        console.log("entered the door");
+    }
 
     // Restart the game loop
     window.requestAnimationFrame(() => {

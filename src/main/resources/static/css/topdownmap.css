@@ -265,8 +265,8 @@ body {
 #pokeball {
    width: calc(1 * var(--grid-cell));
    position: absolute;
-   top: calc( var(--pixel-size) * 65 );
-   left: calc( var(--pixel-size) * 20 );
+   top: calc( var(--pixel-size) * 90 );
+   left: calc( var(--pixel-size) * 120 );
 }
 
 

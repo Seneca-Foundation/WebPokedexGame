@@ -5,14 +5,9 @@ class MapPath {
         this.isBlockedList = new Array(this.numSquares);
     }
 
-    getIsBlockedList() {
-        return this.isBlockedList;
-    }
-
     drawGrid() {
         // Remove any previous tiles
         document.querySelectorAll('.mapTileSize').forEach(e => e.remove());
-        this.numSquares = this.numSquares;
         for (let i = 0; i < this.numSquares; i++) {
             var mapCellPos = document.createElement("div");
             mapCellPos.appendChild(document.createTextNode(i));
