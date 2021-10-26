@@ -53,10 +53,10 @@ body {
 
 .map {
    image-rendering: pixelated;
-   background-image: url("https://assets.codepen.io/21542/CameraDemoMap.png");
+   background-image: url("https://64.media.tumblr.com/087dbf5c8d44a3dba882aa5159f987b1/tumblr_inline_o47751nWfc1tmx71p_1280.png");
    background-size: 100%;
-   width: calc(13 * var(--grid-cell));
-   height: calc(10 * var(--grid-cell));
+   width: calc(25 * var(--grid-cell));
+   height: calc(15.4 * var(--grid-cell));
    position: relative;
 }
 
@@ -265,19 +265,20 @@ body {
 #pokeball {
    width: calc(1 * var(--grid-cell));
    position: absolute;
-   top: calc( var(--pixel-size) * 65 );
-   left: calc( var(--pixel-size) * 20 );
+   top: calc( var(--pixel-size) * 90 );
+   left: calc( var(--pixel-size) * 120 );
 }
 
 
 .dialogueBox {
+   display: none;
    background-color: pink;
    width: calc( var(--grid-cell) * 7.0);
    height: calc( var(--grid-cell) * 2.7);
    top: calc( var(--grid-cell) * -2.9);
    position: absolute;
    left: calc( var(--grid-cell) * -0.3);
-   display: inline-block;
+   /* display: inline-block; */
    border: 3px solid #333333;
    font-size: 0.8rem;
    padding: 10pt;
@@ -324,4 +325,37 @@ body {
 .characterDialogue {
    overflow: hidden;
    height: 100%;
+}
+
+.mapTileSize {
+   width: calc(.3 * var(--grid-cell));
+   height: calc(.3 * var(--grid-cell));
+   display: inline-block;
+}
+
+.mapTileSize .mapTileSizePosition {
+   display: none;
+   left: calc(.15 * var(--grid-cell));
+   color: white;
+   opacity: 100%;
+   top: calc(.15 * var(--grid-cell));
+   font-size: 5pt;
+}
+
+.mapTileSize[data-debug="true"] {
+   box-shadow: -1px -1px 0px 0px #fff;
+   background-color: green;
+   opacity: 40%
+ }
+
+.mapTileSize[data-debug="true"][data-blocked="true"] {
+   background-color: red;
+}
+
+.mapTileSize[data-debug="true"][data-character-grid="true"] {
+   background-color: blue;
+}
+ 
+.mapTileSize[data-debug="true"] .mapTileSizePosition {
+   display: block;
 }

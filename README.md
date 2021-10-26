@@ -52,7 +52,7 @@ It's located at: http://localhost/swagger-ui/
             </profile>
         </profiles>
 
-7.  In the .vscode directory - there is a folder called .vscode/launch.json.  It's contents should be this:
+7.  In the .vscode directory - there is a folder called .vscode/launch.json.  It contains two configs.  One is to launch the debugger attached to your local docker database.  The second is to connect to a shared database in the cloud.  The launch.json's contents should be this:
 
         {
             "configurations": [
@@ -65,6 +65,16 @@ It's located at: http://localhost/swagger-ui/
                     "mainClass": "com.senecafoundation.webpokedexgame.WebPokemonGameApplication",
                     "projectName": "web-pokedex-game",
                     "args": "--spring.profiles.active=YOURNAME"
+                },
+                {
+                    "type": "java",
+                    "name": "Launch with Cloud Database",
+                    "request": "launch",
+                    "cwd": "${workspaceFolder}",
+                    "console": "internalConsole",
+                    "mainClass": "com.senecafoundation.webpokedexgame.WebPokemonGameApplication",
+                    "projectName": "web-pokedex-game",      
+                    "args": "--spring.profiles.active=docker"
                 }
             ]
         }
