@@ -1,0 +1,141 @@
+{
+	"info": {
+		"_postman_id": "8861a640-35e0-4a5f-813b-837c74270491",
+		"name": "BaseCharacter",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Base Character",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"name\":\"Funny Skeleton Guy\",\n\"animatedProperties\": {\n        \"spriteSheetUrl\":\"https://pixelartmaker-data-78746291193.nyc3.digitaloceanspaces.com/image/e951e67563ce5de.png\",\n        \"spriteSheetWidth\":\"\",\n        \"spriteSheetHeight\":\"\",\n        \"widthOfCharacterWindowUp\":\"0.91\",\n        \"heightOfCharacterWindowUp\":\"1.2\",\n        \"widthOfCharacterWindowRight\":\"0.67\",\n        \"heightOfCharacterWindowRight\":\"1.2\",\n        \"widthOfCharacterWindowDown\":\"0.83\",\n        \"heightOfCharacterWindowDown\":\"1.2\",\n        \"widthOfCharacterWindowLeft\":\"0.67\",\n        \"heightOfCharacterWindowLeft\":\"1.2\",\n        \"xOfCharacterPositionLeft\":\"-2.7\",\n        \"yOfCharacterPositionLeft\":\"-38\",\n        \"xOfCharacterPositionRight\":\"-2\",\n        \"yOfCharacterPositionRight\":\"-19\",\n        \"xOfCharacterPositionUp\":\"-63\",\n        \"yOfCharacterPositionUp\":\"-0\",\n        \"xOfCharacterPositionDown\":\"-2.1\",\n        \"yOfCharacterPositionDown\":\"0\",\n        \"stepCountRight\":\"4\",\n        \"stepCountLeft\":\"4\",\n        \"stepCountUp\":\"4\",\n        \"stepCountDown\":\"4\",\n        \"animationStartPercentageLeft\":\"0\",\n        \"animationStartPercentageRight\":\"0\",\n        \"animationStartPercentageUp\":\"0\",\n        \"animationStartPercentageDown\":\"0\",\n        \"animationStopPercentageLeft\":\"-33\",\n        \"animationStopPercentageRight\":\"-33\",\n        \"animationStopPercentageUp\":\"-45\",\n        \"animationStopPercentageDown\":\"-45\"\n    }\n}"
+				},
+				"url": {
+					"raw": "localhost:80/baseCharacters",
+					"host": [
+						"localhost"
+					],
+					"port": "80",
+					"path": [
+						"baseCharacters"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Base Character",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:80/baseCharacters/383e3174-eea5-46de-b201-e0b227725f05",
+					"host": [
+						"localhost"
+					],
+					"port": "80",
+					"path": [
+						"baseCharacters",
+						"383e3174-eea5-46de-b201-e0b227725f05"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Base Character",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"name\":\"Base Guy2\",\n\"animatedProperties\": {\n        \"spriteSheetUrl\":\"https://pixelartmaker-data-78746291193.nyc3.digitaloceanspaces.com/image/e951e67563ce5de.png\",\n        \"spriteSheetWidth\":\"5\",\n        \"spriteSheetHeight\":\"\",\n        \"widthOfCharacterWindowUp\":\"0.95\",\n        \"heightOfCharacterWindowUp\":\"1.2\",\n        \"widthOfCharacterWindowRight\":\"0.67\",\n        \"heightOfCharacterWindowRight\":\"1.2\",\n        \"widthOfCharacterWindowDown\":\"0.83\",\n        \"heightOfCharacterWindowDown\":\"1.2\",\n        \"widthOfCharacterWindowLeft\":\"0.67\",\n        \"heightOfCharacterWindowLeft\":\"1.2\",\n        \"xOfCharacterPositionLeft\":\"-2.7\",\n        \"yOfCharacterPositionLeft\":\"-38\",\n        \"xOfCharacterPositionRight\":\"-2\",\n        \"yOfCharacterPositionRight\":\"-19\",\n        \"xOfCharacterPositionUp\":\"-63\",\n        \"yOfCharacterPositionUp\":\"-0\",\n        \"xOfCharacterPositionDown\":\"-2.1\",\n        \"yOfCharacterPositionDown\":\"0\",\n        \"stepCountRight\":\"4\",\n        \"stepCountLeft\":\"4\",\n        \"stepCountUp\":\"4\",\n        \"stepCountDown\":\"4\",\n        \"animationStartPercentageLeft\":\"0\",\n        \"animationStartPercentageRight\":\"0\",\n        \"animationStartPercentageUp\":\"0\",\n        \"animationStartPercentageDown\":\"0\",\n        \"animationStopPercentageLeft\":\"-33\",\n        \"animationStopPercentageRight\":\"-33\",\n        \"animationStopPercentageUp\":\"-45\",\n        \"animationStopPercentageDown\":\"-45\"\n    }\n}"
+				},
+				"url": {
+					"raw": "localhost:80/baseCharacters/10b91cb2-71a5-47b5-97d4-bf164f5ff3e4",
+					"host": [
+						"localhost"
+					],
+					"port": "80",
+					"path": [
+						"baseCharacters",
+						"10b91cb2-71a5-47b5-97d4-bf164f5ff3e4"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ReadAll Base Characters",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:80/baseCharacters",
+					"host": [
+						"localhost"
+					],
+					"port": "80",
+					"path": [
+						"baseCharacters"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get by ID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:80/baseCharacters/3beaa3e0-c9b3-4494-b763-be9f56b50627",
+					"host": [
+						"localhost"
+					],
+					"port": "80",
+					"path": [
+						"baseCharacters",
+						"3beaa3e0-c9b3-4494-b763-be9f56b50627"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

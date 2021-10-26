@@ -3,9 +3,8 @@ package com.senecafoundation.webpokedexgame.PokedexItems;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
-import com.senecafoundation.webpokedexgame.DataHandler.IDataWriter;
 
 @Entity
 @Table(name = "Bear") 
@@ -16,14 +15,17 @@ public class Bear extends PokedexItem {
     private Integer weight; 
     private Boolean scary;
     private String name; 
+    @OneToOne
+    private AnimatedProperties animatedProperties; 
 
 
-    public Bear(String color, String shape, Boolean scary, Integer weight, String name) {
+    public Bear(String color, String shape, Boolean scary, Integer weight, String name, AnimatedProperties animatedProperties) {
         super(color);
         this.shape = shape;
         this.weight = weight;
         this.scary = scary;
         this.name = name;
+        this.setAnimatedProperties(animatedProperties);
     } 
 
     public Bear() {
@@ -44,6 +46,15 @@ public class Bear extends PokedexItem {
     public String getName(){
         return name;
     }
+
+    public AnimatedProperties getAnimatedProperties() {
+        return animatedProperties;
+    }
+
+    public void setAnimatedProperties(AnimatedProperties animatedProperties) {
+        this.animatedProperties = animatedProperties;
+    }
+
     public void setName(String name){
         this.name = name; 
     }
