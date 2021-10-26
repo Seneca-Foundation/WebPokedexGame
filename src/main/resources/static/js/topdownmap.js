@@ -125,6 +125,8 @@ const step = () => {
     if (detectCollision(character, pokeball)) {
         console.log("You found the pokeball!");
         document.getElementById("pokeball").style.display = "none";
+        pokeballDialogue = new DialogueBox("url", "meow");
+        pokeballDialogue.showDialogue("holy sh*t yall, I found a pokeball!");
     };
 
     var door = document.querySelectorAll('.mapTileSize')[1502];
