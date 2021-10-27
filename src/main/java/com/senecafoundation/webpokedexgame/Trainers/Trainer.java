@@ -1,24 +1,47 @@
 // package com.senecafoundation.webpokedexgame.Trainers;
 
+// import java.util.ArrayList;
+// import java.util.Hashtable;
 // import java.util.List;
+
+// import javax.persistence.Entity;
+// import javax.persistence.Inheritance;
+// import javax.persistence.InheritanceType;
 
 // import com.senecafoundation.webpokedexgame.PokedexItems.AnimatedProperties;
 // import com.senecafoundation.webpokedexgame.PokedexItems.Pokemon.Pokemon;
 
+// @Entity
+// @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 // public class Trainer extends NPC {
 
-//     private List<Pokemon> SixPokemon; 
+//     private List<Pokemon> sixPokemon; 
 
-//     private Integer TrainerLevel; 
+//     private Integer trainerLevel; 
 
-//     //I want it so the AI can "sense" when their Pokemon is low on health to be able to heal them 
-//     // We could set it to be like that off of 20>
-//     //BaseCharacter Rest Controller should be the same as the PokemonSecondRest Contrller so do that one first 
-//     // Please mind your CapItlaiZation
-    
-    
-//     public Trainer(String name, AnimatedProperties animatedProperties, List<String> dialogue) {
-//         super(name, animatedProperties, dialogue);
+//     public Trainer(List<Pokemon> sixPokemon, Integer trainerLevel, String name, AnimatedProperties animatedProperties, Hashtable<String, ArrayList<String>> dialogueTree ) {
+//         super(name, animatedProperties, dialogueTree);
+//         this.setSixPokemon(sixPokemon);
+//         this.setTrainerLevel(trainerLevel);
 //     }
+
+//     public List<Pokemon> getSixPokemon() {
+//         return sixPokemon;
+//     }
+
+//     public void setSixPokemon(List<Pokemon> sixPokemon)  {
+//         this.sixPokemon = sixPokemon; 
+//     }
+
+//     public Integer getTrainerLevel() {
+//         return trainerLevel;
+//     }
+    
+//     public void setTrainerLevel(Integer trainerLevel) {
+//         this.trainerLevel = trainerLevel; 
+//     }
+
+
+
     
 // }
