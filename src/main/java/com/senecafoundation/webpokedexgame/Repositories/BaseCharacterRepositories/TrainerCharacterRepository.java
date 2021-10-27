@@ -1,10 +1,10 @@
-package com.senecafoundation.webpokedexgame.Repositories.BaseCharacterRepositories;
+// package com.senecafoundation.webpokedexgame.Repositories.BaseCharacterRepositories;
 
-import com.senecafoundation.webpokedexgame.Trainers.Trainer;
+// import com.senecafoundation.webpokedexgame.Trainers.Trainer;
 
-import org.springframework.stereotype.Repository;
+// import org.springframework.stereotype.Repository;
 
-@Repository
-public interface TrainerCharacterRepository<T extends Trainer> extends BaseCharacterRepository<T>  {
+// @Repository
+// public interface TrainerCharacterRepository<T extends Trainer> extends BaseCharacterRepository<T>  {
     
-}
+// }
