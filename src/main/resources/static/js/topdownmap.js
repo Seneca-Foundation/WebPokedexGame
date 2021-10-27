@@ -101,10 +101,14 @@ const placeCharacter = () => {
             }
         });
         if (revertMovement) {
-            if (held_direction === directions.right) {x = x-3;} //-2
-            if (held_direction === directions.left) {x = x+3;} //+2
-            if (held_direction === directions.down) {y = y-3;} //-2
-            if (held_direction === directions.up) {y = y+3;} //+2
+            held_directions.reverse();
+            held_directions.forEach(held_direction => {
+                if (held_direction === directions.right) {x = x-speed*2;} //-2
+                if (held_direction === directions.left) {x = x+speed*2;} //+2
+                if (held_direction === directions.down) {y = y-speed*2;} //-2
+                if (held_direction === directions.up) {y = y+speed*2;} //+2
+            });
+
             held_directions = [];
         }
     }
