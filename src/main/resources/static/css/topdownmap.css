@@ -53,10 +53,10 @@ body {
 
 .map {
    image-rendering: pixelated;
-   background-image: url("https://64.media.tumblr.com/087dbf5c8d44a3dba882aa5159f987b1/tumblr_inline_o47751nWfc1tmx71p_1280.png");
-   background-size: 100%;
+   /* background-image: url("/images/maps/town.png"); */
+   /* background-size: 100%;
    width: calc(25 * var(--grid-cell));
-   height: calc(15.4 * var(--grid-cell));
+   height: calc(15.4 * var(--grid-cell)); */
    position: relative;
 }
 

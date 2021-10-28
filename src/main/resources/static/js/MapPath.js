@@ -1,8 +1,30 @@
 class MapPath {
-    constructor(isDebug, numSquares) {
+    constructor(isDebug, numSquares, mapUrl, backgroundSize, width, height, startX, startY) {
         this.isDebug = isDebug;
         this.numSquares = numSquares;
+        this.mapUrl = mapUrl;
+        this.backgroundSize = backgroundSize;
+        this.width = width;
+        this.height = height;
+        this.startX = startX;
+        this.startY = startY;
         this.isBlockedList = new Array(this.numSquares);
+    }
+
+    getStartX() {
+        return this.startX;
+    }
+
+    getStartY() {
+        return this.startY;
+    }
+
+    drawMap() {
+        var map = document.querySelector(".map");
+        map.style.backgroundImage = 'url("' + this.mapUrl + '")';
+        map.style.backgroundSize = this.backgroundSize;
+        map.style.width = 'calc(' + this.width + ' * var(--grid-cell))';
+        map.style.height = 'calc(' + this.height + ' * var(--grid-cell))';
     }
 
     drawGrid() {

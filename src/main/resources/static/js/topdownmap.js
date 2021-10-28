@@ -1,74 +1,15 @@
 var character = document.querySelector(".character");
 var map = document.querySelector(".map");
 var pokeball = document.querySelector("#pokeball")
+var currentMap = townMap; // Maps stored in external js files
+currentMap.setUpPaths();
+currentMap.drawMap();
 
 //start in the middle of the map
-var x = 21;
-var y = 101;
+var x = currentMap.getStartX();
+var y = currentMap.getStartY();
 var held_directions = []; //State of which arrow keys we are holding down
 var speed = 2.5; //How fast the character moves in pixels per frame
-
-mapPath = new MapPath(false, 4233);
-mapPath.switchBlockedRange(1414, 1443);
-mapPath.switchBlockedRange(1331, 1360);
-mapPath.switchBlockedRange(1494, 1496);
-mapPath.switchBlockedRange(1577, 1579);
-mapPath.switchBlockedRange(1660, 1662);
-mapPath.switchBlockedRange(1743, 1745);
-mapPath.switchBlockedRange(1826, 1828);
-mapPath.switchBlockedRange(1909, 1911);
-mapPath.switchBlockedRange(1992, 1994);
-mapPath.switchBlockedRange(2075, 2077);
-mapPath.switchBlockedRange(2161, 2187);
-mapPath.switchBlockedRange(2244, 2270);
-
-mapPath.switchBlockedRange(2188, 2190);
-mapPath.switchBlockedRange(2271, 2273);
-mapPath.switchBlockedRange(2354, 2356);
-mapPath.switchBlockedRange(2437, 2439);
-mapPath.switchBlockedRange(2520, 2522);
-mapPath.switchBlockedRange(2603, 2605);
-mapPath.switchBlockedRange(2686, 2688);
-mapPath.switchBlockedRange(2769, 2771);
-
-mapPath.switchBlockedRange(2029, 2042);
-mapPath.switchBlockedRange(2112, 2125);
-mapPath.switchBlockedRange(2195, 2208);
-mapPath.switchBlockedRange(2278, 2291);
-mapPath.switchBlockedRange(2361, 2374);
-mapPath.switchBlockedRange(2444, 2457);
-mapPath.switchBlockedRange(2527, 2540);
-
-mapPath.switchBlockedRange(2852, 2854);
-mapPath.switchBlockedRange(2935, 2937);
-mapPath.switchBlockedRange(3019, 3020);
-mapPath.switchBlockedRange(3102, 3103);
-mapPath.switchBlockedRange(1278, 1286);
-
-mapPath.switchBlockedRange(3185, 3195);
-mapPath.switchBlockedRange(3249, 3278);
-mapPath.switchBlockedRange(3913, 3978);
-
-mapPath.switchBlockedRange(3200, 3236);
-mapPath.switchBlockedRange(3283, 3319);
-
-mapPath.switchBlockedRange(627, 636);
-mapPath.switchBlockedRange(1291, 1299);
-
-mapPath.switchBlockedRangeVert(41, 14, 83);
-mapPath.switchBlockedRangeVert(46, 6, 83);
-mapPath.switchBlockedRangeVert(719, 14, 83);
-
-mapPath.switchBlockedRange(2545, 2565);
-mapPath.switchBlockedRange(1882, 1899);
-
-mapPath.switchBlockedRangeVert(1900, 7, 83);
-mapPath.switchBlockedRangeVert(2628, 6, 83);
-mapPath.switchBlockedRangeVert(3248, 8, 83)
-mapPath.switchBlockedRangeVert(3398, 7, 83)
-
-
-
 
 const placeCharacter = () => {
 
@@ -93,9 +34,9 @@ const placeCharacter = () => {
     var camera_left = pixelSize * 66;
     var camera_top = pixelSize * 42;
 
-    if (mapPath.isCharacterBlocked(character)) {
+    if (currentMap.isCharacterBlocked(character)) {
         var revertMovement = false;
-        mapPath.getAllBlocked().forEach(element => {
+        currentMap.getAllBlocked().forEach(element => {
             if (detectCollision(element, character)) {
                 revertMovement = true;
             }
@@ -115,7 +56,7 @@ const placeCharacter = () => {
 
     map.style.transform = `translate3d( ${-x*pixelSize+camera_left}px, ${-y*pixelSize+camera_top}px, 0 )`;
     character.style.transform = `translate3d( ${x*pixelSize}px, ${y*pixelSize}px, 0 )`;  
-    mapPath.drawCharacterGrid(character);
+    currentMap.drawCharacterGrid(character);
 }
 
 
@@ -135,7 +76,11 @@ const step = () => {
 
     var door = document.querySelectorAll('.mapTileSize')[1502];
     if (detectCollision(character, door)) {
-        console.log("entered the door");
+        currentMap = houseMap;
+        currentMap.drawMap();
+        currentMap.setUpPaths();
+        x = currentMap.getStartX();
+        y = currentMap.getStartY();
     }
 
     // Restart the game loop
