@@ -82,7 +82,7 @@ function getNewSpriteFromServer() {
         }
     });
 
-    xhr.open("GET", "/pokemonSeconds/c0ed6c41-a1b7-4b22-ae29-f6acfb2c8665");
+    xhr.open("GET", "/pokemonSeconds/194b9c33-9429-4192-a434-8c25e49f568b");
     xhr.setRequestHeader("Content-Type", "application/json");
 
     xhr.send();
