@@ -7,6 +7,7 @@ function PopulateNPCSpriteFromServer(npc, spriteId) {
     xhr.addEventListener("readystatechange", function() {
         if(this.readyState === 4) {
             Object.assign(this.callingNpc, JSON.parse(this.responseText));
+            this.callingNpc.renderSpriteToHtml();
         }
     });
 
@@ -17,6 +18,56 @@ function PopulateNPCSpriteFromServer(npc, spriteId) {
 }
 
 class NPC {
+
+    constructor(x, y, held_directions, speed) {
+        this.character = document.querySelector(".character.barb-npc");
+        this.x = x;
+        this.y = y;
+        this.held_directions = held_directions;
+        this.speed = speed;
+    }
+
+    placeCharacter() {
+
+        var pixelSize = parseInt(
+            getComputedStyle(document.documentElement).getPropertyValue('--pixel-size')
+        );
+        
+        const held_direction = this.held_directions[0];
+        if (held_direction) {
+            currentMap.drawCharacterGrid(this.character);
+            if (currentMap.isCharacterBlocked(this.character)) {
+                currentMap.getAllBlocked(this.character).forEach(element => {
+                    if (betterCollision(element, this.character).left) {
+                        this.x += 1;
+                    }
+                    if (betterCollision(element, this.character).right) {
+                        this.x -= 1;
+                    }
+                    if (betterCollision(element, this.character).down) {
+                        this.y -= 1;
+                    }
+                    if (betterCollision(element, this.character).up) {
+                        this.y += 1;
+                    }
+                });
+            }
+            else {
+                if (held_direction === directions.right) {this.x += speed;}
+                if (held_direction === directions.left) {this.x -= speed;}
+                if (held_direction === directions.down) {this.y += speed;}
+                if (held_direction === directions.up) {this.y -= speed;}
+            }
+        }
+        this.character.setAttribute("facing", held_direction); 
+        this.character.setAttribute("walking-left", "false");
+        this.character.setAttribute("walking-right", "false");
+        this.character.setAttribute("walking-up", "false");
+        this.character.setAttribute("walking-down", "false");
+        this.character.setAttribute("walking-"+held_direction, held_direction ? "true" : "false");
+    
+        this.character.style.transform = `translate3d( ${this.x*pixelSize}px, ${this.y*pixelSize}px, 0 )`; 
+    }
 
     renderSpriteToHtml() {
         var sheetWithAnimations=document.styleSheets[0]; // load the stylesheet for modifying

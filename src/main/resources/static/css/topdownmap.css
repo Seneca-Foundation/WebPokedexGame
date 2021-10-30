@@ -352,7 +352,7 @@ body {
    background-color: red;
 }
 
-.mapTileSize[data-debug="true"][data-character-grid="true"] {
+.mapTileSize[data-debug="true"][data-character-grid]:not([data-character-grid=""]) {
    background-color: blue;
 }
  

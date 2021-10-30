@@ -1,15 +1,25 @@
 var character = document.querySelector(".character");
+character.id = "playercharacter";
+var bulbasaur  = new NPC(50, 90, ["right", "right", "right", "left", "left", "left"], 2);
 var map = document.querySelector(".map");
 var pokeball = document.querySelector("#pokeball")
 var currentMap = townMap; // Maps stored in external js files
-currentMap.setUpPaths();
-currentMap.drawMap();
-
-//start in the middle of the map
 var x = currentMap.getStartX();
 var y = currentMap.getStartY();
 var held_directions = []; //State of which arrow keys we are holding down
 var speed = 2.5; //How fast the character moves in pixels per frame
+
+/* Direction key state */
+const directions = {
+    up: "up",
+    down: "down",
+    left: "left",
+    right: "right",
+}
+
+currentMap.setUpPaths();
+currentMap.drawMap();
+PopulateNPCSpriteFromServer(bulbasaur, "d88f7761-21b8-442f-902a-613af548c3e6");
 
 const placeCharacter = () => {
 
@@ -21,7 +31,7 @@ const placeCharacter = () => {
     if (held_direction) {
         currentMap.drawCharacterGrid(character);
         if (currentMap.isCharacterBlocked(character)) {
-            currentMap.getAllBlocked().forEach(element => {
+            currentMap.getAllBlocked(character).forEach(element => {
                 if (betterCollision(element, character).left) {
                     x += 1;
                 }
@@ -56,21 +66,13 @@ const placeCharacter = () => {
     character.style.transform = `translate3d( ${x*pixelSize}px, ${y*pixelSize}px, 0 )`; 
 }
 
-
 //Set up the game loop
 const step = () => {
     
     // Draw the character
     placeCharacter();
+    bulbasaur.placeCharacter();
     
-    // A rudimentary example of collision detection
-    // if (detectCollision(character, pokeball)) {
-    //     console.log("You found the pokeball!");
-    //     document.getElementById("pokeball").style.display = "none";
-    //     pokeballDialogue = new DialogueBox("url", "meow");
-    //     pokeballDialogue.showDialogue("holy sh*t yall, I found a pokeball!");
-    // };
-
     var door = document.querySelectorAll('.mapTileSize')[1502];
     if (detectCollision(character, door)) {
         currentMap = houseMap;
@@ -89,13 +91,6 @@ step(); //kick off the first step!
 
 
 
-/* Direction key state */
-const directions = {
-    up: "up",
-    down: "down",
-    left: "left",
-    right: "right",
-}
 
 const keys = {
     38: directions.up,

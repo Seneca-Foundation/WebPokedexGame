@@ -80,20 +80,20 @@ class MapPath {
         this.drawGrid();
     }
 
-    isCharacterBlocked() {
-        return (document.querySelectorAll('.mapTileSize[data-character-grid="true"][data-blocked="true"]').length > 0);
+    isCharacterBlocked(character) {
+        return (document.querySelectorAll('.mapTileSize[data-character-grid="' + character.id + '"][data-blocked="true"]').length > 0);
     }
 
-    getAllBlocked() {
-        return document.querySelectorAll('.mapTileSize[data-character-grid="true"][data-blocked="true"]');
+    getAllBlocked(character) {
+        return document.querySelectorAll('.mapTileSize[data-character-grid="' + character.id + '"][data-blocked="true"]');
     }
 
     drawCharacterGrid(character) {
-        document.querySelectorAll('.mapTileSize[data-character-grid="true"]').forEach(e => e.dataset.characterGrid = "");
+        document.querySelectorAll('.mapTileSize[data-character-grid="' + character.id + '"]').forEach(e => e.dataset.characterGrid = "");
 
         document.querySelectorAll('.mapTileSize').forEach(e => {
             if(detectCollision(e, character)) {
-                e.dataset.characterGrid = "true";
+                e.dataset.characterGrid = character.id;
             }
         });
     }
