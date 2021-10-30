@@ -19,44 +19,41 @@ const placeCharacter = () => {
     
     const held_direction = held_directions[0];
     if (held_direction) {
-        if (held_direction === directions.right) {x += speed;}
-        if (held_direction === directions.left) {x -= speed;}
-        if (held_direction === directions.down) {y += speed;}
-        if (held_direction === directions.up) {y -= speed;}
-        character.setAttribute("facing", held_direction);
+        currentMap.drawCharacterGrid(character);
+        if (currentMap.isCharacterBlocked(character)) {
+            currentMap.getAllBlocked().forEach(element => {
+                if (betterCollision(element, character).left) {
+                    x += 1;
+                }
+                if (betterCollision(element, character).right) {
+                    x -= 1;
+                }
+                if (betterCollision(element, character).down) {
+                    y -= 1;
+                }
+                if (betterCollision(element, character).up) {
+                    y += 1;
+                }
+            });
+        }
+        else {
+            if (held_direction === directions.right) {x += speed;}
+            if (held_direction === directions.left) {x -= speed;}
+            if (held_direction === directions.down) {y += speed;}
+            if (held_direction === directions.up) {y -= speed;}
+        }
     }
+    character.setAttribute("facing", held_direction); 
     character.setAttribute("walking-left", "false");
     character.setAttribute("walking-right", "false");
     character.setAttribute("walking-up", "false");
     character.setAttribute("walking-down", "false");
     character.setAttribute("walking-"+held_direction, held_direction ? "true" : "false");
-    
+
     var camera_left = pixelSize * 66;
     var camera_top = pixelSize * 42;
-
-    if (currentMap.isCharacterBlocked(character)) {
-        var revertMovement = false;
-        currentMap.getAllBlocked().forEach(element => {
-            if (detectCollision(element, character)) {
-                revertMovement = true;
-            }
-        });
-        if (revertMovement) {
-            held_directions.reverse();
-            held_directions.forEach(held_direction => {
-                if (held_direction === directions.right) {x = x-speed*2;} //-2
-                if (held_direction === directions.left) {x = x+speed*2;} //+2
-                if (held_direction === directions.down) {y = y-speed*2;} //-2
-                if (held_direction === directions.up) {y = y+speed*2;} //+2
-            });
-
-            held_directions = [];
-        }
-    }
-
     map.style.transform = `translate3d( ${-x*pixelSize+camera_left}px, ${-y*pixelSize+camera_top}px, 0 )`;
-    character.style.transform = `translate3d( ${x*pixelSize}px, ${y*pixelSize}px, 0 )`;  
-    currentMap.drawCharacterGrid(character);
+    character.style.transform = `translate3d( ${x*pixelSize}px, ${y*pixelSize}px, 0 )`; 
 }
 
 
@@ -67,12 +64,12 @@ const step = () => {
     placeCharacter();
     
     // A rudimentary example of collision detection
-    if (detectCollision(character, pokeball)) {
-        console.log("You found the pokeball!");
-        document.getElementById("pokeball").style.display = "none";
-        pokeballDialogue = new DialogueBox("url", "meow");
-        pokeballDialogue.showDialogue("holy sh*t yall, I found a pokeball!");
-    };
+    // if (detectCollision(character, pokeball)) {
+    //     console.log("You found the pokeball!");
+    //     document.getElementById("pokeball").style.display = "none";
+    //     pokeballDialogue = new DialogueBox("url", "meow");
+    //     pokeballDialogue.showDialogue("holy sh*t yall, I found a pokeball!");
+    // };
 
     var door = document.querySelectorAll('.mapTileSize')[1502];
     if (detectCollision(character, door)) {

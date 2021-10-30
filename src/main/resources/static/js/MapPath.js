@@ -9,6 +9,8 @@ class MapPath {
         this.startX = startX;
         this.startY = startY;
         this.isBlockedList = new Array(this.numSquares);
+        this.NPCs = [];
+        this.EntryWays = [];
     }
 
     getStartX() {
@@ -92,6 +94,14 @@ class MapPath {
         document.querySelectorAll('.mapTileSize').forEach(e => {
             if(detectCollision(e, character)) {
                 e.dataset.characterGrid = "true";
+            }
+        });
+    }
+
+    eraseCharacterGrid(character) {
+        document.querySelectorAll('.mapTileSize').forEach(e => {
+            if(detectCollision(e, character)) {
+                e.dataset.characterGrid = "false";
             }
         });
     }
