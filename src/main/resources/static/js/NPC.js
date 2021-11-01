@@ -19,12 +19,38 @@ function PopulateNPCSpriteFromServer(npc, spriteId) {
 
 class NPC {
 
-    constructor(x, y, held_directions, speed) {
-        this.character = document.querySelector(".character.barb-npc");
+    constructor(id, x, y, held_directions, speed) {
+        this.id = id;
         this.x = x;
         this.y = y;
         this.held_directions = held_directions;
+        this.reverse_direction = [...held_directions].reverse();
         this.speed = speed;
+        this.reverse_direction.forEach((direction, index, reverse_direction) => {
+            if (direction === "right") { reverse_direction[index] = "left" }
+            if (direction === "left") { reverse_direction[index] = "right"; }
+            if (direction === "down") { reverse_direction[index] = "up"; }
+            if (direction === "up") { reverse_direction[index] = "down"; }
+        });
+
+        var npcSpriteSheet = document.createElement("div");
+        npcSpriteSheet.className += "character_spritesheet ";
+        npcSpriteSheet.className += "pixel-art";
+        var npcShadowSpriteSheet = document.createElement("div");
+        npcShadowSpriteSheet.className += "shadow ";
+        npcShadowSpriteSheet.className += "pixel-art";
+        var npcWindow = document.createElement("div");
+        npcWindow.className += "character ";
+        npcWindow.className += this.id + "-npc";
+        npcWindow.appendChild(npcShadowSpriteSheet);
+        npcWindow.appendChild(npcSpriteSheet);
+        npcWindow.setAttribute("facing", "down");
+        npcWindow.setAttribute("walking", "true");
+        var map = document.querySelector(".map");
+        map.appendChild(npcWindow);
+
+        this.character = document.querySelector(".character"+"."+this.id+"-npc");
+        
     }
 
     placeCharacter() {
@@ -53,13 +79,13 @@ class NPC {
                 });
             }
             else {
-                if (held_direction === directions.right) {this.x += speed;}
-                if (held_direction === directions.left) {this.x -= speed;}
-                if (held_direction === directions.down) {this.y += speed;}
-                if (held_direction === directions.up) {this.y -= speed;}
+                if (held_direction === directions.right) {this.x += this.speed;}
+                if (held_direction === directions.left) {this.x -= this.speed;}
+                if (held_direction === directions.down) {this.y += this.speed;}
+                if (held_direction === directions.up) {this.y -= this.speed;}
             }
         }
-        this.character.setAttribute("facing", held_direction); 
+        this.character.setAttribute("facing", held_direction == undefined ? "down" : held_direction); 
         this.character.setAttribute("walking-left", "false");
         this.character.setAttribute("walking-right", "false");
         this.character.setAttribute("walking-up", "false");
@@ -67,66 +93,130 @@ class NPC {
         this.character.setAttribute("walking-"+held_direction, held_direction ? "true" : "false");
     
         this.character.style.transform = `translate3d( ${this.x*pixelSize}px, ${this.y*pixelSize}px, 0 )`; 
+        if (this.held_directions.length != 0) {
+            this.held_directions.shift();
+        }
+        else {
+            this.held_directions = [...this.reverse_direction];
+            this.reverse_direction = this.reverse_direction.reverse();
+            this.reverse_direction.forEach((direction, index, reverse_direction) => {
+                if (direction === "right") { reverse_direction[index] = "left" }
+                if (direction === "left") { reverse_direction[index] = "right"; }
+                if (direction === "down") { reverse_direction[index] = "up"; }
+                if (direction === "up") { reverse_direction[index] = "down"; }
+            });
+        }
     }
 
     renderSpriteToHtml() {
         var sheetWithAnimations=document.styleSheets[0]; // load the stylesheet for modifying
 
-        var backgroundImageRuleToChangeIndex = this.findCSSRule('.character_spritesheet', sheetWithAnimations);
-        sheetWithAnimations.cssRules[backgroundImageRuleToChangeIndex].style.background = "url('" + this.animatedProperties.spriteSheetUrl + "') no-repeat no-repeat";
-        sheetWithAnimations.cssRules[backgroundImageRuleToChangeIndex].style.backgroundSize = "100%";
-        sheetWithAnimations.cssRules[backgroundImageRuleToChangeIndex].style.backgroundPositionX = "calc( var(--pixel-size) * " + this.animatedProperties.xOfCharacterPositionDown + " )";
-        sheetWithAnimations.cssRules[backgroundImageRuleToChangeIndex].style.backgroundPositionY = "calc( var(--pixel-size) * " + this.animatedProperties.yOfCharacterPositionDown + " )";            
+        var backgroundImageRuleToAdd = '.' + this.id + '-npc .character_spritesheet {';
+        backgroundImageRuleToAdd += 'background: url("' + this.animatedProperties.spriteSheetUrl + '") no-repeat no-repeat;';
+        backgroundImageRuleToAdd += 'background-size: 100%;';
+        backgroundImageRuleToAdd += 'background-position-x: calc( var(--pixel-size) * ' + this.animatedProperties.xOfCharacterPositionDown + ');';
+        backgroundImageRuleToAdd += 'background-position-y: calc( var(--pixel-size) * ' + this.animatedProperties.yOfCharacterPositionDown + ');';
+        backgroundImageRuleToAdd += 'width: calc( var(--grid-cell)* 8 );';
+        backgroundImageRuleToAdd += 'height: calc( var(--grid-cell)* 8 );';
+        backgroundImageRuleToAdd += '}';
 
-        var characterFacingSpriteSheetRuleToChange = this.findCSSRule('.character[facing="down"] .character_spritesheet', sheetWithAnimations);
-        sheetWithAnimations.cssRules[characterFacingSpriteSheetRuleToChange].style.backgroundPositionX = "calc( var(--pixel-size) * " + this.animatedProperties.xOfCharacterPositionDown + " )";
-        sheetWithAnimations.cssRules[characterFacingSpriteSheetRuleToChange].style.backgroundPositionY = "calc( var(--pixel-size) * " + this.animatedProperties.yOfCharacterPositionDown + " )";            
-        characterFacingSpriteSheetRuleToChange = this.findCSSRule('.character[facing="up"] .character_spritesheet', sheetWithAnimations);
-        sheetWithAnimations.cssRules[characterFacingSpriteSheetRuleToChange].style.backgroundPositionX = "calc( var(--pixel-size) * " + this.animatedProperties.xOfCharacterPositionUp + " )";
-        sheetWithAnimations.cssRules[characterFacingSpriteSheetRuleToChange].style.backgroundPositionY = "calc( var(--pixel-size) * " + this.animatedProperties.yOfCharacterPositionUp + " )";
-        characterFacingSpriteSheetRuleToChange = this.findCSSRule('.character[facing="left"] .character_spritesheet', sheetWithAnimations);
-        sheetWithAnimations.cssRules[characterFacingSpriteSheetRuleToChange].style.backgroundPositionX = "calc( var(--pixel-size) * " + this.animatedProperties.xOfCharacterPositionLeft + " )";
-        sheetWithAnimations.cssRules[characterFacingSpriteSheetRuleToChange].style.backgroundPositionY = "calc( var(--pixel-size) * " + this.animatedProperties.yOfCharacterPositionLeft + " )";
-        characterFacingSpriteSheetRuleToChange = this.findCSSRule('.character[facing="right"] .character_spritesheet', sheetWithAnimations);
-        sheetWithAnimations.cssRules[characterFacingSpriteSheetRuleToChange].style.backgroundPositionX = "calc( var(--pixel-size) * " + this.animatedProperties.xOfCharacterPositionRight + " )";
-        sheetWithAnimations.cssRules[characterFacingSpriteSheetRuleToChange].style.backgroundPositionY = "calc( var(--pixel-size) * " + this.animatedProperties.yOfCharacterPositionRight + " )";
+        sheetWithAnimations.insertRule(backgroundImageRuleToAdd);
+        
+        var characterFacingSpriteSheetDownRuleToAdd = '.' + this.id + '-npc.character[facing="down"] .character_spritesheet {';
+        characterFacingSpriteSheetDownRuleToAdd += "background-position-x: calc( var(--pixel-size) * " + this.animatedProperties.xOfCharacterPositionDown + " );";
+        characterFacingSpriteSheetDownRuleToAdd += "background-position-y: calc( var(--pixel-size) * " + this.animatedProperties.yOfCharacterPositionDown + " );";            
+        characterFacingSpriteSheetDownRuleToAdd += '}';
+        sheetWithAnimations.insertRule(characterFacingSpriteSheetDownRuleToAdd);
 
-        var characterWindowRuleToChange = this.findCSSRule('.character[facing="down"]', sheetWithAnimations);
-        sheetWithAnimations.cssRules[characterWindowRuleToChange].style.width = "calc( var(--grid-cell)* " + this.animatedProperties.widthOfCharacterWindowDown + " )";
-        sheetWithAnimations.cssRules[characterWindowRuleToChange].style.height = "calc( var(--grid-cell)* " + this.animatedProperties.heightOfCharacterWindowDown + " )";
-        characterWindowRuleToChange = this.findCSSRule('.character[facing="up"]', sheetWithAnimations);
-        sheetWithAnimations.cssRules[characterWindowRuleToChange].style.width = "calc( var(--grid-cell)* " + this.animatedProperties.widthOfCharacterWindowUp + " )";
-        sheetWithAnimations.cssRules[characterWindowRuleToChange].style.height = "calc( var(--grid-cell)* " + this.animatedProperties.heightOfCharacterWindowUp + " )";
-        characterWindowRuleToChange = this.findCSSRule('.character[facing="left"]', sheetWithAnimations);
-        sheetWithAnimations.cssRules[characterWindowRuleToChange].style.width = "calc( var(--grid-cell)* " + this.animatedProperties.widthOfCharacterWindowLeft + " )";
-        sheetWithAnimations.cssRules[characterWindowRuleToChange].style.height = "calc( var(--grid-cell)* " + this.animatedProperties.heightOfCharacterWindowLeft + " )";
-        characterWindowRuleToChange = this.findCSSRule('.character[facing="right"]', sheetWithAnimations);
-        sheetWithAnimations.cssRules[characterWindowRuleToChange].style.width = "calc( var(--grid-cell)* " + this.animatedProperties.widthOfCharacterWindowRight + " )";
-        sheetWithAnimations.cssRules[characterWindowRuleToChange].style.height = "calc( var(--grid-cell)* " + this.animatedProperties.heightOfCharacterWindowRight + " )";
+        var characterFacingSpriteSheetUpRuleToAdd = '.' + this.id + '-npc.character[facing="up"] .character_spritesheet {';
+        characterFacingSpriteSheetUpRuleToAdd += "background-position-x: calc( var(--pixel-size) * " + this.animatedProperties.xOfCharacterPositionUp + " );";
+        characterFacingSpriteSheetUpRuleToAdd += "background-position-y:  calc( var(--pixel-size) * " + this.animatedProperties.yOfCharacterPositionUp + " );";            
+        characterFacingSpriteSheetUpRuleToAdd += '}';
+        sheetWithAnimations.insertRule(characterFacingSpriteSheetUpRuleToAdd);
 
-        var characterAnimationRuleToChange = this.findCSSRule('walkRightAnimation', sheetWithAnimations);
-        sheetWithAnimations.cssRules[characterAnimationRuleToChange][0].style.transform = 'translate3d(' + this.animatedProperties.animationStartPercentageRight + '%, 0%, 0px)';
-        sheetWithAnimations.cssRules[characterAnimationRuleToChange][1].style.transform = 'translate3d(' + this.animatedProperties.animationStopPercentageRight + '%, 0%, 0px)';
-        var characterStepCountRuleToChange = this.findCSSRule('.character[walking-right="true"] .character_spritesheet', sheetWithAnimations);
-        sheetWithAnimations.cssRules[characterStepCountRuleToChange].style.animation = 'walkRightAnimation 0.6s steps(' + this.animatedProperties.stepCountRight + ') infinite'
+        var characterFacingSpriteSheetLeftRuleToAdd = '.' + this.id + '-npc.character[facing="left"] .character_spritesheet {';
+        characterFacingSpriteSheetLeftRuleToAdd += "background-position-x: calc( var(--pixel-size) * " + this.animatedProperties.xOfCharacterPositionLeft + " );";
+        characterFacingSpriteSheetLeftRuleToAdd += "background-position-y:  calc( var(--pixel-size) * " + this.animatedProperties.yOfCharacterPositionLeft + " );";            
+        characterFacingSpriteSheetLeftRuleToAdd += '}';
+        sheetWithAnimations.insertRule(characterFacingSpriteSheetLeftRuleToAdd);
 
-        var characterAnimationRuleToChange = this.findCSSRule('walkLeftAnimation', sheetWithAnimations);
-        sheetWithAnimations.cssRules[characterAnimationRuleToChange][0].style.transform = 'translate3d(' + this.animatedProperties.animationStartPercentageLeft + '%, 0%, 0px)';
-        sheetWithAnimations.cssRules[characterAnimationRuleToChange][1].style.transform = 'translate3d(' + this.animatedProperties.animationStopPercentageLeft + '%, 0%, 0px)';
-        var characterStepCountRuleToChange = this.findCSSRule('.character[walking-left="true"] .character_spritesheet', sheetWithAnimations);
-        sheetWithAnimations.cssRules[characterStepCountRuleToChange].style.animation = 'walkLeftAnimation 0.6s steps(' + this.animatedProperties.stepCountLeft + ') infinite'
+        var characterFacingSpriteSheetRightRuleToAdd = '.' + this.id + '-npc.character[facing="right"] .character_spritesheet {';
+        characterFacingSpriteSheetRightRuleToAdd += "background-position-x: calc( var(--pixel-size) * " + this.animatedProperties.xOfCharacterPositionRight + " );";
+        characterFacingSpriteSheetRightRuleToAdd += "background-position-y: calc( var(--pixel-size) * " + this.animatedProperties.yOfCharacterPositionRight + " );";            
+        characterFacingSpriteSheetRightRuleToAdd += '}';
+        sheetWithAnimations.insertRule(characterFacingSpriteSheetRightRuleToAdd);
 
-        var characterAnimationRuleToChange = this.findCSSRule('walkUpAnimation', sheetWithAnimations);
-        sheetWithAnimations.cssRules[characterAnimationRuleToChange][0].style.transform = 'translate3d(' + this.animatedProperties.animationStartPercentageUp + '%, 0%, 0px)';
-        sheetWithAnimations.cssRules[characterAnimationRuleToChange][1].style.transform = 'translate3d(' + this.animatedProperties.animationStopPercentageUp + '%, 0%, 0px)';
-        var characterStepCountRuleToChange = this.findCSSRule('.character[walking-up="true"] .character_spritesheet', sheetWithAnimations);
-        sheetWithAnimations.cssRules[characterStepCountRuleToChange].style.animation = 'walkUpAnimation 0.6s steps(' + this.animatedProperties.stepCountUp + ') infinite'
+        var characterFacingDownWindowRuleToAdd = '.' + this.id + '-npc.character[facing="down"] {';
+        characterFacingDownWindowRuleToAdd += 'width: calc( var(--grid-cell)* ' + this.animatedProperties.widthOfCharacterWindowDown +  ');';
+        characterFacingDownWindowRuleToAdd += 'height: calc( var(--grid-cell)* ' + this.animatedProperties.heightOfCharacterWindowDown + ');';
+        characterFacingDownWindowRuleToAdd += '}';
+        sheetWithAnimations.insertRule(characterFacingDownWindowRuleToAdd);
 
-        var characterAnimationRuleToChange = this.findCSSRule('walkDownAnimation', sheetWithAnimations);
-        sheetWithAnimations.cssRules[characterAnimationRuleToChange][0].style.transform = 'translate3d(' + this.animatedProperties.animationStartPercentageDown + '%, 0%, 0px)';
-        sheetWithAnimations.cssRules[characterAnimationRuleToChange][1].style.transform = 'translate3d(' + this.animatedProperties.animationStopPercentageDown + '%, 0%, 0px)';
-        var characterStepCountRuleToChange = this.findCSSRule('.character[walking-down="true"] .character_spritesheet', sheetWithAnimations);
-        sheetWithAnimations.cssRules[characterStepCountRuleToChange].style.animation = 'walkDownAnimation 0.6s steps(' + this.animatedProperties.stepCountDown + ') infinite'
+        var characterFacingUpWindowRuleToAdd = '.' + this.id + '-npc.character[facing="up"] {';
+        characterFacingUpWindowRuleToAdd += 'width: calc( var(--grid-cell)* ' + this.animatedProperties.widthOfCharacterWindowUp + ');';
+        characterFacingUpWindowRuleToAdd += 'height: calc( var(--grid-cell)* ' + this.animatedProperties.heightOfCharacterWindowUp + ');';
+        characterFacingUpWindowRuleToAdd += '}';
+        sheetWithAnimations.insertRule(characterFacingUpWindowRuleToAdd);
+
+        var characterFacingLeftWindowRuleToAdd = '.' + this.id + '-npc.character[facing="left"] {';
+        characterFacingLeftWindowRuleToAdd += 'width: calc( var(--grid-cell)* ' + this.animatedProperties.widthOfCharacterWindowLeft + ');';
+        characterFacingLeftWindowRuleToAdd += 'height: calc( var(--grid-cell)* ' + this.animatedProperties.heightOfCharacterWindowLeft + ');';
+        characterFacingLeftWindowRuleToAdd += '}';
+        sheetWithAnimations.insertRule(characterFacingLeftWindowRuleToAdd);
+
+        var characterFacingRightWindowRuleToAdd = '.' + this.id + '-npc.character[facing="right"] {';
+        characterFacingRightWindowRuleToAdd += 'width: calc( var(--grid-cell)* ' + this.animatedProperties.widthOfCharacterWindowRight + ');';
+        characterFacingRightWindowRuleToAdd += 'height: calc( var(--grid-cell)* ' + this.animatedProperties.heightOfCharacterWindowRight + ');';
+        characterFacingRightWindowRuleToAdd += '}';
+        sheetWithAnimations.insertRule(characterFacingRightWindowRuleToAdd);
+
+        var characterAnimationRightRuleToAdd = 'walkRightAnimation' + this.id + ' {';
+        characterAnimationRightRuleToAdd += 'from { transform: translate3d(' + this.animatedProperties.animationStartPercentageRight + '%, 0%, 0px); }';
+        characterAnimationRightRuleToAdd += 'to { transform: translate3d(' + this.animatedProperties.animationStopPercentageRight + '%, 0%, 0px); }';
+        characterAnimationRightRuleToAdd += '}';
+        sheetWithAnimations.insertRule(characterAnimationRightRuleToAdd);
+
+        var characterAnimationRightRuleToAdd = '.' + this.id + '-npc.character[walking-right="true"] .character_spritesheet {';
+        characterAnimationRightRuleToAdd += 'animation: walkRightAnimation' + this.id + ' 0.6s steps(' + this.animatedProperties.stepCountRight + ') infinite;';
+        characterAnimationRightRuleToAdd += '}';
+        sheetWithAnimations.insertRule(characterAnimationRightRuleToAdd);
+
+
+        var characterAnimationLeftRuleToAdd = 'walkLeftAnimation' + this.id + ' {';
+        characterAnimationLeftRuleToAdd += 'from { transform: translate3d(' + this.animatedProperties.animationStartPercentageLeft + '%, 0%, 0px); }';
+        characterAnimationLeftRuleToAdd += 'to { transform: translate3d(' + this.animatedProperties.animationStopPercentageLeft + '%, 0%, 0px); }';
+        characterAnimationLeftRuleToAdd += '}';
+        sheetWithAnimations.insertRule(characterAnimationLeftRuleToAdd);
+
+        var characterAnimationLeftRuleToAdd = '.' + this.id + '-npc.character[walking-left="true"] .character_spritesheet {';
+        characterAnimationLeftRuleToAdd += 'animation: walkLeftAnimation' + this.id + ' 0.6s steps(' + this.animatedProperties.stepCountLeft + ') infinite;';
+        characterAnimationLeftRuleToAdd += '}';
+        sheetWithAnimations.insertRule(characterAnimationLeftRuleToAdd);
+
+
+        var characterAnimationDownRuleToAdd = 'walkDownAnimation' + this.id + ' {';
+        characterAnimationDownRuleToAdd += 'from { transform: translate3d(' + this.animatedProperties.animationStartPercentageDown + '%, 0%, 0px); }';
+        characterAnimationDownRuleToAdd += 'to { transform: translate3d(' + this.animatedProperties.animationStopPercentageDown + '%, 0%, 0px); }';
+        characterAnimationDownRuleToAdd += '}';
+        sheetWithAnimations.insertRule(characterAnimationDownRuleToAdd);
+
+        var characterAnimationDownRuleToAdd = '.' + this.id + '-npc.character[walking-down="true"] .character_spritesheet {';
+        characterAnimationDownRuleToAdd += 'animation: walkDownAnimation' + this.id + ' 0.6s steps(' + this.animatedProperties.stepCountDown + ') infinite;';
+        characterAnimationDownRuleToAdd += '}';
+        sheetWithAnimations.insertRule(characterAnimationDownRuleToAdd);
+
+
+        var characterAnimationUpRuleToAdd = 'walkUpAnimation' + this.id + ' {';
+        characterAnimationUpRuleToAdd += 'from { transform: translate3d(' + this.animatedProperties.animationStartPercentageUp + '%, 0%, 0px); }';
+        characterAnimationUpRuleToAdd += 'to { transform: translate3d(' + this.animatedProperties.animationStopPercentageUp + '%, 0%, 0px); }';
+        characterAnimationUpRuleToAdd += '}';
+        sheetWithAnimations.insertRule(characterAnimationUpRuleToAdd);
+
+        var characterAnimationUpRuleToAdd = '.' + this.id + '-npc.character[walking-up="true"] .character_spritesheet {';
+        characterAnimationUpRuleToAdd += 'animation: walkUpAnimation' + this.id + ' 0.6s steps(' + this.animatedProperties.stepCountUp + ') infinite;';
+        characterAnimationUpRuleToAdd += '}';
+        sheetWithAnimations.insertRule(characterAnimationUpRuleToAdd);
+
     }
 
     findCSSRule(selector, mySheet) {
