@@ -1,5 +1,5 @@
 
-function PopulateNPCSpriteFromServer(npc, spriteId) {
+function PopulateNPCSpriteFromServer(npc) {
     var xhr = new XMLHttpRequest();
     xhr.callingNpc = npc;
     xhr.withCredentials = true;
@@ -11,7 +11,7 @@ function PopulateNPCSpriteFromServer(npc, spriteId) {
         }
     });
 
-    xhr.open("GET", "/npcs/" + spriteId);
+    xhr.open("GET", "/npcs/" + npc.id);
     xhr.setRequestHeader("Content-Type", "application/json");
 
     xhr.send();

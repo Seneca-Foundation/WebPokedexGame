@@ -1,6 +1,6 @@
 var character = document.querySelector(".character");
 character.id = "playercharacter";
-var bulbasaur  = new NPC("c4cf65ec-15e8-4051-8b7b-2cfb9485fa97", 50, 90, ["right","right","right","right","right","right","right","right","right","right","right","right","right"], 2.0);
+var bulbasaur  = new NPC("d275aa79-987f-4156-9f50-274ab83a62ac", 50, 90, ["right","right","right","right","right","right","right","right","right","right","right","right","right"], 2.0);
 var map = document.querySelector(".map");
 var pokeball = document.querySelector("#pokeball")
 var currentMap = townMap; // Maps stored in external js files
@@ -19,7 +19,7 @@ const directions = {
 
 currentMap.setUpPaths();
 currentMap.drawMap();
-PopulateNPCSpriteFromServer(bulbasaur, "c4cf65ec-15e8-4051-8b7b-2cfb9485fa97");
+PopulateNPCSpriteFromServer(bulbasaur);
 
 const placeCharacter = () => {
 
