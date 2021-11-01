@@ -1,8 +1,32 @@
 class MapPath {
-    constructor(isDebug, numSquares) {
+    constructor(isDebug, numSquares, mapUrl, backgroundSize, width, height, startX, startY) {
         this.isDebug = isDebug;
         this.numSquares = numSquares;
+        this.mapUrl = mapUrl;
+        this.backgroundSize = backgroundSize;
+        this.width = width;
+        this.height = height;
+        this.startX = startX;
+        this.startY = startY;
         this.isBlockedList = new Array(this.numSquares);
+        this.NPCs = [];
+        this.EntryWays = [];
+    }
+
+    getStartX() {
+        return this.startX;
+    }
+
+    getStartY() {
+        return this.startY;
+    }
+
+    drawMap() {
+        var map = document.querySelector(".map");
+        map.style.backgroundImage = 'url("' + this.mapUrl + '")';
+        map.style.backgroundSize = this.backgroundSize;
+        map.style.width = 'calc(' + this.width + ' * var(--grid-cell))';
+        map.style.height = 'calc(' + this.height + ' * var(--grid-cell))';
     }
 
     drawGrid() {
@@ -56,20 +80,28 @@ class MapPath {
         this.drawGrid();
     }
 
-    isCharacterBlocked() {
-        return (document.querySelectorAll('.mapTileSize[data-character-grid="true"][data-blocked="true"]').length > 0);
+    isCharacterBlocked(character) {
+        return (document.querySelectorAll('.mapTileSize[data-character-grid="' + character.id + '"][data-blocked="true"]').length > 0);
     }
 
-    getAllBlocked() {
-        return document.querySelectorAll('.mapTileSize[data-character-grid="true"][data-blocked="true"]');
+    getAllBlocked(character) {
+        return document.querySelectorAll('.mapTileSize[data-character-grid="' + character.id + '"][data-blocked="true"]');
     }
 
     drawCharacterGrid(character) {
-        document.querySelectorAll('.mapTileSize[data-character-grid="true"]').forEach(e => e.dataset.characterGrid = "");
+        document.querySelectorAll('.mapTileSize[data-character-grid="' + character.id + '"]').forEach(e => e.dataset.characterGrid = "");
 
         document.querySelectorAll('.mapTileSize').forEach(e => {
             if(detectCollision(e, character)) {
-                e.dataset.characterGrid = "true";
+                e.dataset.characterGrid = character.id;
+            }
+        });
+    }
+
+    eraseCharacterGrid(character) {
+        document.querySelectorAll('.mapTileSize').forEach(e => {
+            if(detectCollision(e, character)) {
+                e.dataset.characterGrid = "false";
             }
         });
     }
