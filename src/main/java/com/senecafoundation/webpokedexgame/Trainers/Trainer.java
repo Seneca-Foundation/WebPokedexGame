@@ -5,14 +5,12 @@ import java.util.Hashtable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 
 import com.senecafoundation.webpokedexgame.PokedexItems.AnimatedProperties;
-import com.senecafoundation.webpokedexgame.PokedexItems.Pokemon.Pokemon;
 import com.senecafoundation.webpokedexgame.PokedexItems.Pokemon.PokemonWithSecondAbility;
 
 @Entity

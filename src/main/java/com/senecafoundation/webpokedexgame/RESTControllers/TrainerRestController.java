@@ -4,13 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import com.senecafoundation.webpokedexgame.DataHandler.AnimatedPropertiesDataWriter;
-import com.senecafoundation.webpokedexgame.DataHandler.BaseCharacterDataWriters.NPCDataWriter;
 import com.senecafoundation.webpokedexgame.DataHandler.BaseCharacterDataWriters.TrainerDataWriter;
 import com.senecafoundation.webpokedexgame.DataHandler.PokedexItemDataWriters.PokemonSecondDataWriter;
 import com.senecafoundation.webpokedexgame.PokedexItems.AnimatedProperties;
 import com.senecafoundation.webpokedexgame.PokedexItems.Pokemon.Pokemon;
 import com.senecafoundation.webpokedexgame.PokedexItems.Pokemon.PokemonWithSecondAbility;
-import com.senecafoundation.webpokedexgame.Trainers.NPC;
 import com.senecafoundation.webpokedexgame.Trainers.Trainer;
 
 import org.springframework.beans.factory.annotation.Autowired;
