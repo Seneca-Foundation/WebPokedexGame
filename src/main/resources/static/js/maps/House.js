@@ -29,11 +29,11 @@ houseMap.setUpPaths = function() {
 
 }
 
-townMap.beforeGameLoopEvents = function() {
+houseMap.beforeGameLoopEvents = function() {
 }
 
-townMap.duringGameLoopEvents = function() {
+houseMap.duringGameLoopEvents = function() {
 }
 
-townMap.afterGameLoopEvents = function() {
+houseMap.afterGameLoopEvents = function() {
 }
