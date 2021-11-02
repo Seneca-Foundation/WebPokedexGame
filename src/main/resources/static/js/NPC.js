@@ -171,7 +171,7 @@ class NPC {
         characterFacingRightWindowRuleToAdd += '}';
         sheetWithAnimations.insertRule(characterFacingRightWindowRuleToAdd);
 
-        var characterAnimationRightRuleToAdd = 'walkRightAnimation' + this.id + ' {';
+        var characterAnimationRightRuleToAdd = '@keyframes walkRightAnimation' + this.id + ' {';
         characterAnimationRightRuleToAdd += 'from { transform: translate3d(' + this.animatedProperties.animationStartPercentageRight + '%, 0%, 0px); }';
         characterAnimationRightRuleToAdd += 'to { transform: translate3d(' + this.animatedProperties.animationStopPercentageRight + '%, 0%, 0px); }';
         characterAnimationRightRuleToAdd += '}';
@@ -183,7 +183,7 @@ class NPC {
         sheetWithAnimations.insertRule(characterAnimationRightRuleToAdd);
 
 
-        var characterAnimationLeftRuleToAdd = 'walkLeftAnimation' + this.id + ' {';
+        var characterAnimationLeftRuleToAdd = '@keyframes walkLeftAnimation' + this.id + ' {';
         characterAnimationLeftRuleToAdd += 'from { transform: translate3d(' + this.animatedProperties.animationStartPercentageLeft + '%, 0%, 0px); }';
         characterAnimationLeftRuleToAdd += 'to { transform: translate3d(' + this.animatedProperties.animationStopPercentageLeft + '%, 0%, 0px); }';
         characterAnimationLeftRuleToAdd += '}';
@@ -195,7 +195,7 @@ class NPC {
         sheetWithAnimations.insertRule(characterAnimationLeftRuleToAdd);
 
 
-        var characterAnimationDownRuleToAdd = 'walkDownAnimation' + this.id + ' {';
+        var characterAnimationDownRuleToAdd = '@keyframes walkDownAnimation' + this.id + ' {';
         characterAnimationDownRuleToAdd += 'from { transform: translate3d(' + this.animatedProperties.animationStartPercentageDown + '%, 0%, 0px); }';
         characterAnimationDownRuleToAdd += 'to { transform: translate3d(' + this.animatedProperties.animationStopPercentageDown + '%, 0%, 0px); }';
         characterAnimationDownRuleToAdd += '}';
@@ -207,7 +207,7 @@ class NPC {
         sheetWithAnimations.insertRule(characterAnimationDownRuleToAdd);
 
 
-        var characterAnimationUpRuleToAdd = 'walkUpAnimation' + this.id + ' {';
+        var characterAnimationUpRuleToAdd = '@keyframes walkUpAnimation' + this.id + ' {';
         characterAnimationUpRuleToAdd += 'from { transform: translate3d(' + this.animatedProperties.animationStartPercentageUp + '%, 0%, 0px); }';
         characterAnimationUpRuleToAdd += 'to { transform: translate3d(' + this.animatedProperties.animationStopPercentageUp + '%, 0%, 0px); }';
         characterAnimationUpRuleToAdd += '}';
