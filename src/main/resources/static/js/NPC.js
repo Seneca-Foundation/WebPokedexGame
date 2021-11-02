@@ -114,7 +114,7 @@ class NPC {
 
         var backgroundImageRuleToAdd = '.' + this.id + '-npc .character_spritesheet {';
         backgroundImageRuleToAdd += 'background: url("' + this.animatedProperties.spriteSheetUrl + '") no-repeat no-repeat;';
-        backgroundImageRuleToAdd += 'background-size: 100%;';
+        backgroundImageRuleToAdd += 'background-size: ' + this.animatedProperties.backgroundSize + '%;';
         backgroundImageRuleToAdd += 'background-position-x: calc( var(--pixel-size) * ' + this.animatedProperties.xOfCharacterPositionDown + ');';
         backgroundImageRuleToAdd += 'background-position-y: calc( var(--pixel-size) * ' + this.animatedProperties.yOfCharacterPositionDown + ');';
         backgroundImageRuleToAdd += 'width: calc( var(--grid-cell)* 8 );';
