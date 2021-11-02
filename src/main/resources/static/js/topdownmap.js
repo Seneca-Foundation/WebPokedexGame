@@ -1,9 +1,7 @@
 var character = document.querySelector(".character");
 character.id = "playercharacter";
-var bulbasaur  = new NPC("4981c8ec-1999-4938-892c-72c00d431090", 50, 90, ["right","right","right","right","right","right","right","right","right","right","right","right","right"], 2.0);
 
 var map = document.querySelector(".map");
-var pokeball = document.querySelector("#pokeball")
 var currentMap = townMap; // Maps stored in external js files
 var x = currentMap.getStartX();
 var y = currentMap.getStartY();
@@ -20,7 +18,7 @@ const directions = {
 
 currentMap.setUpPaths();
 currentMap.drawMap();
-PopulateNPCSpriteFromServer(bulbasaur);
+currentMap.beforeGameLoopEvents();
 
 const placeCharacter = () => {
 
@@ -72,7 +70,7 @@ const step = () => {
     
     // Draw the character
     placeCharacter();
-    bulbasaur.placeCharacter();
+    currentMap.duringGameLoopEvents();
     
     var door = document.querySelectorAll('.mapTileSize')[1502];
     if (detectCollision(character, door)) {
@@ -90,7 +88,7 @@ const step = () => {
 }
 step(); //kick off the first step!
 
-
+currentMap.afterGameLoopEvents();
 
 
 const keys = {
