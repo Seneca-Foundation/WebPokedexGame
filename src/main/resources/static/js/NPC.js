@@ -85,6 +85,7 @@ class NPC {
                 if (held_direction === directions.up) {this.y -= this.speed;}
             }
         }
+        //change line 89 and refresh webpage so makesure you write your data down
         this.character.setAttribute("facing", held_direction == undefined ? "down" : held_direction); 
         this.character.setAttribute("walking-left", "false");
         this.character.setAttribute("walking-right", "false");
