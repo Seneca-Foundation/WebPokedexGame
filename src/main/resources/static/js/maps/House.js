@@ -28,3 +28,12 @@ houseMap.setUpPaths = function() {
     houseMap.switchBlockedRangeVert(899, 15, 83);
 
 }
+
+townMap.beforeGameLoopEvents = function() {
+}
+
+townMap.duringGameLoopEvents = function() {
+}
+
+townMap.afterGameLoopEvents = function() {
+}
