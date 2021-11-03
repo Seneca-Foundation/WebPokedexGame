@@ -1,20 +1,12 @@
 {
 	"info": {
-<<<<<<< HEAD
-		"_postman_id": "18212af6-0c07-4264-b3ed-b65825d520b3",
-=======
 		"_postman_id": "8861a640-35e0-4a5f-813b-837c74270491",
->>>>>>> 14c1283c355ea4243aacc7419e8d1e922a0b5708
 		"name": "BaseCharacter",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-<<<<<<< HEAD
-			"name": "Create Base",
-=======
 			"name": "Create Base Character",
->>>>>>> 14c1283c355ea4243aacc7419e8d1e922a0b5708
 			"request": {
 				"method": "POST",
 				"header": [
@@ -42,39 +34,7 @@
 			"response": []
 		},
 		{
-<<<<<<< HEAD
-			"name": "Create Bulbasar",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\"name\":\"Funny Skeleton Guy\",\n\"avgSize\":\"small\",\n\"color\":\"white\",\n\"pokemonType\":\"Boney\",\n\"region\":\"Graveyard\",\n\"hp\":\"345\",\n\"attack\":\"345\",\n\"defense\":\"345\",\n\"spDefense\":\"345\",\n\"spAttack\":\"345\",\n\"speed\":\"345\",\n\"ability1\":\"Dance\",\n\"ability2\":\"Smile\",\n\"typeEffectiveness\":\"Scary\",\n\"typeWeakness\":\"Scary\",\n\"animatedProperties\": {\n        \"spriteSheetUrl\":\"http://localhost/images/bulbasaur.png\",\n        \"spriteSheetWidth\":\"\",\n        \"spriteSheetHeight\":\"\",\n        \"widthOfCharacterWindowUp\":\"0.8\",\n        \"heightOfCharacterWindowUp\":\".9\",\n        \"widthOfCharacterWindowRight\":\"1.1\",\n        \"heightOfCharacterWindowRight\":\".9\",\n        \"widthOfCharacterWindowDown\":\"0.9\",\n        \"heightOfCharacterWindowDown\":\"1\",\n        \"widthOfCharacterWindowLeft\":\"1.1\",\n        \"heightOfCharacterWindowLeft\":\".9\",\n        \"xOfCharacterPositionLeft\":\"-11.8\",\n        \"yOfCharacterPositionLeft\":\"-72.1\",\n        \"xOfCharacterPositionRight\":\"-12.4\",\n        \"yOfCharacterPositionRight\":\"-114.6\",\n        \"xOfCharacterPositionUp\":\"-14.9\",\n        \"yOfCharacterPositionUp\":\"-157.2\",\n        \"xOfCharacterPositionDown\":\"-14.2\",\n        \"yOfCharacterPositionDown\":\"-28.4\",\n        \"stepCountRight\":\"3\",\n        \"stepCountLeft\":\"3\",\n        \"stepCountUp\":\"3\",\n        \"stepCountDown\":\"3\",\n        \"animationStartPercentageLeft\":\"0\",\n        \"animationStartPercentageRight\":\"0\",\n        \"animationStartPercentageUp\":\"0\",\n        \"animationStartPercentageDown\":\"0\",\n        \"animationStopPercentageLeft\":\"-100\",\n        \"animationStopPercentageRight\":\"-100\",\n        \"animationStopPercentageUp\":\"-100\",\n        \"animationStopPercentageDown\":\"-100\"\n    }\n}"
-				},
-				"url": {
-					"raw": "localhost:80/pokemonSeconds",
-					"host": [
-						"localhost"
-					],
-					"port": "80",
-					"path": [
-						"pokemonSeconds"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Delete PokemonSeconds",
-=======
 			"name": "Delete Base Character",
->>>>>>> 14c1283c355ea4243aacc7419e8d1e922a0b5708
 			"request": {
 				"method": "DELETE",
 				"header": [
@@ -85,33 +45,21 @@
 					}
 				],
 				"url": {
-<<<<<<< HEAD
-					"raw": "localhost:80/baseCharacters/72ab89d7-a428-48fb-b293-0d33b567fe25",
-=======
 					"raw": "localhost:80/baseCharacters/383e3174-eea5-46de-b201-e0b227725f05",
->>>>>>> 14c1283c355ea4243aacc7419e8d1e922a0b5708
 					"host": [
 						"localhost"
 					],
 					"port": "80",
 					"path": [
 						"baseCharacters",
-<<<<<<< HEAD
-						"72ab89d7-a428-48fb-b293-0d33b567fe25"
-=======
 						"383e3174-eea5-46de-b201-e0b227725f05"
->>>>>>> 14c1283c355ea4243aacc7419e8d1e922a0b5708
 					]
 				}
 			},
 			"response": []
 		},
 		{
-<<<<<<< HEAD
-			"name": "Update PokemonSeconds",
-=======
 			"name": "Update Base Character",
->>>>>>> 14c1283c355ea4243aacc7419e8d1e922a0b5708
 			"request": {
 				"method": "PUT",
 				"header": [
@@ -123,28 +71,17 @@
 				],
 				"body": {
 					"mode": "raw",
-<<<<<<< HEAD
-					"raw": "{\n\"name\":\"Funny Skeleton Guy\",\n\"animatedProperties\": {\n        \"spriteSheetUrl\":\"https://pixelartmaker-data-78746291193.nyc3.digitaloceanspaces.com/image/e951e67563ce5de.png\",\n        \"spriteSheetWidth\":\"\",\n        \"spriteSheetHeight\":\"\",\n        \"widthOfCharacterWindowUp\":\"0.91\",\n        \"heightOfCharacterWindowUp\":\"1.2\",\n        \"widthOfCharacterWindowRight\":\"0.67\",\n        \"heightOfCharacterWindowRight\":\"1.2\",\n        \"widthOfCharacterWindowDown\":\"0.83\",\n        \"heightOfCharacterWindowDown\":\"1.2\",\n        \"widthOfCharacterWindowLeft\":\"0.67\",\n        \"heightOfCharacterWindowLeft\":\"1.2\",\n        \"xOfCharacterPositionLeft\":\"-2.7\",\n        \"yOfCharacterPositionLeft\":\"-38\",\n        \"xOfCharacterPositionRight\":\"-2\",\n        \"yOfCharacterPositionRight\":\"-19\",\n        \"xOfCharacterPositionUp\":\"-63\",\n        \"yOfCharacterPositionUp\":\"-0\",\n        \"xOfCharacterPositionDown\":\"-2.1\",\n        \"yOfCharacterPositionDown\":\"0\",\n        \"stepCountRight\":\"4\",\n        \"stepCountLeft\":\"4\",\n        \"stepCountUp\":\"4\",\n        \"stepCountDown\":\"4\",\n        \"animationStartPercentageLeft\":\"0\",\n        \"animationStartPercentageRight\":\"0\",\n        \"animationStartPercentageUp\":\"0\",\n        \"animationStartPercentageDown\":\"0\",\n        \"animationStopPercentageLeft\":\"-33\",\n        \"animationStopPercentageRight\":\"-33\",\n        \"animationStopPercentageUp\":\"-45\",\n        \"animationStopPercentageDown\":\"-45\"\n    }\n}"
-				},
-				"url": {
-					"raw": "localhost:80/baseCharacters/72ab89d7-a428-48fb-b293-0d33b567fe25",
-=======
 					"raw": "{\n\"name\":\"Base Guy2\",\n\"animatedProperties\": {\n        \"spriteSheetUrl\":\"https://pixelartmaker-data-78746291193.nyc3.digitaloceanspaces.com/image/e951e67563ce5de.png\",\n        \"spriteSheetWidth\":\"5\",\n        \"spriteSheetHeight\":\"\",\n        \"widthOfCharacterWindowUp\":\"0.95\",\n        \"heightOfCharacterWindowUp\":\"1.2\",\n        \"widthOfCharacterWindowRight\":\"0.67\",\n        \"heightOfCharacterWindowRight\":\"1.2\",\n        \"widthOfCharacterWindowDown\":\"0.83\",\n        \"heightOfCharacterWindowDown\":\"1.2\",\n        \"widthOfCharacterWindowLeft\":\"0.67\",\n        \"heightOfCharacterWindowLeft\":\"1.2\",\n        \"xOfCharacterPositionLeft\":\"-2.7\",\n        \"yOfCharacterPositionLeft\":\"-38\",\n        \"xOfCharacterPositionRight\":\"-2\",\n        \"yOfCharacterPositionRight\":\"-19\",\n        \"xOfCharacterPositionUp\":\"-63\",\n        \"yOfCharacterPositionUp\":\"-0\",\n        \"xOfCharacterPositionDown\":\"-2.1\",\n        \"yOfCharacterPositionDown\":\"0\",\n        \"stepCountRight\":\"4\",\n        \"stepCountLeft\":\"4\",\n        \"stepCountUp\":\"4\",\n        \"stepCountDown\":\"4\",\n        \"animationStartPercentageLeft\":\"0\",\n        \"animationStartPercentageRight\":\"0\",\n        \"animationStartPercentageUp\":\"0\",\n        \"animationStartPercentageDown\":\"0\",\n        \"animationStopPercentageLeft\":\"-33\",\n        \"animationStopPercentageRight\":\"-33\",\n        \"animationStopPercentageUp\":\"-45\",\n        \"animationStopPercentageDown\":\"-45\"\n    }\n}"
 				},
 				"url": {
 					"raw": "localhost:80/baseCharacters/10b91cb2-71a5-47b5-97d4-bf164f5ff3e4",
->>>>>>> 14c1283c355ea4243aacc7419e8d1e922a0b5708
 					"host": [
 						"localhost"
 					],
 					"port": "80",
 					"path": [
 						"baseCharacters",
-<<<<<<< HEAD
-						"72ab89d7-a428-48fb-b293-0d33b567fe25"
-=======
 						"10b91cb2-71a5-47b5-97d4-bf164f5ff3e4"
->>>>>>> 14c1283c355ea4243aacc7419e8d1e922a0b5708
 					],
 					"query": [
 						{
@@ -158,11 +95,7 @@
 			"response": []
 		},
 		{
-<<<<<<< HEAD
-			"name": "ReadAll PokemonSeconds",
-=======
 			"name": "ReadAll Base Characters",
->>>>>>> 14c1283c355ea4243aacc7419e8d1e922a0b5708
 			"request": {
 				"method": "GET",
 				"header": [],

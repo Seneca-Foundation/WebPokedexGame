@@ -1,6 +1,6 @@
 var character = document.querySelector(".character");
 character.id = "playercharacter";
-var bulbasaur  = new NPC("c53051a3-d409-4f15-8ee4-e0f9589d8f8f", 50, 90, ["right","right","right","right","right","right","right","right","right","right","right","right","right"], 2.0);
+var bulbasaur  = new NPC("5cedb058-a956-40b7-8fad-07c3d1ff4c3a", 30, 100, ["right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right"], 0.5);
 var map = document.querySelector(".map");
 var pokeball = document.querySelector("#pokeball")
 var currentMap = townMap; // Maps stored in external js files
