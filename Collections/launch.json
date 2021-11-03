@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-WebPokemonGameApplication<web-pokedex-game>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.senecafoundation.webpokedexgame.WebPokemonGameApplication",
+            "projectName": "web-pokedex-game",
+            "args": "--spring.profiles.active=terrence"
+        },
+        {
+            "type": "java",
+            "name": "Launch with Cloud Database",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.senecafoundation.webpokedexgame.WebPokemonGameApplication",
+            "projectName": "web-pokedex-game",      
+            "args": "--spring.profiles.active=docker"
+        }
+    ]
+}
