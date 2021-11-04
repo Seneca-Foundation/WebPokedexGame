@@ -1,9 +1,9 @@
 var character = document.querySelector(".character");
 character.id = "playercharacter";
-var bulbasaur  = new NPC("5cedb058-a956-40b7-8fad-07c3d1ff4c3a", 30, 100, ["right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right"], 0.5);
+var bulbasaur  = new NPC("cab0039e-4e7c-4ed6-808c-cc4bb885d430", 50, 100, ["right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right"], 0.5);
 var map = document.querySelector(".map");
 var pokeball = document.querySelector("#pokeball")
-var currentMap = townMap; // Maps stored in external js files
+var currentMap = waterFallMap; // Maps stored in external js files
 var x = currentMap.getStartX();
 var y = currentMap.getStartY();
 var held_directions = []; //State of which arrow keys we are holding down
@@ -19,6 +19,8 @@ const directions = {
 
 currentMap.setUpPaths();
 currentMap.drawMap();
+currentMap.drawGrid();
+//currentMap.switchDebug();
 PopulateNPCSpriteFromServer(bulbasaur);
 
 const placeCharacter = () => {
@@ -73,14 +75,14 @@ const step = () => {
     placeCharacter();
     bulbasaur.placeCharacter();
     
-    var door = document.querySelectorAll('.mapTileSize')[1502];
-    if (detectCollision(character, door)) {
-        currentMap = houseMap;
-        currentMap.drawMap();
-        currentMap.setUpPaths();
-        x = currentMap.getStartX();
-        y = currentMap.getStartY();
-    }
+    // var door = document.querySelectorAll('.mapTileSize')[1502];
+    // if (detectCollision(character, door)) {
+    //     currentMap = houseMap;
+    //     currentMap.drawMap();
+    //     currentMap.setUpPaths();
+    //     x = currentMap.getStartX();
+    //     y = currentMap.getStartY();
+    // }
 
     // Restart the game loop
     window.requestAnimationFrame(() => {
