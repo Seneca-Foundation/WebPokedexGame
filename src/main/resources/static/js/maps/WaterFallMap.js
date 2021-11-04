@@ -1,4 +1,4 @@
-waterFallMap = new MapPath(false, 6000, "/images/maps/waterfallmap.png", '100%', 30, 17.55, 205, 220.5);
+waterFallMap = new MapPath(false, 6000, "/images/maps/waterfallmap.png", '100%', 30, 17.55, 240, 260);
 waterFallMap.setUpPaths = function() {
 
 
@@ -40,6 +40,7 @@ waterFallMap.setUpPaths = function() {
     waterFallMap.switchBlockedRangeVert(5163,2,100);
     waterFallMap.switchBlockedRangeVert(3859, 2, 100);
     waterFallMap.switchBlockedRangeVert(1192,3,100);
+    waterFallMap.switchBlockedRangeVert(872,4,100);
 
     
 
@@ -63,7 +64,7 @@ waterFallMap.setUpPaths = function() {
     waterFallMap.switchBlockedRange(5888, 5895);
     waterFallMap.switchBlockedRange(5174, 5186);
     waterFallMap.switchBlockedRange(5191, 5195);
-    waterFallMap.switchBlockedRange(2463, 2472);
+    waterFallMap.switchBlockedRange(2363, 2372);
     waterFallMap.switchBlockedRange(3271, 3280);
     waterFallMap.switchBlockedRange(1379, 1383);
     waterFallMap.switchBlockedRange(1372, 1375);
@@ -81,6 +82,7 @@ waterFallMap.setUpPaths = function() {
     waterFallMap.switchBlockedRange(3874, 3880);
     waterFallMap.switchBlockedRange(5159,5161);
     waterFallMap.switchBlockedRange(5279,5280);
+    waterFallMap.switchBlockedRange(873,883);
     
     //Entrance to house in the middle 
     waterFallMap.switchBlockedRange(4150,4152)
