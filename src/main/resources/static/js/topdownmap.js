@@ -1,6 +1,6 @@
 var character = document.querySelector(".character");
 character.id = "playercharacter";
-var bulbasaur  = new NPC("cab0039e-4e7c-4ed6-808c-cc4bb885d430", 50, 100, ["right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right"], 0.5);
+var bulbasaur  = new NPC("bdc81b74-5218-4714-99db-fcfee5b0d78c", 50, 100, ["right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right"], 0.5);
 var map = document.querySelector(".map");
 var pokeball = document.querySelector("#pokeball")
 var currentMap = waterFallMap; // Maps stored in external js files
@@ -19,7 +19,7 @@ const directions = {
 
 currentMap.setUpPaths();
 currentMap.drawMap();
-currentMap.drawGrid();
+//currentMap.drawGrid();
 //currentMap.switchDebug();
 PopulateNPCSpriteFromServer(bulbasaur);
 
