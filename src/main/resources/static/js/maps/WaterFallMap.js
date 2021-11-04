@@ -4,6 +4,7 @@ waterFallMap.setUpPaths = function() {
 
     waterFallMap.switchBlocked(5787);
     waterFallMap.switchBlocked(1965);
+    waterFallMap.switchBlocked(3489);
 
     waterFallMap.switchBlockedRangeVert(4129, 8, 100);
     waterFallMap.switchBlockedRangeVert(4636, 4, 100);
@@ -17,6 +18,10 @@ waterFallMap.setUpPaths = function() {
     waterFallMap.switchBlockedRangeVert(1965,1,100);
     waterFallMap.switchBlockedRangeVert(1590,3,100);
     waterFallMap.switchBlockedRangeVert(2999,6,100);
+    waterFallMap.switchBlockedRangeVert(3881,3,100);
+    waterFallMap.switchBlockedRangeVert(3980,2,100);
+    waterFallMap.switchBlockedRangeVert(3472,3,100);
+    waterFallMap.switchBlockedRangeVert(3473,3,100);
     
     waterFallMap.switchBlockedRange(5037, 5046);
     waterFallMap.switchBlockedRange(3447, 3455);
@@ -28,7 +33,7 @@ waterFallMap.setUpPaths = function() {
     waterFallMap.switchBlockedRange(3254, 3264);
     waterFallMap.switchBlockedRange(3200, 3228);
     waterFallMap.switchBlockedRange(2417, 2426);
-    waterFallMap.switchBlockedRange(2434, 2443);
+    waterFallMap.switchBlockedRange(2335, 2343);
     waterFallMap.switchBlockedRange(5720, 5726);
     waterFallMap.switchBlockedRange(5730, 5734);
     waterFallMap.switchBlockedRange(5835, 5885);
@@ -43,6 +48,10 @@ waterFallMap.setUpPaths = function() {
     waterFallMap.switchBlockedRange(2061, 2064);
     waterFallMap.switchBlockedRange(2479, 2485);
     waterFallMap.switchBlockedRange(2886, 2899); 
+    waterFallMap.switchBlockedRange(3681, 3699);
+    waterFallMap.switchBlockedRange(3588, 3590);
+    waterFallMap.switchBlockedRange(2148, 2161);
+
     
     
     
