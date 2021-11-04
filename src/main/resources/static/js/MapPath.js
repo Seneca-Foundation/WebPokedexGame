@@ -88,6 +88,7 @@ class MapPath {
         return document.querySelectorAll('.mapTileSize[data-character-grid="' + character.id + '"][data-blocked="true"]');
     }
 
+    //how do you change this window?
     drawCharacterGrid(character) {
         document.querySelectorAll('.mapTileSize[data-character-grid="' + character.id + '"]').forEach(e => e.dataset.characterGrid = "");
 
