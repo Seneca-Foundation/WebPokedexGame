@@ -27,6 +27,43 @@ HouseTwoMap.switchBlockedRangeVert(2135, 3, 83)
 HouseTwoMap.switchBlockedRange(2219, 2237)
 
 HouseTwoMap.switchBlockedRange(2637, 2642)
+HouseTwoMap.switchBlockedRange(2478, 2479)
+
+HouseTwoMap.switchBlockedRangeVert(2314, 4, 83)
+HouseTwoMap.switchBlockedRangeVert(2315, 4, 83)
+HouseTwoMap.switchBlockedRange(2482, 2486)
+
+HouseTwoMap.switchBlockedRangeVert(2568, 3, 83)
+HouseTwoMap.switchBlockedRangeVert(2305, 3, 83)
+HouseTwoMap.switchBlockedRangeVert(2311, 3, 83)
+
+HouseTwoMap.switchBlockedRange(2969, 2975)
+
+HouseTwoMap.switchBlockedRange(3721, 3731)
+
+
+HouseTwoMap.switchBlockedRange(3706, 3717)
+
+HouseTwoMap.switchBlockedRange(3896, 3897)
+
+HouseTwoMap.switchBlockedRange(3979, 3980)
+
+
+HouseTwoMap.switchBlockedRange(4038, 4063)
+
+HouseTwoMap.switchBlockedRange(3872, 3874)
+
+HouseTwoMap.switchBlockedRange(3955, 3957)
+
+HouseTwoMap.switchBlockedRange(2412, 2431)
+
+HouseTwoMap.switchBlocked(2514)
+HouseTwoMap.switchBlockedRange(1748, 1767)
+
+HouseTwoMap.switchBlocked(3601)
+
+
+
 
 
 HouseTwoMap.switchBlockedRangeVert(3539, 7, 83)
@@ -35,15 +72,15 @@ HouseTwoMap.switchBlockedRangeVert(1906, 26, 83)
 HouseTwoMap.switchBlockedRangeVert(3911, 1, 83)
 HouseTwoMap.switchBlockedRangeVert(3919, 1, 83)
 HouseTwoMap.switchBlockedRangeVert(3262, 3, 83)
-HouseTwoMap.switchBlockedRangeVert(2266, 7, 83)
+HouseTwoMap.switchBlockedRangeVert(2266, 6, 83)
 HouseTwoMap.switchBlockedRangeVert(2273, 5, 83)
 HouseTwoMap.switchBlockedRangeVert(2371, 5, 83)
+HouseTwoMap.switchBlockedRangeVert(3597, 1, 83)
 
 HouseTwoMap.switchBlockedRangeVert(2455, 4, 83)
 HouseTwoMap.switchBlockedRangeVert(2456, 4, 83)
 HouseTwoMap.switchBlockedRange(2775, 2783)
 
-HouseTwoMap.switchBlockedRange(2860, 2864)
 
 HouseTwoMap.switchBlockedRange(2694, 2698)
 
@@ -127,11 +164,14 @@ HouseTwoMap.switchBlockedRangeVert(277, 6, 83)
 HouseTwoMap.switchBlockedRangeVert(278, 5, 83)
 HouseTwoMap.switchBlockedRangeVert(279, 5, 83)
 
+HouseTwoMap.switchBlockedRange(3187, 3191)
 
-
-HouseTwoMap.switchBlockedRange(3268, 3274)
 HouseTwoMap.switchBlockedRange(3197, 3203)
-HouseTwoMap.switchBlockedRange(3280, 3286)
+
+
+
+HouseTwoMap.switchBlockedRange(3268, 3269)
+HouseTwoMap.switchBlockedRange(3197, 3203)
 HouseTwoMap.switchBlockedRange(2443, 2451)
 HouseTwoMap.switchBlockedRange(3178, 3179)
 HouseTwoMap.switchBlockedRange(3912, 3918)
@@ -148,7 +188,8 @@ HouseTwoMap.switchBlockedRange(1611, 1643)
 HouseTwoMap.switchBlockedRange(1774, 1793)
 HouseTwoMap.switchBlockedRange(1796, 1823)
 HouseTwoMap.switchBlockedRange(4121, 4147)
-HouseTwoMap.switchBlockedRange(3453, 3456)
+HouseTwoMap.switchBlockedRange(3536, 3538)
+
 HouseTwoMap.switchBlockedRange(3602, 3619)
 HouseTwoMap.switchBlockedRange(3593, 3596)
 HouseTwoMap.switchBlockedRange(3762, 3766)
@@ -162,7 +203,8 @@ HouseTwoMap.switchBlockedRange(2523, 2525)
 
 HouseTwoMap.switchBlocked(3572)
 HouseTwoMap.switchBlocked(3679)
-HouseTwoMap.switchBlocked(2846)
+HouseTwoMap.switchBlocked(2763)
+
 
 
 
