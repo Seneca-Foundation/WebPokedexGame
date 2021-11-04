@@ -39,6 +39,8 @@ waterFallMap.setUpPaths = function() {
     waterFallMap.switchBlockedRangeVert(4756,3,100);
     waterFallMap.switchBlockedRangeVert(5163,2,100);
     waterFallMap.switchBlockedRangeVert(3859, 2, 100);
+    waterFallMap.switchBlockedRangeVert(1192,3,100);
+
     
 
 
@@ -78,6 +80,16 @@ waterFallMap.setUpPaths = function() {
     waterFallMap.switchBlockedRange(268, 288);
     waterFallMap.switchBlockedRange(3874, 3880);
     waterFallMap.switchBlockedRange(5159,5161);
+    waterFallMap.switchBlockedRange(5279,5280);
+    
+    //Entrance to house in the middle 
+    waterFallMap.switchBlockedRange(4150,4152)
+
+    //Entrance to gym bottom right 
+    waterFallMap.switchBlockedRange(5279,5280);
+
+    //Entrance to pokemon lab top right 
+    waterFallMap.switchBlockedRange(1377,1378)
 
 
     
