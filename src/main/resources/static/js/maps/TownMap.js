@@ -64,6 +64,9 @@ townMap.setUpPaths = function() {
 }
 
 townMap.beforeGameLoopEvents = function() {
+    document.querySelectorAll('[class*="npc-"]').forEach(element => {
+        element.remove();
+    });
     this.bulbasaur  = new NPC("32659a2e-c18d-4c7c-a27d-db44d4c249cc", 50, 90, Array(110).fill("right").concat(Array(70).fill("down")), 1.0);
     PopulateNPCSpriteFromServer(this.bulbasaur);
 }

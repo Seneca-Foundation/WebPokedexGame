@@ -166,7 +166,10 @@ HouseTwoMap.setUpPaths = function() {
 }
 
 HouseTwoMap.beforeGameLoopEvents = function() {
-    this.usagi = new NPC("af2a40af-add1-46a3-9fb3-3542ae2431c8", 30, 145, Array(40).fill("right").concat(Array(10).fill("up")).concat(Array(100).fill("right")).concat(Array(120).fill("down")), 0.5);
+    document.querySelectorAll('[class*="npc-"]').forEach(element => {
+        element.remove();
+    });
+    this.usagi = new NPC("4078406a-f8d4-4aed-8bf5-840d18d41ac0", 30, 145, Array(40).fill("right").concat(Array(10).fill("up")).concat(Array(100).fill("right")).concat(Array(120).fill("down")), 0.5);
     PopulateNPCSpriteFromServer(this.usagi);
 }
 
@@ -181,6 +184,19 @@ HouseTwoMap.duringGameLoopEvents = function() {
         x = 7;
         y = currentMap.getStartY();
     } 
+
+    document.addEventListener("keydown", (e) => {
+        if (e.code === 'Space') {
+            if (this.usagi.characterDialogue.boxIsShowing()) {
+                this.usagi.characterDialogue.hideDialogue();
+            }
+            else {
+                if(detectCollision(this.usagi.character, character)) {
+                    this.usagi.characterDialogue.showDialogue(this.usagi.dialogueTree.HouseTwo[Math.floor(Math.random() * 4)]);
+                }
+            }
+        };
+    })
 }
 
 HouseTwoMap.afterGameLoopEvents = function() {
