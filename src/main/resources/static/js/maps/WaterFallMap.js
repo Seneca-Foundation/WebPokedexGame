@@ -10,6 +10,11 @@ waterFallMap.setUpPaths = function() {
     waterFallMap.switchBlocked(3863);
     waterFallMap.switchBlocked(1324);
     waterFallMap.switchBlocked(1125);
+    waterFallMap.switchBlocked(4339);
+    waterFallMap.switchBlocked(5020);
+    waterFallMap.switchBlocked(5727);
+    waterFallMap.switchBlocked(2288);
+
 
 
     waterFallMap.switchBlockedRangeVert(4129, 8, 100);
@@ -47,7 +52,10 @@ waterFallMap.setUpPaths = function() {
     waterFallMap.switchBlockedRangeVert(2018,3,100);
     waterFallMap.switchBlockedRangeVert(1022,12,100);
     waterFallMap.switchBlockedRangeVert(1926,4,100);
-    waterFallMap.switchBlockedRange(5926, 5931);
+    waterFallMap.switchBlockedRangeVert(5388, 4, 100);
+    waterFallMap.switchBlockedRangeVert(3440, 12, 100);
+    waterFallMap.switchBlockedRangeVert(3638, 2, 100)
+
 
 
     
@@ -92,6 +100,11 @@ waterFallMap.setUpPaths = function() {
     waterFallMap.switchBlockedRange(5279,5280);
     waterFallMap.switchBlockedRange(873,883);
     waterFallMap.switchBlockedRange(1027,1037);
+    waterFallMap.switchBlockedRange(5926, 5931);
+    waterFallMap.switchBlockedRange(4637, 4639);
+    waterFallMap.switchBlockedRange(3936, 3939)
+    waterFallMap.switchBlockedRange(4722, 4725)
+
 
     //Entrance to PokeShop Center 
     waterFallMap.switchBlockedRange(1809, 1815);
@@ -112,4 +125,24 @@ waterFallMap.setUpPaths = function() {
 
 
 
+}
+
+
+waterFallMap.beforeGameLoopEvents = function() {
+}
+
+waterFallMap.duringGameLoopEvents = function() {
+     
+    var towndoor = document.querySelectorAll('.mapTileSize')[3764];
+    if (detectCollision(character, towndoor)) {
+        currentMap = townMap;
+        currentMap.beforeGameLoopEvents();
+        currentMap.drawMap();
+        currentMap.setUpPaths();
+        x = 7;
+        y = currentMap.getStartY();
+    } 
+}
+
+waterFallMap.afterGameLoopEvents = function() {
 }
