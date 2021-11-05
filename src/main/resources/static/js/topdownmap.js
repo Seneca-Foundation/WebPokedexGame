@@ -1,8 +1,6 @@
 var character = document.querySelector(".character");
 character.id = "playercharacter";
-var bulbasaur  = new NPC("cab0039e-4e7c-4ed6-808c-cc4bb885d430", 50, 100, ["right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right"], 0.5);
 var map = document.querySelector(".map");
-var pokeball = document.querySelector("#pokeball")
 var currentMap = HouseTwoMap; // Maps stored in external js files
 var x = currentMap.getStartX();
 var y = currentMap.getStartY();
@@ -21,7 +19,6 @@ currentMap.setUpPaths();
 currentMap.drawMap();
 currentMap.drawGrid();
 //currentMap.switchDebug();
-PopulateNPCSpriteFromServer(bulbasaur);
 currentMap.beforeGameLoopEvents();
 
 const placeCharacter = () => {
@@ -75,16 +72,6 @@ const step = () => {
     // Draw the character
     placeCharacter();
     currentMap.duringGameLoopEvents();
-    
-    var door = document.querySelectorAll('.mapTileSize')[3764, 3765];
-    if (detectCollision(character, door)) {
-        currentMap = houseTwoMap;
-        currentMap.drawMap();
-        currentMap.setUpPaths();
-        x = currentMap.getStartX();
-        y = currentMap.getStartY();
-    }
-    // [3764, 3765] for leaving
 
     // Restart the game loop
     window.requestAnimationFrame(() => {
