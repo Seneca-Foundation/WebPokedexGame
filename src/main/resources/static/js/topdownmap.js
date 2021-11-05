@@ -71,19 +71,6 @@ const step = () => {
     placeCharacter();
     currentMap.duringGameLoopEvents();
 
-    //during
-    // TownMap.duringGameLoopEvents = function() { 
-    //     var door = document.querySelectorAll('.mapTileSize')[3764];
-    //     if (detectCollision(character, door)) {
-    //         currentMap = townMap;
-    //         currentMap.beforeGameLoopEvents();
-    //         currentMap.drawMap();
-    //         currentMap.setUpPaths();
-    //         x = 7;
-    //         y = currentMap.getStartY();
-    //     } 
-    // }
-
     // Restart the game loop
     window.requestAnimationFrame(() => {
         step();

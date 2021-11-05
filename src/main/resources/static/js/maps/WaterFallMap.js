@@ -129,20 +129,63 @@ waterFallMap.setUpPaths = function() {
 
 
 waterFallMap.beforeGameLoopEvents = function() {
+
+    document.querySelectorAll('[class*="npc-"]').forEach(element => {
+        element.remove();
+    });
+
+    this.charizard = new NPC("c35ac5a0-4d37-4b4f-9eea-3c9fd610062e",130, 140, /* Array(40).fill("right").concat(Array(10).fill("up")).concat(Array(100).fill("right")).concat(Array(120).fill("down")) */ [], 0.5 );
+    PopulateNPCSpriteFromServer(this.charizard);
+
+
+    this.garren = new NPC("43d840f5-7a32-4887-a234-135739af271c", 50, 120, Array(40).fill("right"), 0.5);
+    PopulateNPCSpriteFromServer(this.garren);
+
+    this.colonel = new NPC("a594634f-2f02-4ded-a67a-8bef2e4619a1",40, 100, /* Array(40).fill("right").concat(Array(10).fill("up")).concat(Array(100).fill("right")).concat(Array(120).fill("down")) */ Array(40).fill("right").concat(Array(10).fill("right")), 0.5 );
+    PopulateNPCSpriteFromServer(this.colonel);
+
+
+
 }
 
 waterFallMap.duringGameLoopEvents = function() {
+    this.charizard.placeCharacter();
+    this.colonel.placeCharacter();
+    this.garren.placeCharacter();
+    
+    document.addEventListener("keydown", (e) => {
+        if (e.code === 'Space') {
+            if (this.colonel.characterDialogue.boxIsShowing()) {
+                this.colonel.characterDialogue.hideDialogue();
+            }
+            else {
+                if(detectCollision(this.colonel.character, character)) {
+                    this.colonel.characterDialogue.showDialogue(this.colonel.dialogueTree.World[0]);
+                }
+            }
+            if (this.garren.characterDialogue.boxIsShowing()) {
+                this.garren.characterDialogue.hideDialogue();
+            }
+            else {
+                if(detectCollision(this.garren.character, character)) {
+                    this.garren.characterDialogue.showDialogue(this.garren.dialogueTree.World[0]);
+                }
+            }
+        };
+    }) 
      
-    var towndoor = document.querySelectorAll('.mapTileSize')[3764];
+    var towndoor = document.querySelectorAll('.mapTileSize')[5861];
     if (detectCollision(character, towndoor)) {
         currentMap = townMap;
         currentMap.beforeGameLoopEvents();
         currentMap.drawMap();
         currentMap.setUpPaths();
-        x = 7;
-        y = currentMap.getStartY();
+        currentMap.setUpPaths();
+        x = 200;
+        y = 18;
     } 
 }
+
 
 waterFallMap.afterGameLoopEvents = function() {
 }

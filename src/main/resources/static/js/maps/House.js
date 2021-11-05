@@ -1,4 +1,4 @@
-houseMap = new MapPath(false, 4315, "/images/maps/house.png", '100%', 25, 15.4, 205, 220.5);
+houseMap = new MapPath(false, 4315, "/images/maps/house.png", '100%', 25, 15.4, 205, 200);
 houseMap.setUpPaths = function() {
     houseMap.switchBlockedRange(4150, 4232);
     houseMap.switchBlockedRangeVert(40, 49, 83);
@@ -30,9 +30,37 @@ houseMap.setUpPaths = function() {
 }
 
 houseMap.beforeGameLoopEvents = function() {
+
+
+    document.querySelectorAll('[class*="npc-"]').forEach(element => {
+        element.remove();
+    });
 }
 
 houseMap.duringGameLoopEvents = function() {
+    
+    document.addEventListener("keydown", (e) => {
+        if (e.code === 'Space') {
+            if (this.colonel.characterDialogue.boxIsShowing()) {
+                this.colonel.characterDialogue.hideDialogue();
+            }
+            else {
+                if(detectCollision(this.colonel.character, character)) {
+                    this.colonel.characterDialogue.showDialogue(this.colonel.dialogueTree.World[0]);
+                }
+            }
+        };
+    }) 
+
+    var backtotowndoor = document.querySelectorAll('.mapTileSize')[4109];
+    if (detectCollision(character, backtotowndoor)) {
+         currentMap = townMap;
+         currentMap.beforeGameLoopEvents();
+         currentMap.drawMap();
+         currentMap.setUpPaths();
+         x = currentMap.getStartX();
+         y = currentMap.getStartY();
+    } 
 }
 
 houseMap.afterGameLoopEvents = function() {

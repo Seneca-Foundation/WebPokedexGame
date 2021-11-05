@@ -12,6 +12,10 @@ townMap.setUpPaths = function() {
     townMap.switchBlockedRange(2075, 2077);
     townMap.switchBlockedRange(2161, 2187);
     townMap.switchBlockedRange(2244, 2270);
+    townMap.switchBlockedRange(1351,1355);
+    townMap.switchBlockedRange(1434,1438);
+
+
 
     townMap.switchBlockedRange(2188, 2190);
     townMap.switchBlockedRange(2271, 2273);
@@ -61,31 +65,60 @@ townMap.setUpPaths = function() {
     //Opening door to first market
     townMap.switchBlockedRange(1335, 1338);
     townMap.switchBlockedRange(1418, 1421);
+
+    //Opening second door to houseMapTwo
+    townMap.switchBlockedRange(1351,1355);
+    townMap.switchBlockedRange(1434,1438);
 }
 
 townMap.beforeGameLoopEvents = function() {
+
+
     document.querySelectorAll('[class*="npc-"]').forEach(element => {
         element.remove();
     });
-    this.bulbasaur  = new NPC("32659a2e-c18d-4c7c-a27d-db44d4c249cc", 50, 90, Array(110).fill("right").concat(Array(70).fill("down")), 1.0);
-    PopulateNPCSpriteFromServer(this.bulbasaur);
+    
 }
 
 townMap.duringGameLoopEvents = function() {
-    this.usagi.placeCharacter();
-    
-    document.addEventListener("keydown", (e) => {
-        if (e.code === 'Space') {
-            if (this.usagi.characterDialogue.boxIsShowing()) {
-                this.usagi.characterDialogue.hideDialogue();
-            }
-            else {
-                if(detectCollision(this.usagi.character, character)) {
-                    this.usagi.characterDialogue.showDialogue(this.usagi.dialogueTree.World);
-                }
-            }
-        };
-    }) 
+
+
+    var waterfalldoor = document.querySelectorAll('.mapTileSize')[43];
+    if (detectCollision(character, waterfalldoor)) {
+         currentMap = waterFallMap;
+         currentMap.beforeGameLoopEvents();
+         currentMap.drawMap();
+         currentMap.setUpPaths();
+         x = currentMap.getStartX();
+         y = currentMap.getStartY();
+    } 
+    var warrensdoor = document.querySelectorAll('.mapTileSize')[1419];
+    if (detectCollision(character, warrensdoor)) {
+         currentMap = houseMap;
+         currentMap.beforeGameLoopEvents();
+         currentMap.drawMap();
+         currentMap.setUpPaths();
+         x = currentMap.getStartX();
+         y = currentMap.getStartY();
+    } 
+    var housemaptwodoor = document.querySelectorAll('.mapTileSize')[1436];
+    if (detectCollision(character, housemaptwodoor)) {
+         currentMap = HouseTwoMap;
+         currentMap.beforeGameLoopEvents();
+         currentMap.drawMap();
+         currentMap.setUpPaths();
+         x = currentMap.getStartX();
+         y = currentMap.getStartY();
+    } 
+    // var arthousedoor = document.querySelectorAll('.mapTileSize')[1436];
+    // if (detectCollision(character, arthousedoor)) {
+    //      currentMap = HouseTwoMap;
+    //      currentMap.beforeGameLoopEvents();
+    //      currentMap.drawMap();
+    //      currentMap.setUpPaths();
+    //      x = currentMap.getStartX();
+    //      y = currentMap.getStartY();
+    // } 
 }
 
 townMap.afterGameLoopEvents = function() {

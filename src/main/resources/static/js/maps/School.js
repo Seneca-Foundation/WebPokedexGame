@@ -16,18 +16,6 @@ schoolMap.setUpPaths = function() {
      schoolMap.switchBlockedRangeVert(2374,7, 83);
      schoolMap.switchBlockedRangeVert(4008,2, 83);
      schoolMap.switchBlockedRangeVert(4008,2, 83); 
-
-
-
-
-
-
-
-
-
-
-
-     
  
      //doorways 
      schoolMap.switchBlockedRange(3785, 3788);
@@ -36,11 +24,8 @@ schoolMap.setUpPaths = function() {
      schoolMap.switchBlockedRangeVert(1610,11, 83);
      schoolMap.switchBlockedRange(1028, 1031);
 
-
-
-
      //green room bottom right 
-     schoolMap.switchBlockedRangeVert(2295, 6, 83);
+     schoolMap.switchBlockedRangeVert(2295, 10, 83);
      schoolMap.switchBlockedRange(2969,2972);
      schoolMap.switchBlockedRangeVert(2562, 1, 83);
      schoolMap.switchBlockedRange(3643,3646);
@@ -62,46 +47,18 @@ schoolMap.setUpPaths = function() {
      schoolMap.switchBlockedRange(3780, 3781);
      schoolMap.switchBlocked(3784);
 
-
-
-
-
-
-
-
-
-
-
-
-
 }
 
-townMap.beforeGameLoopEvents = function() {
 
-}
-
-townMap.beforeGameLoopEvents = function() {
+schoolMap.beforeGameLoopEvents = function() {
     document.querySelectorAll('[class*="npc-"]').forEach(element => {
         element.remove();
     });
-    this.colonel = new NPC("b02b81fc-f157-4209-894d-af045be167c7", 30, 145, Array(40).fill("right").concat(Array(10).fill("up")).concat(Array(100).fill("right")).concat(Array(120).fill("down")), 0.5);
+    this.colonel = new NPC("3c842d11-cc82-4b6b-b213-69afbef7c99d", 30, 145, Array(40).fill("right").concat(Array(10).fill("up")).concat(Array(100).fill("right")).concat(Array(120).fill("down")), 0.5);
     PopulateNPCSpriteFromServer(this.colonel);
-
-    document.addEventListener("keydown", (e) => {
-        if (e.code === 'Space') {
-            if (this.colonel.characterDialogue.boxIsShowing()) {
-                this.colonel.characterDialogue.hideDialogue();
-            }
-            else {
-                if(detectCollision(this.colonel.character, character)) {
-                    this.colonel.characterDialogue.showDialogue(this.colonel.dialogueTree.World);
-                }
-            }
-        };
-    })
 }
 
-townMap.duringGameLoopEvents = function() {
+schoolMap.duringGameLoopEvents = function() {
     this.colonel.placeCharacter();   
     var schooldoor = document.querySelectorAll('.mapTileSize')[3764];
     if (detectCollision(character, schooldoor)) {
@@ -120,12 +77,12 @@ townMap.duringGameLoopEvents = function() {
             }
             else {
                 if(detectCollision(this.colonel.character, character)) {
-                    this.colonel.characterDialogue.showDialogue(this.colonel.dialogueTree.HouseTwo[Math.floor(Math.random() * 4)]);
+                    this.colonel.characterDialogue.showDialogue(this.colonel.dialogueTree.World[0]);
                 }
             }
         };
     })
 }
 
-HouseTwoMap.afterGameLoopEvents = function() {
+schoolMap.afterGameLoopEvents = function() {
 }
