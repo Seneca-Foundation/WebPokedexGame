@@ -166,7 +166,7 @@ HouseTwoMap.setUpPaths = function() {
 }
 
 HouseTwoMap.beforeGameLoopEvents = function() {
-    this.usagi = new NPC("c490bf3c-1922-4fc4-ade7-62b1dce02f8c", 30, 145, ["right"], 0.5);
+    this.usagi = new NPC("af2a40af-add1-46a3-9fb3-3542ae2431c8", 30, 145, Array(40).fill("right").concat(Array(10).fill("up")).concat(Array(100).fill("right")).concat(Array(120).fill("down")), 0.5);
     PopulateNPCSpriteFromServer(this.usagi);
 }
 
