@@ -70,24 +70,6 @@ const step = () => {
     // Draw the character
     placeCharacter();
     currentMap.duringGameLoopEvents();
-    
-     var door = document.querySelectorAll('.mapTileSize')[1502];
-     if (detectCollision(character, door)) {
-         currentMap = houseMap;
-         currentMap.drawMap();
-         currentMap.setUpPaths();
-         x = currentMap.getStartX();
-         y = currentMap.getStartY();
-     }
-
-     var waterfall = document.querySelectorAll('.mapTileSize')[126];
-     if (detectCollision(character,waterfall)) {
-         currentMap = waterFallMap; 
-         currentMap.drawMap();
-         currentMap.setUpPaths();
-         x = currentMap.getStartX();
-         y = currentMap.getStartY();
-     }
 
     // Restart the game loop
     window.requestAnimationFrame(() => {
