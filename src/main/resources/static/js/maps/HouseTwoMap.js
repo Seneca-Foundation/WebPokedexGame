@@ -166,8 +166,21 @@ HouseTwoMap.setUpPaths = function() {
 }
 
 HouseTwoMap.beforeGameLoopEvents = function() {
-    this.usagi = new NPC("c490bf3c-1922-4fc4-ade7-62b1dce02f8c", 30, 145, ["right"], 0.5);
+    this.usagi = new NPC("c490bf3c-1922-4fc4-ade7-62b1dce02f8c", 30, 145, Array(15).fill("right").concat(Array(5).fill("down")), 0.5);
     PopulateNPCSpriteFromServer(this.usagi);
+
+    document.addEventListener("keydown", (e) => {
+        if (e.code === 'Space') {
+            if (this.usagi.characterDialogue.boxIsShowing()) {
+                this.usagi.characterDialogue.hideDialogue();
+            }
+            else {
+                if(detectCollision(this.usagi.character, character)) {
+                    this.usagi.characterDialogue.showDialogue(this.usagi.dialogueTree.World);
+                }
+            }
+        };
+    })
 }
 
 HouseTwoMap.duringGameLoopEvents = function() {

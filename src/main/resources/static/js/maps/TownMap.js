@@ -64,25 +64,25 @@ townMap.setUpPaths = function() {
 }
 
 townMap.beforeGameLoopEvents = function() {
-    this.bulbasaur  = new NPC("32659a2e-c18d-4c7c-a27d-db44d4c249cc", 50, 90, Array(110).fill("right").concat(Array(70).fill("down")), 1.0);
-    PopulateNPCSpriteFromServer(this.bulbasaur);
+    this.usagi  = new NPC("48195210-6469-4e0e-9010-65e093d04302", 50, 90, [], 0.5);
+    PopulateNPCSpriteFromServer(this.usagi);
 }
 
 townMap.duringGameLoopEvents = function() {
-    this.bulbasaur.placeCharacter();
+    this.usagi.placeCharacter();
     
     document.addEventListener("keydown", (e) => {
         if (e.code === 'Space') {
-            if (this.bulbasaur.characterDialogue.boxIsShowing()) {
-                this.bulbasaur.characterDialogue.hideDialogue();
+            if (this.usagi.characterDialogue.boxIsShowing()) {
+                this.usagi.characterDialogue.hideDialogue();
             }
             else {
-                if(detectCollision(this.bulbasaur.character, character)) {
-                    this.bulbasaur.characterDialogue.showDialogue(this.bulbasaur.dialogueTree.World);
+                if(detectCollision(this.usagi.character, character)) {
+                    this.usagi.characterDialogue.showDialogue(this.usagi.dialogueTree.World);
                 }
             }
         };
-    })
+    }) 
 }
 
 townMap.afterGameLoopEvents = function() {
