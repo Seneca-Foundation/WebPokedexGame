@@ -2,6 +2,7 @@ class DialogueBox {
     constructor(pictureUrl, dialogueText) {
         this.pictureUrl = pictureUrl;
         this.dialogueText = dialogueText;
+        document.querySelector(".characterDialoguePic").setAttribute("src", this.pictureUrl);
         // work w/ Travis to insert this into the dom dynamically in the bottom left div
         /*                <div id="characterDialogueBox" class="dialogueBox">
                     <div class="characterDialogueBox">
@@ -16,6 +17,11 @@ class DialogueBox {
         */
     }
 
+    updatePicture(pictureUrl) {
+        this.pictureUrl = pictureUrl;
+        document.querySelector(".characterDialoguePic").setAttribute("src", this.pictureUrl);
+    }
+
     showDialogue(textToDisplay) {
         this.dialogueText = textToDisplay;
         // Get the div that contains the dialogue window (It should be hidden to start)
@@ -27,5 +33,9 @@ class DialogueBox {
 
     hideDialogue() {
         document.getElementById("characterDialogueBox").style.display = "none";
+    }
+    
+    boxIsShowing() {
+        return document.getElementById("characterDialogueBox").style.display === "inline-block";
     }
 }

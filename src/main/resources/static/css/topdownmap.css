@@ -309,8 +309,8 @@ body {
 }
 
 .characterDialoguePic {
-   width: 200%;
-   left: calc( var(--grid-cell) * -1);
+   width: 100%;
+   /* left: calc( var(--grid-cell) * -1); */
    position: relative;
 }
 

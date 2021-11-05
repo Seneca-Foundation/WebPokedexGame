@@ -13,8 +13,8 @@ public class NPC extends BaseCharacter {
 
     private Hashtable<String, ArrayList<String>> dialogueTree;
 
-    public NPC(String name, AnimatedProperties animatedProperties, Hashtable<String, ArrayList<String>> dialogueTree) {
-        super(name, animatedProperties);
+    public NPC(String name, String profilePhoto, AnimatedProperties animatedProperties, Hashtable<String, ArrayList<String>> dialogueTree) {
+        super(name, profilePhoto, animatedProperties);
         this.setDialogueTree(dialogueTree);
     }
 

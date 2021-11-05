@@ -17,8 +17,6 @@ const directions = {
 
 currentMap.setUpPaths();
 currentMap.drawMap();
-currentMap.drawGrid();
-//currentMap.switchDebug();
 currentMap.beforeGameLoopEvents();
 
 const placeCharacter = () => {
