@@ -26,8 +26,8 @@ public class Trainer extends NPC {
         super();
     }
 
-    public Trainer(ArrayList<PokemonWithSecondAbility> sixPokemon, Integer trainerLevel, String name, AnimatedProperties animatedProperties, Hashtable<String, ArrayList<String>> dialogueTree ) {
-        super(name, animatedProperties, dialogueTree);
+    public Trainer(ArrayList<PokemonWithSecondAbility> sixPokemon, Integer trainerLevel, String name, String profilePhoto, AnimatedProperties animatedProperties, Hashtable<String, ArrayList<String>> dialogueTree ) {
+        super(name, profilePhoto, animatedProperties, dialogueTree);
         this.setSixPokemon(sixPokemon);
         this.setTrainerLevel(trainerLevel);
     }
