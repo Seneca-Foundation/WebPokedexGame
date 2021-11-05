@@ -1,4 +1,3 @@
-
 townMap = new MapPath(false, 4233, "/images/maps/town.png", '100%', 25, 15.4, 21, 101);
 townMap.setUpPaths = function() {
     townMap.switchBlockedRange(1414, 1443);
@@ -65,12 +64,12 @@ townMap.setUpPaths = function() {
 }
 
 townMap.beforeGameLoopEvents = function() {
-    this.bulbasaur  = new NPC("f2cc883d-42da-4580-8865-f4d841d473fe", 50, 90, ["right","right","right","right","right","right","right","right","right","right","right","right","right"], 2.0);
+    this.bulbasaur  = new NPC("32659a2e-c18d-4c7c-a27d-db44d4c249cc", 50, 90, Array(110).fill("right").concat(Array(70).fill("down")), 1.0);
     PopulateNPCSpriteFromServer(this.bulbasaur);
 }
 
 townMap.duringGameLoopEvents = function() {
-    this.bulbasaur.placeCharacter();    
+    this.bulbasaur.placeCharacter();
     
     document.addEventListener("keydown", (e) => {
         if (e.code === 'Space') {
@@ -79,7 +78,7 @@ townMap.duringGameLoopEvents = function() {
             }
             else {
                 if(detectCollision(this.bulbasaur.character, character)) {
-                    this.bulbasaur.characterDialogue.showDialogue("Hey, I'm a skeleton");
+                    this.bulbasaur.characterDialogue.showDialogue(this.bulbasaur.dialogueTree.World);
                 }
             }
         };

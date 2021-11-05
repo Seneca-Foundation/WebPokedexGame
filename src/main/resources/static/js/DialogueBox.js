@@ -2,6 +2,7 @@ class DialogueBox {
     constructor(pictureUrl, dialogueText) {
         this.pictureUrl = pictureUrl;
         this.dialogueText = dialogueText;
+        document.querySelector(".characterDialoguePic").setAttribute("src", this.pictureUrl);
         // work w/ Travis to insert this into the dom dynamically in the bottom left div
         /*                <div id="characterDialogueBox" class="dialogueBox">
                     <div class="characterDialogueBox">
@@ -14,6 +15,11 @@ class DialogueBox {
                     </div>
                 </div>
         */
+    }
+
+    updatePicture(pictureUrl) {
+        this.pictureUrl = pictureUrl;
+        document.querySelector(".characterDialoguePic").setAttribute("src", this.pictureUrl);
     }
 
     showDialogue(textToDisplay) {

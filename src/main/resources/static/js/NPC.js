@@ -8,6 +8,7 @@ function PopulateNPCSpriteFromServer(npc) {
         if(this.readyState === 4) {
             Object.assign(this.callingNpc, JSON.parse(this.responseText));
             this.callingNpc.renderSpriteToHtml();
+            this.callingNpc.characterDialogue.updatePicture(this.callingNpc.profilePhoto);
         }
     });
 
@@ -119,7 +120,7 @@ class NPC {
         backgroundImageRuleToAdd += 'background-size: ' + this.animatedProperties.backgroundSize + '%;';
         backgroundImageRuleToAdd += 'background-position-x: calc( var(--pixel-size) * ' + this.animatedProperties.xOfCharacterPositionDown + ');';
         backgroundImageRuleToAdd += 'background-position-y: calc( var(--pixel-size) * ' + this.animatedProperties.yOfCharacterPositionDown + ');';
-        backgroundImageRuleToAdd += 'width: calc( var(--grid-cell)* 8 );';
+        backgroundImageRuleToAdd += 'width: calc( var(--grid-cell)* ' + this.animatedProperties.spriteSheetWidth + ' );';
         backgroundImageRuleToAdd += 'height: calc( var(--grid-cell)* 8 );';
         backgroundImageRuleToAdd += '}';
 
