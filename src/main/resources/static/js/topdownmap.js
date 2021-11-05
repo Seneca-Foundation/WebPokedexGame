@@ -1,7 +1,7 @@
 var character = document.querySelector(".character");
 character.id = "playercharacter";
 var map = document.querySelector(".map");
-var currentMap = HouseTwoMap; // Maps stored in external js files
+var currentMap = townMap; // Maps stored in external js files
 var x = currentMap.getStartX();
 var y = currentMap.getStartY();
 var held_directions = []; //State of which arrow keys we are holding down
@@ -17,8 +17,6 @@ const directions = {
 
 currentMap.setUpPaths();
 currentMap.drawMap();
-//currentMap.drawGrid();
-//currentMap.switchDebug();
 currentMap.beforeGameLoopEvents();
 
 const placeCharacter = () => {
@@ -72,6 +70,19 @@ const step = () => {
     // Draw the character
     placeCharacter();
     currentMap.duringGameLoopEvents();
+
+    //during
+    // TownMap.duringGameLoopEvents = function() { 
+    //     var door = document.querySelectorAll('.mapTileSize')[3764];
+    //     if (detectCollision(character, door)) {
+    //         currentMap = townMap;
+    //         currentMap.beforeGameLoopEvents();
+    //         currentMap.drawMap();
+    //         currentMap.setUpPaths();
+    //         x = 7;
+    //         y = currentMap.getStartY();
+    //     } 
+    // }
 
     // Restart the game loop
     window.requestAnimationFrame(() => {

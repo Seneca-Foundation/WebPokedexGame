@@ -8,6 +8,7 @@ function PopulateNPCSpriteFromServer(npc) {
         if(this.readyState === 4) {
             Object.assign(this.callingNpc, JSON.parse(this.responseText));
             this.callingNpc.renderSpriteToHtml();
+            this.callingNpc.characterDialogue.updatePicture(this.callingNpc.profilePhoto);
         }
     });
 
@@ -32,6 +33,7 @@ class NPC {
             if (direction === "down") { reverse_direction[index] = "up"; }
             if (direction === "up") { reverse_direction[index] = "down"; }
         });
+        this.characterDialogue = new DialogueBox("/images/Character_pics/Cristian.png", "If you see this it's an error");
 
         var npcSpriteSheet = document.createElement("div");
         npcSpriteSheet.className += "character_spritesheet ";
@@ -50,6 +52,7 @@ class NPC {
         map.prepend(npcWindow);
 
         this.character = document.querySelector(".character" + ".npc-"+this.id);
+        this.character.id = this.id;
         
     }
 
@@ -117,7 +120,7 @@ class NPC {
         backgroundImageRuleToAdd += 'background-size: ' + this.animatedProperties.backgroundSize + '%;';
         backgroundImageRuleToAdd += 'background-position-x: calc( var(--pixel-size) * ' + this.animatedProperties.xOfCharacterPositionDown + ');';
         backgroundImageRuleToAdd += 'background-position-y: calc( var(--pixel-size) * ' + this.animatedProperties.yOfCharacterPositionDown + ');';
-        backgroundImageRuleToAdd += 'width: calc( var(--grid-cell)* 8 );';
+        backgroundImageRuleToAdd += 'width: calc( var(--grid-cell)* ' + this.animatedProperties.spriteSheetWidth + ' );';
         backgroundImageRuleToAdd += 'height: calc( var(--grid-cell)* 8 );';
         backgroundImageRuleToAdd += '}';
 

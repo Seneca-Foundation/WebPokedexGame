@@ -1,4 +1,3 @@
-
 townMap = new MapPath(false, 4233, "/images/maps/town.png", '100%', 25, 15.4, 21, 101);
 townMap.setUpPaths = function() {
     townMap.switchBlockedRange(1414, 1443);
@@ -65,21 +64,28 @@ townMap.setUpPaths = function() {
 }
 
 townMap.beforeGameLoopEvents = function() {
-    this.palmtreething = new NPC("b1da31b2-8c79-459a-8800-9862a3112501", 50, 100, [], 0.5);
-    PopulateNPCSpriteFromServer(this.palmtreething);
+    document.querySelectorAll('[class*="npc-"]').forEach(element => {
+        element.remove();
+    });
+    this.bulbasaur  = new NPC("32659a2e-c18d-4c7c-a27d-db44d4c249cc", 50, 90, Array(110).fill("right").concat(Array(70).fill("down")), 1.0);
+    PopulateNPCSpriteFromServer(this.bulbasaur);
 }
 
 townMap.duringGameLoopEvents = function() {
-    this.palmtreething.placeCharacter();   
-    var waterfalldoor = document.querySelectorAll('.mapTileSize')[43];
-    if (detectCollision(character, waterfalldoor)) {
-        currentMap = waterFallMap;
-        currentMap.beforeGameLoopEvents();
-        currentMap.drawMap();
-        currentMap.setUpPaths();
-        x = currentMap.getStartX();
-        y = currentMap.getStartY();
-    } 
+    this.usagi.placeCharacter();
+    
+    document.addEventListener("keydown", (e) => {
+        if (e.code === 'Space') {
+            if (this.usagi.characterDialogue.boxIsShowing()) {
+                this.usagi.characterDialogue.hideDialogue();
+            }
+            else {
+                if(detectCollision(this.usagi.character, character)) {
+                    this.usagi.characterDialogue.showDialogue(this.usagi.dialogueTree.World);
+                }
+            }
+        };
+    }) 
 }
 
 townMap.afterGameLoopEvents = function() {

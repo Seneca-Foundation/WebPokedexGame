@@ -24,6 +24,7 @@ public class BaseCharacter {
     private UUID ID; 
 
     protected String name;
+    protected String profilePhoto;
 
     @OneToOne
     protected AnimatedProperties animatedProperties;
@@ -31,8 +32,9 @@ public class BaseCharacter {
     public BaseCharacter() {
     }
 
-    public BaseCharacter (String name, AnimatedProperties animatedProperties) {
+    public BaseCharacter (String name, String profilePhoto, AnimatedProperties animatedProperties) {
         this.setName(name);
+        this.setProfilePhoto(profilePhoto);
         this.setID(UUID.randomUUID());
         this.setAnimatedProperties(animatedProperties);
     }
@@ -51,6 +53,14 @@ public class BaseCharacter {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getProfilePhoto() {
+        return profilePhoto;
+    }
+
+    public void setProfilePhoto(String profilePhoto) {
+        this.profilePhoto = profilePhoto;
     }
 
     public AnimatedProperties getAnimatedProperties() {
