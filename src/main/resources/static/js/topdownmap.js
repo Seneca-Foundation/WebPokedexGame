@@ -2,7 +2,7 @@ var character = document.querySelector(".character");
 character.id = "playercharacter";
 
 var map = document.querySelector(".map");
-var currentMap = townMap; // Maps stored in external js files
+
 var x = currentMap.getStartX();
 var y = currentMap.getStartY();
 var held_directions = []; //State of which arrow keys we are holding down
@@ -18,7 +18,7 @@ const directions = {
 
 currentMap.setUpPaths();
 currentMap.drawMap();
-currentMap.beforeGameLoopEvents();
+
 
 const placeCharacter = () => {
 
@@ -70,7 +70,6 @@ const step = () => {
     
     // Draw the character
     placeCharacter();
-    currentMap.duringGameLoopEvents();
     
     var door = document.querySelectorAll('.mapTileSize')[1502];
     if (detectCollision(character, door)) {
