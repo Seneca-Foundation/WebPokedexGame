@@ -65,11 +65,12 @@ townMap.setUpPaths = function() {
 }
 
 townMap.beforeGameLoopEvents = function() {
-    
+    this.palmtreething = new NPC("b1da31b2-8c79-459a-8800-9862a3112501", 50, 100, [], 0.5);
+    PopulateNPCSpriteFromServer(this.palmtreething);
 }
 
 townMap.duringGameLoopEvents = function() {
-      
+    this.palmtreething.placeCharacter();   
     var waterfalldoor = document.querySelectorAll('.mapTileSize')[43];
     if (detectCollision(character, waterfalldoor)) {
         currentMap = waterFallMap;
