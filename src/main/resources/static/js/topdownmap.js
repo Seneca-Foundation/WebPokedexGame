@@ -1,8 +1,8 @@
 var character = document.querySelector(".character");
 character.id = "playercharacter";
 var map = document.querySelector(".map");
-var currentMap = townMap; // Maps stored in external js files
-var x = currentMap.getStartX(); 
+var currentMap = HouseTwoMap; // Maps stored in external js files
+var x = currentMap.getStartX();
 var y = currentMap.getStartY();
 var held_directions = []; //State of which arrow keys we are holding down
 var speed = 2.5; //How fast the character moves in pixels per frame

@@ -161,6 +161,6 @@
             <properties>
                 <active.profile>docker</active.profile>
             </properties>
-        </profile>		
+        </profile>
 	</profiles>
 </project>
