@@ -28,4 +28,8 @@ class DialogueBox {
     hideDialogue() {
         document.getElementById("characterDialogueBox").style.display = "none";
     }
+    
+    boxIsShowing() {
+        return document.getElementById("characterDialogueBox").style.display === "inline-block";
+    }
 }
