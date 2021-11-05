@@ -22,6 +22,7 @@ currentMap.drawMap();
 currentMap.drawGrid();
 //currentMap.switchDebug();
 PopulateNPCSpriteFromServer(bulbasaur);
+currentMap.beforeGameLoopEvents();
 
 const placeCharacter = () => {
 
@@ -73,7 +74,7 @@ const step = () => {
     
     // Draw the character
     placeCharacter();
-    bulbasaur.placeCharacter();
+    currentMap.duringGameLoopEvents();
     
     var door = document.querySelectorAll('.mapTileSize')[3764, 3765];
     if (detectCollision(character, door)) {
@@ -92,7 +93,7 @@ const step = () => {
 }
 step(); //kick off the first step!
 
-
+currentMap.afterGameLoopEvents();
 
 
 const keys = {
