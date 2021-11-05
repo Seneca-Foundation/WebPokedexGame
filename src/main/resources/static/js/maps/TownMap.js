@@ -67,8 +67,8 @@ townMap.beforeGameLoopEvents = function() {
     document.querySelectorAll('[class*="npc-"]').forEach(element => {
         element.remove();
     });
-    this.bulbasaur  = new NPC("32659a2e-c18d-4c7c-a27d-db44d4c249cc", 50, 90, Array(110).fill("right").concat(Array(70).fill("down")), 1.0);
-    PopulateNPCSpriteFromServer(this.bulbasaur);
+    this.usagi  = new NPC("0375af71-9c88-4d32-8a47-47d4a4761faa", 50, 90, Array(220).fill("right").concat(Array(100).fill("down")), 0.5, 0.3);
+    PopulateNPCSpriteFromServer(this.usagi);
 }
 
 townMap.duringGameLoopEvents = function() {
