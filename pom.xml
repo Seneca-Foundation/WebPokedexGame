@@ -148,7 +148,7 @@
             <id>makayla</id>
             <properties>
                 <active.profile>makayla</active.profile>
-			</properties>
+				</properties>
 		</profile>
 		<profile>
             <id>edgardo</id>
@@ -161,6 +161,6 @@
             <properties>
                 <active.profile>docker</active.profile>
             </properties>
-        </profile>		
+        </profile>
 	</profiles>
 </project>

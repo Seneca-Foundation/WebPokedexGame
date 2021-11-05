@@ -62,7 +62,16 @@ townMap.setUpPaths = function() {
     //Opening door to first market
     townMap.switchBlockedRange(1335, 1338);
     townMap.switchBlockedRange(1418, 1421);
+}
 
-    // Entrance to waterfallmap
-    townMap.switchBlockedRange(42,45)
+townMap.beforeGameLoopEvents = function() {
+    this.bulbasaur  = new NPC("f2cc883d-42da-4580-8865-f4d841d473fe", 50, 90, ["right","right","right","right","right","right","right","right","right","right","right","right","right"], 2.0);
+    PopulateNPCSpriteFromServer(this.bulbasaur);
+}
+
+townMap.duringGameLoopEvents = function() {
+    this.bulbasaur.placeCharacter();    
+}
+
+townMap.afterGameLoopEvents = function() {
 }
