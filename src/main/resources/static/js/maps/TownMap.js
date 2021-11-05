@@ -58,7 +58,7 @@ townMap.setUpPaths = function() {
     townMap.switchBlockedRangeVert(2628, 6, 83);
     townMap.switchBlockedRangeVert(3248, 8, 83)
     townMap.switchBlockedRangeVert(3398, 7, 83)
-
+    
     //Opening door to first market
     townMap.switchBlockedRange(1335, 1338);
     townMap.switchBlockedRange(1418, 1421);
