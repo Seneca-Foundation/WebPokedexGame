@@ -166,12 +166,12 @@ HouseTwoMap.setUpPaths = function() {
 }
 
 HouseTwoMap.beforeGameLoopEvents = function() {
-    this.umbrellaGirl = new NPC("cab0039e-4e7c-4ed6-808c-cc4bb885d430", 50, 100, ["right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right"], 0.5);
-    PopulateNPCSpriteFromServer(this.umbrellaGirl);
+    this.usagi = new NPC("c490bf3c-1922-4fc4-ade7-62b1dce02f8c", 30, 145, ["right"], 0.5);
+    PopulateNPCSpriteFromServer(this.usagi);
 }
 
 HouseTwoMap.duringGameLoopEvents = function() {
-    this.umbrellaGirl.placeCharacter();   
+    this.usagi.placeCharacter();   
     var door = document.querySelectorAll('.mapTileSize')[3764];
     if (detectCollision(character, door)) {
         currentMap = townMap;
