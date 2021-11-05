@@ -50,6 +50,7 @@ class NPC {
         map.prepend(npcWindow);
 
         this.character = document.querySelector(".character" + ".npc-"+this.id);
+        this.character.id = this.id;
         
     }
 
