@@ -65,12 +65,20 @@ townMap.setUpPaths = function() {
 }
 
 townMap.beforeGameLoopEvents = function() {
-    this.bulbasaur  = new NPC("f2cc883d-42da-4580-8865-f4d841d473fe", 50, 90, ["right","right","right","right","right","right","right","right","right","right","right","right","right"], 2.0);
-    PopulateNPCSpriteFromServer(this.bulbasaur);
+    
 }
 
 townMap.duringGameLoopEvents = function() {
-    this.bulbasaur.placeCharacter();    
+      
+    var waterfalldoor = document.querySelectorAll('.mapTileSize')[43];
+    if (detectCollision(character, waterfalldoor)) {
+        currentMap = waterFallMap;
+        currentMap.beforeGameLoopEvents();
+        currentMap.drawMap();
+        currentMap.setUpPaths();
+        x = currentMap.getStartX();
+        y = currentMap.getStartY();
+    } 
 }
 
 townMap.afterGameLoopEvents = function() {
