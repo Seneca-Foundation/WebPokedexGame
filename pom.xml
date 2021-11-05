@@ -157,6 +157,12 @@
             </properties>
         </profile>
 		<profile>
+				<id>terrence</id>
+				<properties>
+					<active.profile>terrence</active.profile>
+				</properties>
+			</profile>
+			<profile>	
             <id>docker</id>
             <properties>
                 <active.profile>docker</active.profile>
