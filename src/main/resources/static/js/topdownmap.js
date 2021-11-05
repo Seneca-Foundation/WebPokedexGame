@@ -75,14 +75,15 @@ const step = () => {
     placeCharacter();
     bulbasaur.placeCharacter();
     
-    // var door = document.querySelectorAll('.mapTileSize')[1502];
-    // if (detectCollision(character, door)) {
-    //     currentMap = houseMap;
-    //     currentMap.drawMap();
-    //     currentMap.setUpPaths();
-    //     x = currentMap.getStartX();
-    //     y = currentMap.getStartY();
-    // }
+    var door = document.querySelectorAll('.mapTileSize')[3764, 3765];
+    if (detectCollision(character, door)) {
+        currentMap = houseTwoMap;
+        currentMap.drawMap();
+        currentMap.setUpPaths();
+        x = currentMap.getStartX();
+        y = currentMap.getStartY();
+    }
+    // [3764, 3765] for leaving
 
     // Restart the game loop
     window.requestAnimationFrame(() => {
