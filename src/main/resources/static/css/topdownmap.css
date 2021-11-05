@@ -47,7 +47,7 @@ body {
    width: calc(var(--pixel-size) * 320);
    height: calc(var(--pixel-size) * 160);
    overflow: hidden;
-   background: #61ddf7;
+   background: black;
    position:relative;
 }
 
@@ -261,14 +261,6 @@ body {
    background-color: green;
    border: 2px solid green;
 }
-
-#pokeball {
-   width: calc(1 * var(--grid-cell));
-   position: absolute;
-   top: calc( var(--pixel-size) * 90 );
-   left: calc( var(--pixel-size) * 120 );
-}
-
 
 .dialogueBox {
    display: none;
