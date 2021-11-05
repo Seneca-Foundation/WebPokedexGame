@@ -7,7 +7,9 @@ waterFallMap.setUpPaths = function() {
     waterFallMap.switchBlocked(3489);
     waterFallMap.switchBlocked(2289);
     waterFallMap.switchBlocked(2190);
-    waterFallMap.switchBlocked(3863)
+    waterFallMap.switchBlocked(3863);
+    waterFallMap.switchBlocked(1324);
+    waterFallMap.switchBlocked(1125);
 
 
     waterFallMap.switchBlockedRangeVert(4129, 8, 100);
@@ -41,6 +43,12 @@ waterFallMap.setUpPaths = function() {
     waterFallMap.switchBlockedRangeVert(3859, 2, 100);
     waterFallMap.switchBlockedRangeVert(1192,3,100);
     waterFallMap.switchBlockedRangeVert(872,4,100);
+    waterFallMap.switchBlockedRangeVert(389,3,100); 
+    waterFallMap.switchBlockedRangeVert(2018,3,100);
+    waterFallMap.switchBlockedRangeVert(1022,12,100);
+    waterFallMap.switchBlockedRangeVert(1926,4,100);
+    waterFallMap.switchBlockedRange(5926, 5931);
+
 
     
 
@@ -56,7 +64,7 @@ waterFallMap.setUpPaths = function() {
     waterFallMap.switchBlockedRange(3236, 3247);
     waterFallMap.switchBlockedRange(3254, 3264);
     waterFallMap.switchBlockedRange(3200, 3228);
-    waterFallMap.switchBlockedRange(2417, 2426);
+    waterFallMap.switchBlockedRange(2418, 2426);
     waterFallMap.switchBlockedRange(2335, 2343);
     waterFallMap.switchBlockedRange(5720, 5726);
     waterFallMap.switchBlockedRange(5730, 5734);
@@ -83,6 +91,10 @@ waterFallMap.setUpPaths = function() {
     waterFallMap.switchBlockedRange(5159,5161);
     waterFallMap.switchBlockedRange(5279,5280);
     waterFallMap.switchBlockedRange(873,883);
+    waterFallMap.switchBlockedRange(1027,1037);
+
+    //Entrance to PokeShop Center 
+    waterFallMap.switchBlockedRange(1809, 1815);
     
     //Entrance to house in the middle 
     waterFallMap.switchBlockedRange(4150,4152)

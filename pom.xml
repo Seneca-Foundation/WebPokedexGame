@@ -148,13 +148,19 @@
             <id>makayla</id>
             <properties>
                 <active.profile>makayla</active.profile>
-				</properties>
-			</profile>
-			<profile>
+			</properties>
+		</profile>
+		<profile>
             <id>edgardo</id>
             <properties>
                 <active.profile>edgardo</active.profile>
             </properties>
         </profile>
+		<profile>
+            <id>docker</id>
+            <properties>
+                <active.profile>docker</active.profile>
+            </properties>
+        </profile>		
 	</profiles>
 </project>
