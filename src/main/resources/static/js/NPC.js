@@ -32,6 +32,7 @@ class NPC {
             if (direction === "down") { reverse_direction[index] = "up"; }
             if (direction === "up") { reverse_direction[index] = "down"; }
         });
+        this.characterDialogue = new DialogueBox("/images/Character_pics/Cristian.png", "If you see this it's an error");
 
         var npcSpriteSheet = document.createElement("div");
         npcSpriteSheet.className += "character_spritesheet ";

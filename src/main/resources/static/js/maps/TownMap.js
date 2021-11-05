@@ -71,6 +71,19 @@ townMap.beforeGameLoopEvents = function() {
 
 townMap.duringGameLoopEvents = function() {
     this.bulbasaur.placeCharacter();    
+    
+    document.addEventListener("keydown", (e) => {
+        if (e.code === 'Space') {
+            if (this.bulbasaur.characterDialogue.boxIsShowing()) {
+                this.bulbasaur.characterDialogue.hideDialogue();
+            }
+            else {
+                if(detectCollision(this.bulbasaur.character, character)) {
+                    this.bulbasaur.characterDialogue.showDialogue("Hey, I'm a skeleton");
+                }
+            }
+        };
+    })
 }
 
 townMap.afterGameLoopEvents = function() {
