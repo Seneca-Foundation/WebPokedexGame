@@ -31,5 +31,5 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: wtvamp/:latest
+        tags: wtvamp/pokemonwebgame:latest
         build-args: "PROFILE=docker"
