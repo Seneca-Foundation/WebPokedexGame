@@ -59,3 +59,12 @@ jobs:
         task-definition: task-definition.json
         container-name: pokemonwebgame
         image: wtvamp/pokemonwebgame:latest
+
+    - 
+      name: Deploy Amazon ECS task definition
+      uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+      with:
+        task-definition: task-definition.json
+        service: pokemongameweb-svc
+        cluster: darkgameweb-cluster
+        wait-for-service-stability: true
