@@ -24,7 +24,7 @@ jobs:
       uses: docker/login-action@v1
       with:
         username: wtvamp
-        password: Awe$ome36
+        password: ${{ secrets.DOCKER_HUB_PASSWORD }}
     - 
       name: Build and push
       id: docker_build
