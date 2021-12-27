@@ -41,3 +41,14 @@ jobs:
         aws-secret-access-key: Eyxs/Ny8MYxuxeX5Q92kycH5q8QxLeUHOjXMXyMv
         aws-session-token: IQoJb3JpZ2luX2VjELX//////////wEaCXVzLXdlc3QtMiJGMEQCIHGZBOGulZ5HQRKYz0BYmAPi5sf//J/yBVy4v6aR2NGnAiAn9S/GdYhosvGLdYTvGP8J7KnynkA26W1NhfVOESE3xir0AQiu//////////8BEAAaDDczMTEwOTExODQzNCIM3pUBlMXlsaCsRwgtKsgBetc/+lYkGv9Eewwbp+C22I+wmSCoKX4fpRVkLNv6/oPNMi3MADJLEupfNR2agUJSCGyPhdzaklYQhhEWAsbXPMSgCK5qB0DoMKoPRCt+b1glzNzCsL13pOETRMASbKBsni/20cuDvI8YqrORTqzu2JJhhO9MZPiOd1zcwOVZLsEo99Bkm9MEtssd0JPS41fGTBhfSk+lQsGBUE5U5VRstnmHZGWcHM/WN80j/71DasLWz2sl3HIwS9VWqsldvSn3WY0CVG+TC40wzceojgY6mQE4495bRjYy7omKyuu5uB4zhKLgfZ4IkdLZMBDXyI+w6tf2DXiHGMg65hD5SFbBXQg9VuGbbP7ky4JS/xmezgEfY7F2Pi+FVxePSPkcOXRcbJDbee0Yqu6++vXR0jnzU6mxNg0/P3TOoiS1RxVaFMQDmdrDRoQ0rbBU77bE2bBgZnY9lgaJdNLYzkk5phxKxbV7tAgqF6i9tJg=
         aws-region: us-east-2
+
+    - 
+      name: Login to Amazon ECR
+      id: login-ecr
+      uses: aws-actions/amazon-ecr-login@v1
+
+    - 
+      name: Download task definition
+      run: |
+        aws ecs describe-task-definition --task-definition pokemongameweb --query taskDefinition > task-definition.json
+    
