@@ -5,9 +5,9 @@ name: Java CI with Maven, Docker, and ECS
 
 on:
   push:
-    branches: [ develop ]
-  pull_request:
-    branches: [ develop ]
+    branches: 
+    - develop
+    - main
 
 jobs:
   build:
@@ -42,7 +42,7 @@ jobs:
         aws-region: us-east-2
 
     - 
-      name: Login to Amazon ECR
+      name: Login to Amazon ECS
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v1
 
@@ -53,7 +53,7 @@ jobs:
     
     -
       name: Fill in the new image ID in the Amazon ECS task definition
-      id: pokemongameweb-svc
+      id: pokemongame-svc
       uses: aws-actions/amazon-ecs-render-task-definition@v1
       with:
         task-definition: task-definition.json
@@ -65,6 +65,6 @@ jobs:
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
         task-definition: task-definition.json
-        service: pokemongameweb-svc
-        cluster: darkgameweb-cluster
+        service: pokemongame-svc
+        cluster: seneca
         wait-for-service-stability: true
