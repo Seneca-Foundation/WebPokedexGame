@@ -6,7 +6,7 @@ name: Java CI with Maven, Docker, and ECS
 on:
   pull_request:
     branches: [ develop ]
-  worflow_dispatch:
+  workflow_dispatch:
 
 jobs:
   build:
