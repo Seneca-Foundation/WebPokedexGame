@@ -27,7 +27,8 @@ jobs:
     -
       uses: actions/setup-java@v2
       with:
-        distribution: 'openjdk'
+        # https://github.com/actions/setup-java#supported-distributions
+        distribution: 'adopt'
         java-version: '11'
         cache: 'maven'
     -
