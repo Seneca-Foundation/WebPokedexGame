@@ -28,7 +28,7 @@ jobs:
       uses: actions/setup-java@v2
       with:
         # https://github.com/actions/setup-java#supported-distributions
-        distribution: 'adopt'
+        distribution: 'temurin'
         java-version: '11'
         cache: 'maven'
     -
