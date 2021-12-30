@@ -32,7 +32,7 @@ jobs:
       id: m2cache # note the cache id, see below for cache-hit
       with:
         path: ~/.m2
-        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+        key: ${{ runner.os }}-m2-${{ hashFiles('pom.xml') }}
         restore-keys: ${{ runner.os }}-m2-
     - name: "Build with Maven"
       if: steps.m2cache.outputs.cache-hit != 'true' # note the use of the id 'm2cache'

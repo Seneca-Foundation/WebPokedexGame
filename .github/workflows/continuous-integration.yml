@@ -28,13 +28,14 @@ jobs:
       - name: "Cache local Maven repository"
         uses: actions/cache@v2
         with:
-          key: "${{ runner.os }}-maven-"
           path: ~/.m2
-          restore-keys: "${{ runner.os }}-maven-\n"
+          key: ${{ runner.os }}-m2-${{ hashFiles('pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2-
       - id: java_build
         name: "Java Build"
         run: |-
           mvn -B clean package --file pom.xml -P docker
+          ls-ltrha
           ls -tlrha target/
           pwd
           cp target/*jar app.jar
