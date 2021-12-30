@@ -33,7 +33,11 @@ jobs:
           restore-keys: "${{ runner.os }}-maven-\n"
       - id: java_build
         name: "Java Build"
-        run: "mvn -B clean package --file pom.xml -P docker"
+        run: |-
+          mvn -B clean package --file pom.xml -P docker
+          ls -tlrha target/
+          pwd
+          cp target/*jar app.jar
       - id: docker_build
         name: "Docker Build and Push"
         uses: docker/build-push-action@v2
