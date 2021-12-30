@@ -44,6 +44,8 @@ jobs:
       id: java_build
       run: |-
         mvn -B clean package --file pom.xml -P docker
+        export
+        pwd
     -
       name: Docker Build and Push
       id: docker_build
