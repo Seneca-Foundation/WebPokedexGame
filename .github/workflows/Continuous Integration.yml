@@ -39,7 +39,7 @@ jobs:
         sudo cp pom.xml /workspace
         sudo cp -r src /workspace/src
         cd /workspace
-        mvn -B clean package --file pom.xml -P docker
+        sudo mvn -B clean package --file pom.xml -P docker
     -
       name: Docker Build and Push
       id: docker_build
