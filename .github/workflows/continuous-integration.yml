@@ -35,9 +35,6 @@ jobs:
         name: "Java Build"
         run: |-
           mvn -B clean package --file pom.xml -P docker
-          ls-ltrha
-          ls -tlrha target/
-          pwd
           cp target/*jar app.jar
       - id: docker_build
         name: "Docker Build and Push"
