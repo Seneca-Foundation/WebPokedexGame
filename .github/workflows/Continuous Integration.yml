@@ -24,24 +24,31 @@ jobs:
       with:
         username: wtvamp
         password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+    # -
+    #   uses: actions/setup-java@v2
+    #   with:
+    #     # https://github.com/actions/setup-java#supported-distributions
+    #     distribution: 'temurin'
+    #     java-version: '11'
+    #     cache: 'maven'
     -
-      uses: actions/setup-java@v2
+      name: Cache local Maven repository
+      uses: actions/cache@v2
       with:
-        # https://github.com/actions/setup-java#supported-distributions
-        distribution: 'temurin'
-        java-version: '11'
-        cache: 'maven'
+        path: ~/.m2/repository
+        key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+        restore-keys: |
+          ${{ runner.os }}-maven-
     -
       name: Java Build
       id: java_build
       run: |-
-        sudo mkdir -p /workspace
-        sudo cp pom.xml /workspace
-        sudo cp -r src /workspace/src
-        cd /workspace
+        mkdir -p workspace
+        cp pom.xml workspace
+        cp -r src workspace/src
+        cd workspace
         sudo mvn -B clean package --file pom.xml -P docker
-        ls -ltrah /workspace
-        ls -ltrha /workspace/target
+        PWD
     -
       name: Docker Build and Push
       id: docker_build

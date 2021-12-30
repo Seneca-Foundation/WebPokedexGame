@@ -8,7 +8,6 @@
 # RUN --mount=type=cache,target=/root/.m2 mvn -B clean package --file pom.xml -P $PROFILE
 
 FROM openjdk:11-slim
-USER root
-COPY /workspace/target/*jar app.jar
+COPY workspace/target/*jar app.jar
 EXPOSE 80
 ENTRYPOINT [ "java", "-jar", "app.jar" ]
