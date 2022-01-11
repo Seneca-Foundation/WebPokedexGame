@@ -1,6 +1,6 @@
 var character = document.querySelector(".character");
 character.id = "playercharacter";
-var bulbasaur  = new NPC("4981c8ec-1999-4938-892c-72c00d431090", 50, 90, ["right","right","right","right","right","right","right","right","right","right","right","right","right"], 2.0);
+var bulbasaur  = new NPC("c9adc057-1576-4c1a-84a9-1597df4c292d", 50, 90, [], 2.0);
 
 var map = document.querySelector(".map");
 var pokeball = document.querySelector("#pokeball")
