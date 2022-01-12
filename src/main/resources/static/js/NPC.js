@@ -47,10 +47,10 @@ class NPC {
         npcWindow.setAttribute("facing", "down");
         npcWindow.setAttribute("walking", "true");
         var map = document.querySelector(".map");
-        map.appendChild(npcWindow);
+        map.prepend(npcWindow);
 
         this.character = document.querySelector(".character" + ".npc-"+this.id);
-        
+        this.character.id = this.id;
     }
 
     placeCharacter() {

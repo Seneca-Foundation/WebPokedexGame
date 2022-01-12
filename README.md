@@ -92,7 +92,10 @@ It's located at: http://localhost/swagger-ui/
         WORKDIR /workspace
         COPY pom.xml /workspace
         COPY src /workspace/src
-        RUN --mount=type=cache,target=/root/.m2 mvn -B clean package --file pom.xml -P $PROFILE
+        RUN mvn dependency:go-offline
+
+        RUN mvn -B clean package --file pom.xml -P $PROFILE
+        # RUN --mount=type=cache,target=/root/.m2 mvn -B clean package --file pom.xml -P $PROFILE
 
         FROM openjdk:11-slim
         COPY --from=build /workspace/target/*jar app.jar
