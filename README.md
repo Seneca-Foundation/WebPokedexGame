@@ -101,7 +101,7 @@ It's located at: http://localhost/swagger-ui/
 
 10.  You may now build your image - passing in the profile to use as a build argument:
 
-            docker build --build-arg PROFILE=YOURNAME -t pokemonwebgame .
+            docker build --build-arg PROFILE=terrence -t pokemonwebgame-mdcs .
 
 11.  Finally, run the container using the following command:
 
